@@ -8,8 +8,35 @@ var style = {
 
 var map = new OpenLayers.Map('map');
 var layer = new OpenLayers.Layer.OSM( "Simple OSM Map");
-var vector = new OpenLayers.Layer.Vector('vector');
+var vector = new OpenLayers.Layer.Vector('Own pos Layer');
 map.addLayers([layer, vector]);
+
+// allow testing of specific renderers via "?renderer=Canvas", etc
+var renderer = OpenLayers.Util.getParameters(window.location.href).renderer;
+renderer = (renderer) ? [renderer] : OpenLayers.Layer.Vector.prototype.renderers;
+
+vectors = new OpenLayers.Layer.Vector("Marker Layer", {
+    renderers: renderer
+});
+
+map.addLayers([vectors]);
+
+control = new OpenLayers.Control.DrawFeature(vectors,OpenLayers.Handler.Point);
+
+map.addControl(new OpenLayers.Control.LayerSwitcher());
+map.addControl(new OpenLayers.Control.MousePosition());
+
+map.addControl(control);
+
+control.events.register('featureadded', control, function(f) {
+
+    // create a WKT reader/parser/writer
+    var wkt = new OpenLayers.Format.WKT();
+
+    // write out the feature's geometry in WKT format
+    var out = wkt.write(f.feature);
+    console.log(out);
+});
 
 map.setCenter(
     new OpenLayers.LonLat(12.55854, 55.676036).transform(
@@ -113,6 +140,10 @@ document.getElementById('mapform').onclick = function() {
 
     if (radios[0].checked) {
         console.log("Own position checked");
+
+        control.deactivate();
+        vectors.removeAllFeatures();
+
         vector.removeAllFeatures();
         geolocate.deactivate();
         //document.getElementById('track').checked = false;
@@ -123,8 +154,20 @@ document.getElementById('mapform').onclick = function() {
 
     else if (radios[1].checked) {
         console.log("Marker position checked");
+
         vector.removeAllFeatures();
         geolocate.deactivate();
+
+        map.setCenter(
+            new OpenLayers.LonLat(12.55854, 55.676036).transform(
+                new OpenLayers.Projection("EPSG:4326"),
+                map.getProjectionObject()
+            ), 10
+        );
+
+        control.activate();
+
+
 
     }
     else console.log("not hit");
