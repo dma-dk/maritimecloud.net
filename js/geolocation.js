@@ -120,6 +120,13 @@ document.getElementById('mapform').onclick = function() {
         firstGeolocation = true;
         geolocate.activate();
     }
+
+    else if (radios[1].checked) {
+        console.log("Marker position checked");
+        vector.removeAllFeatures();
+        geolocate.deactivate();
+
+    }
     else console.log("not hit");
 
 };
