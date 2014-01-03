@@ -12,10 +12,10 @@ var vector = new OpenLayers.Layer.Vector('vector');
 map.addLayers([layer, vector]);
 
 map.setCenter(
-    new OpenLayers.LonLat(-71.147, 42.472).transform(
+    new OpenLayers.LonLat(12.55854, 55.676036).transform(
         new OpenLayers.Projection("EPSG:4326"),
         map.getProjectionObject()
-    ), 12
+    ), 10
 );
 
 var pulsate = function(feature) {
@@ -94,6 +94,8 @@ geolocate.events.register("locationupdated",geolocate,function(e) {
 geolocate.events.register("locationfailed",this,function() {
     OpenLayers.Console.log('Location detection failed');
 });
+
+/*
 document.getElementById('locate').onclick = function() {
     vector.removeAllFeatures();
     geolocate.deactivate();
@@ -102,6 +104,27 @@ document.getElementById('locate').onclick = function() {
     firstGeolocation = true;
     geolocate.activate();
 };
+*/
+
+
+document.getElementById('mapform').onclick = function() {
+
+    var radios = document.getElementsByName('maptype');
+
+    if (radios[0].checked) {
+        console.log("Own position checked");
+        vector.removeAllFeatures();
+        geolocate.deactivate();
+        //document.getElementById('track').checked = false;
+        geolocate.watch = false;
+        firstGeolocation = true;
+        geolocate.activate();
+    }
+    else console.log("not hit");
+
+};
+
+/*
 document.getElementById('track').onclick = function() {
     vector.removeAllFeatures();
     geolocate.deactivate();
@@ -112,3 +135,4 @@ document.getElementById('track').onclick = function() {
     }
 };
 document.getElementById('track').checked = false;
+*/

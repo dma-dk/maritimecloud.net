@@ -7,35 +7,35 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <title>OpenLayers Geolocation</title>
 
+    <!-- CSS-->
+    <!-- Open Layers-->
     <link rel="stylesheet" href="http://openlayers.org/dev/theme/default/style.css" type="text/css">
     <link rel="stylesheet" href="http://openlayers.org/dev/examples/style.css" type="text/css">
-    <style>
-        .olControlAttribution {
-            bottom: 3px;
-        }
-    </style>
+
+
+    <!-- Bootstrap-->
+    <!--
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    -->
+
 </head>
 <body>
 <h1 id="title">Geolocation Example</h1>
 
-<div id="tags">
-    geolocation, geolocate, mobile
-</div>
-
-<p id="shortdesc">
-    Track  current position and display it with its accuracy.
-</p>
-
 <div id="map" class="smallmap"></div>
+<!--
 <button id="locate">Locate me!</button>
 <input type="checkbox" name="track" id="track">
 <label for="track">Track my position</label>
-<div id="docs">
-    <p>
-        View the <a href="geolocation.js" target="_blank">geolocation.js source</a>
-        to see how this is done.
-    </p>
-</div>
+ -->
+
+<form id="mapform">
+    <input type="radio" name="maptype" value="own">Own pos
+    <input type="radio" name="maptype" value="marker">Marker pos
+    <input type="radio" name="maptype" value="none">None
+</form>
+
 <script src="http://openlayers.org/dev/OpenLayers.js"></script>
 <script src="js/geolocation.js"></script>
 </body>
