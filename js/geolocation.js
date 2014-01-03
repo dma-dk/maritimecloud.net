@@ -6,6 +6,10 @@ var style = {
     strokeWidth: 0
 };
 
+var WGS84 = new OpenLayers.Projection("EPSG:900913");      // to WGS 1984
+var Spherical   = new OpenLayers.Projection("EPSG:4326");        // transform Spherical Mercator
+
+
 var map = new OpenLayers.Map('map');
 var layer = new OpenLayers.Layer.OSM( "Simple OSM Map");
 var vector = new OpenLayers.Layer.Vector('Own pos Layer');
@@ -28,14 +32,54 @@ map.addControl(new OpenLayers.Control.MousePosition());
 
 map.addControl(control);
 
-control.events.register('featureadded', control, function(f) {
+var points = [
+    new OpenLayers.Geometry.Point(12.574539, 55.706418),
+    new OpenLayers.Geometry.Point(12.622553, 55.674487),
+    new OpenLayers.Geometry.Point(12.556635, 55.672551)
+];
 
+var pointsWGS = [
+    new OpenLayers.Geometry.Point(12.574539, 55.706418).transform(Spherical,WGS84),
+    new OpenLayers.Geometry.Point(12.622553, 55.674487).transform(Spherical,WGS84),
+    new OpenLayers.Geometry.Point(12.556635, 55.672551).transform(Spherical,WGS84)
+];
+
+
+var ring = new OpenLayers.Geometry.LinearRing(points);
+var polygon = new OpenLayers.Geometry.Polygon([ring]);
+
+
+var ringWGS = new OpenLayers.Geometry.LinearRing(pointsWGS);
+var polygonWGS = new OpenLayers.Geometry.Polygon([ringWGS]);
+
+polygonFeature = new OpenLayers.Feature.Vector(polygonWGS);
+
+var polyVector = new OpenLayers.Layer.Vector('Polygon Layer');
+
+polyVector.addFeatures([polygonFeature]);
+map.addLayers([polyVector]);
+
+
+control.events.register('featureadded', control, function(f) {
+    /*
     // create a WKT reader/parser/writer
     var wkt = new OpenLayers.Format.WKT();
 
     // write out the feature's geometry in WKT format
     var out = wkt.write(f.feature);
     console.log(out);
+    console.log(f.feature.geometry.x);
+    */
+
+    var latLon = new OpenLayers.Geometry.Point(f.feature.geometry.x,f.feature.geometry.y);
+
+    latLon.transform(
+        new OpenLayers.Projection("EPSG:900913"),   // transform from WGS 1984
+        new OpenLayers.Projection("EPSG:4326")      // to Spherical Mercator
+    );
+
+    console.log("point inside polygon?: " +polygon.containsPoint(latLon));
+
 });
 
 map.setCenter(
