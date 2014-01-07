@@ -1,5 +1,5 @@
 var service = [ {
-	"description" : "MSI BALTICO NAVTEX",
+    "description" : "MSI BALTICO NAVTEX",
 	"endpoint" : [ {
 		"type" : "NAVTEX",
 		"url" : "navtex://ROGALAND"

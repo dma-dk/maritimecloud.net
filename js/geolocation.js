@@ -51,8 +51,9 @@ var polygon = new OpenLayers.Geometry.Polygon([ring]);
 
 var ringWGS = new OpenLayers.Geometry.LinearRing(pointsWGS);
 var polygonWGS = new OpenLayers.Geometry.Polygon([ringWGS]);
+console.log('printing polygon cph: ' +polygonWGS);
 
-polygonFeature = new OpenLayers.Feature.Vector(polygonWGS);
+var polygonFeature = new OpenLayers.Feature.Vector(polygonWGS);
 
 var polyVector = new OpenLayers.Layer.Vector('Polygon Layer');
 
@@ -217,6 +218,39 @@ document.getElementById('mapform').onclick = function() {
     else console.log("not hit");
 
 };
+
+
+//json testing
+var polygonCollection = [];
+for (i=0;i<service.length;i++){
+
+    var tempPoints = service[i].extent.area.points;
+    var tempPoint;
+    var olPoints = [];
+    for (j=0;j<tempPoints.length;j++){
+        tempPoint = new OpenLayers.Geometry.Point(tempPoints[j].lon, tempPoints[j].lat).transform(Spherical,WGS84);
+        olPoints.push(tempPoint);
+    }
+    var polygon = new OpenLayers.Geometry.Polygon([new OpenLayers.Geometry.LinearRing(olPoints)]);
+    polygonCollection.push(polygon);
+
+}
+
+var polyServiceVector = new OpenLayers.Layer.Vector('Polygons form Service Layer');
+for (i=0;i<polygonCollection.length;i++){
+    console.log("Adding polygon " +i+ " from service");
+    polyServiceVector.addFeatures([new OpenLayers.Feature.Vector(polygonCollection[i])]);
+}
+map.addLayers([polyServiceVector]);
+
+
+//console.log("testing json service: " +service[0].description);
+
+//console.log("testing json service: " +service);
+
+
+
+
 
 /*
 document.getElementById('track').onclick = function() {
