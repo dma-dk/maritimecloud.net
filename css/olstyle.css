@@ -75,11 +75,23 @@ h6 {
 /**
  * Map Examples Specific
  */
+#map_container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+}
+#dummy {
+    margin-top: 40%; /* adjusting aspect ratio */
+}
 .smallmap {
-    width: 512px;
-    height: 256px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     border: 1px solid #ccc;
 }
+
 #tags {
     display: none;
 }

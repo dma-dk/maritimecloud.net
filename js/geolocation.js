@@ -6,8 +6,8 @@ var style = {
     strokeWidth: 0
 };
 
-var WGS84 = new OpenLayers.Projection("EPSG:900913");      // to WGS 1984
-var Spherical   = new OpenLayers.Projection("EPSG:4326");        // transform Spherical Mercator
+var WGS84 = new OpenLayers.Projection("EPSG:900913");      // WGS 1984
+var Spherical = new OpenLayers.Projection("EPSG:4326");        // Spherical Mercator
 
 
 var map = new OpenLayers.Map('map');
