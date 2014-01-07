@@ -6,6 +6,9 @@ var style = {
     strokeWidth: 0
 };
 
+
+var currentServices = [];
+
 var WGS84 = new OpenLayers.Projection("EPSG:900913");      // WGS 1984
 var Spherical = new OpenLayers.Projection("EPSG:4326");        // Spherical Mercator
 
@@ -25,13 +28,14 @@ vectors = new OpenLayers.Layer.Vector("Marker Layer", {
 
 map.addLayers([vectors]);
 
-control = new OpenLayers.Control.DrawFeature(vectors,OpenLayers.Handler.Point);
+var markerControl = new OpenLayers.Control.DrawFeature(vectors,OpenLayers.Handler.Point);
 
 map.addControl(new OpenLayers.Control.LayerSwitcher());
 map.addControl(new OpenLayers.Control.MousePosition());
 
-map.addControl(control);
+map.addControl(markerControl);
 
+/*
 var points = [
     new OpenLayers.Geometry.Point(12.574539, 55.706418),
     new OpenLayers.Geometry.Point(12.622553, 55.674487),
@@ -59,9 +63,51 @@ var polyVector = new OpenLayers.Layer.Vector('Polygon Layer');
 
 polyVector.addFeatures([polygonFeature]);
 map.addLayers([polyVector]);
+*/
+
+//
+//json service testing
+//
+var serviceTitles = [];
+var polygonCollection = [];
+var polygonCollectionWGS = [];
+for (i=0;i<service.length;i++){
+    //titles
+
+    serviceTitles.push(service[i].description);
+
+    //polygons
+    var tempPoints = service[i].extent.area.points;
+    var tempPoint;
+    var tempPointWGS;
+    var olPoints = [];
+    var olPointsWGS = [];
+    for (j=0;j<tempPoints.length;j++){
+        tempPoint = new OpenLayers.Geometry.Point(tempPoints[j].lon, tempPoints[j].lat);
+        tempPointWGS = new OpenLayers.Geometry.Point(tempPoints[j].lon, tempPoints[j].lat).transform(Spherical,WGS84);
+        olPoints.push(tempPoint);
+        olPointsWGS.push(tempPointWGS);
+    }
+    var polygon = new OpenLayers.Geometry.Polygon([new OpenLayers.Geometry.LinearRing(olPoints)]);
+    var polygonWGS = new OpenLayers.Geometry.Polygon([new OpenLayers.Geometry.LinearRing(olPointsWGS)]);
+    polygonCollection.push(polygon);
+    polygonCollectionWGS.push(polygonWGS);
+
+}
+
+var polyServiceVector = new OpenLayers.Layer.Vector('Polygons form Service Layer');
+for (i=0;i<polygonCollection.length;i++){
+    console.log("Adding polygon " +i+ " from service");
+    polyServiceVector.addFeatures([new OpenLayers.Feature.Vector(polygonCollectionWGS[i])]);
+}
+map.addLayers([polyServiceVector]);
+
+//
+//
+//
 
 
-control.events.register('featureadded', control, function(f) {
+markerControl.events.register('featureadded', markerControl, function(f) {
     /*
     // create a WKT reader/parser/writer
     var wkt = new OpenLayers.Format.WKT();
@@ -79,15 +125,28 @@ control.events.register('featureadded', control, function(f) {
         new OpenLayers.Projection("EPSG:4326")      // to Spherical Mercator
     );
 
-    console.log("point inside polygon?: " +polygon.containsPoint(latLon));
+    //console.log("point inside polygon?: " +polygon.containsPoint(latLon));
+    currentServices = [];
 
+    //getting right scope
+    var serviceListDiv=document.getElementById("serviceList");
+    var selector = angular.element(serviceListDiv);
+
+    for (i=0;i<polygonCollection.length;i++){
+    if (polygonCollection[i].containsPoint(latLon)) {
+        currentServices.push(service[i].description);
+        console.log('Inside ' +service[i].description);
+    }
+    }
+    geolocationCtrl(selector.scope());
+    selector.scope().$apply();
 });
 
 map.setCenter(
     new OpenLayers.LonLat(12.55854, 55.676036).transform(
         new OpenLayers.Projection("EPSG:4326"),
         map.getProjectionObject()
-    ), 10
+    ), 6
 );
 
 var pulsate = function(feature) {
@@ -162,6 +221,10 @@ geolocate.events.register("locationupdated",geolocate,function(e) {
         firstGeolocation = false;
         this.bind = true;
     }
+
+    //TESTING
+    console.log("x: " +e.point.x);
+    console.log("y: " +e.point.y);
 });
 geolocate.events.register("locationfailed",this,function() {
     OpenLayers.Console.log('Location detection failed');
@@ -186,7 +249,7 @@ document.getElementById('mapform').onclick = function() {
     if (radios[0].checked) {
         console.log("Own position checked");
 
-        control.deactivate();
+        markerControl.deactivate();
         vectors.removeAllFeatures();
 
         vector.removeAllFeatures();
@@ -207,10 +270,10 @@ document.getElementById('mapform').onclick = function() {
             new OpenLayers.LonLat(12.55854, 55.676036).transform(
                 new OpenLayers.Projection("EPSG:4326"),
                 map.getProjectionObject()
-            ), 10
+            ), 6
         );
 
-        control.activate();
+        markerControl.activate();
 
 
 
@@ -219,29 +282,14 @@ document.getElementById('mapform').onclick = function() {
 
 };
 
-
-//json testing
-var polygonCollection = [];
-for (i=0;i<service.length;i++){
-
-    var tempPoints = service[i].extent.area.points;
-    var tempPoint;
-    var olPoints = [];
-    for (j=0;j<tempPoints.length;j++){
-        tempPoint = new OpenLayers.Geometry.Point(tempPoints[j].lon, tempPoints[j].lat).transform(Spherical,WGS84);
-        olPoints.push(tempPoint);
-    }
-    var polygon = new OpenLayers.Geometry.Polygon([new OpenLayers.Geometry.LinearRing(olPoints)]);
-    polygonCollection.push(polygon);
+//Angular stuff
+function geolocationCtrl($scope) {
+    //$scope.serviceTitles = serviceTitles;
+    console.log("in geolocationCtrl");
+    $scope.serviceTitles = currentServices;
+    console.log("with" +$scope.serviceTitles);
 
 }
-
-var polyServiceVector = new OpenLayers.Layer.Vector('Polygons form Service Layer');
-for (i=0;i<polygonCollection.length;i++){
-    console.log("Adding polygon " +i+ " from service");
-    polyServiceVector.addFeatures([new OpenLayers.Feature.Vector(polygonCollection[i])]);
-}
-map.addLayers([polyServiceVector]);
 
 
 //console.log("testing json service: " +service[0].description);
