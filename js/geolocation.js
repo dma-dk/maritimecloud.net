@@ -272,6 +272,14 @@ document.getElementById('mapform').onclick = function() {
     if (radios[0].checked) {
         console.log("Own position checked");
 
+        //clean up
+        currentServices = [];
+        var serviceListDiv=document.getElementById("serviceList");
+        var selector = angular.element(serviceListDiv);
+        geolocationCtrl(selector.scope());
+        selector.scope().$apply();
+
+
         markerControl.deactivate();
         vectors.removeAllFeatures();
 
@@ -285,6 +293,13 @@ document.getElementById('mapform').onclick = function() {
 
     else if (radios[1].checked) {
         console.log("Marker position checked");
+
+        //clean up
+        currentServices = [];
+        var serviceListDiv=document.getElementById("serviceList");
+        var selector = angular.element(serviceListDiv);
+        geolocationCtrl(selector.scope());
+        selector.scope().$apply();
 
         vector.removeAllFeatures();
         geolocate.deactivate();
