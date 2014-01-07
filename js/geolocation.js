@@ -225,6 +225,29 @@ geolocate.events.register("locationupdated",geolocate,function(e) {
     //TESTING
     console.log("x: " +e.point.x);
     console.log("y: " +e.point.y);
+
+    var latLon = new OpenLayers.Geometry.Point(e.point.x,e.point.y);
+
+    latLon.transform(
+        new OpenLayers.Projection("EPSG:900913"),   // transform from WGS 1984
+        new OpenLayers.Projection("EPSG:4326")      // to Spherical Mercator
+    );
+
+    currentServices = [];
+
+    //getting right scope
+    var serviceListDiv=document.getElementById("serviceList");
+    var selector = angular.element(serviceListDiv);
+
+    for (i=0;i<polygonCollection.length;i++){
+        if (polygonCollection[i].containsPoint(latLon)) {
+            currentServices.push(service[i].description);
+            console.log('Inside ' +service[i].description);
+        }
+    }
+    geolocationCtrl(selector.scope());
+    selector.scope().$apply();
+
 });
 geolocate.events.register("locationfailed",this,function() {
     OpenLayers.Console.log('Location detection failed');
