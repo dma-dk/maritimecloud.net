@@ -48,8 +48,8 @@ map.addLayers([vectors]);
 
 var markerControl = new OpenLayers.Control.DrawFeature(vectors,OpenLayers.Handler.Point);
 
-map.addControl(new OpenLayers.Control.LayerSwitcher());
-map.addControl(new OpenLayers.Control.MousePosition());
+//map.addControl(new OpenLayers.Control.LayerSwitcher());
+//map.addControl(new OpenLayers.Control.MousePosition());
 
 map.addControl(markerControl);
 
@@ -234,7 +234,7 @@ geolocate.events.register("locationupdated",geolocate,function(e) {
         circle
     ]);
     if (firstGeolocation) {
-        map.zoomToExtent(vector.getDataExtent());
+        //map.zoomToExtent(vector.getDataExtent());
         pulsate(circle);
         firstGeolocation = false;
         this.bind = true;

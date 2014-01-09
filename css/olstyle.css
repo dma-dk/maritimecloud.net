@@ -48,7 +48,6 @@ h1 {
 h2 {
     font-size: 120%;
     margin-bottom: 0.5em;
-    border-bottom: 1px solid #aaa;
 }
 h3 {
     font-size: 110%;
@@ -82,14 +81,37 @@ html, body, #map {
     height: 100%;
 }
 
-#text {
+#title {
     position: absolute;
-    bottom: 1em;
-    left: 1em;
+    top: 0.5em;
+    left: 1.5em;
+    width: 250px;
+    z-index: 20000;
+    padding: 0 0.5em 0.5em 0.5em;
+}
+
+#filters {
+    position: absolute;
+    top: 2em;
+    right: 2em;
     width: 300px;
     z-index: 20000;
     background-color: white;
     padding: 0 0.5em 0.5em 0.5em;
+    box-shadow: 10px 10px 5px #888888;
+    border-radius:5px;
+}
+
+#services {
+    position: absolute;
+    top: 8em;
+    right: 2em;
+    width: 300px;
+    z-index: 20000;
+    background-color: white;
+    padding: 0 0.5em 0.5em 0.5em;
+    box-shadow: 10px 10px 5px #888888;
+    border-radius:5px;
 }
 
 
