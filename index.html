@@ -22,38 +22,40 @@
 
 </head>
 <body>
-<h1 id="title">Maritime Service</h1>
 
+<!--
 <div id="map_container">
-    <div id="dummy"></div>
-    <div id="map" class="smallmap"></div>
+  <div id="dummy"></div>
+  <div id="map" class="smallmap"></div>
 </div>
-
+-->
+<div id="map"></div>
 
 <!--
 <button id="locate">Locate me!</button>
 <input type="checkbox" name="track" id="track">
 <label for="track">Track my position</label>
- -->
+-->
+<div id="text">
+    <h1 id="title">Maritime Cloud Service Broker</h1>
+    <form id="mapform">
+        <input type="radio" name="maptype" value="own">Own pos
+        <input type="radio" name="maptype" value="marker">Marker pos
+        <input type="radio" name="maptype" value="none">None
+    </form>
 
-<form id="mapform">
-    <input type="radio" name="maptype" value="own">Own pos
-    <input type="radio" name="maptype" value="marker">Marker pos
-    <input type="radio" name="maptype" value="none">None
-</form>
-<span>Available services:</span>
-<div id="serviceList"  ng-controller="geolocationCtrl">
-    <div ng-repeat="serviceTitle in serviceTitles">
-        <span>{{serviceTitle}}</span>
+    <span>Available services:</span>
+
+    <div id="serviceList"  ng-controller="geolocationCtrl">
+        <div ng-repeat="serviceTitle in serviceTitles">
+            <span>{{serviceTitle}}</span>
+        </div>
     </div>
+
+    <script src="http://openlayers.org/dev/OpenLayers.js"></script>
+    <script src="json/services.js"></script>
+    <script src="js/geolocation.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
 </div>
-
-
-<script src="http://openlayers.org/dev/OpenLayers.js"></script>
-<script src="json/services.js"></script>
-<script src="js/geolocation.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
-
-
 </body>
 </html>

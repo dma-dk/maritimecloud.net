@@ -12,6 +12,24 @@ var currentServices = [];
 var WGS84 = new OpenLayers.Projection("EPSG:900913");      // WGS 1984
 var Spherical = new OpenLayers.Projection("EPSG:4326");        // Spherical Mercator
 
+//var map = new OpenLayers.Map({
+//    div: "map",
+//    layers: [
+//        new OpenLayers.Layer.OSM("OSM (without buffer)"),
+//        new OpenLayers.Layer.OSM("OSM (with buffer)", null, {buffer: 2})
+//    ],
+//    controls: [
+//        new OpenLayers.Control.Navigation({
+//            dragPanOptions: {
+//                enableKinetic: true
+//            }
+//        }),
+//        new OpenLayers.Control.PanZoom(),
+//        new OpenLayers.Control.Attribution()
+//    ],
+//    center: [0, 0],
+//    zoom: 3
+//});
 
 var map = new OpenLayers.Map('map');
 var layer = new OpenLayers.Layer.OSM( "Simple OSM Map");

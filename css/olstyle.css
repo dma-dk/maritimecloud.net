@@ -75,6 +75,25 @@ h6 {
 /**
  * Map Examples Specific
  */
+
+html, body, #map {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#text {
+    position: absolute;
+    bottom: 1em;
+    left: 1em;
+    width: 300px;
+    z-index: 20000;
+    background-color: white;
+    padding: 0 0.5em 0.5em 0.5em;
+}
+
+
+/*
 #map_container {
     display: inline-block;
     position: relative;
@@ -82,7 +101,7 @@ h6 {
 }
 #dummy {
     margin-top: 40%; /* adjusting aspect ratio */
-}
+/*}
 .smallmap {
     position: absolute;
     top: 0;
@@ -91,7 +110,7 @@ h6 {
     right: 0;
     border: 1px solid #ccc;
 }
-
+*/
 #tags {
     display: none;
 }
@@ -99,55 +118,4 @@ h6 {
 #docs p {
     margin-bottom: 0.5em;
 }
-/* mobile specific */
-@media only screen and (max-width: 600px) {
-    body {
-        height           : 100%;
-        margin           : 0;
-        padding          : 0;
-        width            : 100%;
-    }
-    #map {
-        background : #7391ad;
-        width      : 100%;
-    }
-    #map {
-        border : 0;
-        height : 250px;
-    }
-    #title {
-        font-size   : 1.3em;
-        line-height : 2em;
-        text-indent : 1em;
-        margin      : 0;
-        padding     : 0;
-    }
-    #docs {
-        bottom     : 0;
-        padding    : 1em;
-    }
-    #shortdesc {
-        color      : #aaa;
-        font-size  : 0.8em;
-        padding    : 1em;
-        text-align : right;
-    }
-    #tags {
-        display : none;
-    }
-}
-@media only screen and (orientation: landscape) and (max-width: 600px) {
-    #shortdesc {
-        float: right;
-        width: 25%;
-    }
-    #map {
-        width: 70%;
-    }
-    #docs {
-        font-size: 12px;
-    }
-}
-body {
-    -webkit-text-size-adjust: none;
-}
+
