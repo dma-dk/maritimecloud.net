@@ -206,7 +206,7 @@ var geolocate = new OpenLayers.Control.Geolocate({
     }
 });
 map.addControl(geolocate);
-var firstGeolocation = true;
+//var firstGeolocation = true;
 geolocate.events.register("locationupdated",geolocate,function(e) {
     vector.removeAllFeatures();
     var circle = new OpenLayers.Feature.Vector(
@@ -233,12 +233,12 @@ geolocate.events.register("locationupdated",geolocate,function(e) {
         ),
         circle
     ]);
-    if (firstGeolocation) {
+    //if (firstGeolocation) {
         //map.zoomToExtent(vector.getDataExtent());
         pulsate(circle);
-        firstGeolocation = false;
+        //firstGeolocation = false;
         this.bind = true;
-    }
+    //}
 
     //TESTING
     console.log("x: " +e.point.x);
@@ -305,7 +305,7 @@ document.getElementById('mapform').onclick = function() {
         geolocate.deactivate();
         //document.getElementById('track').checked = false;
         geolocate.watch = false;
-        firstGeolocation = true;
+        //firstGeolocation = true;
         geolocate.activate();
     }
 
@@ -321,14 +321,6 @@ document.getElementById('mapform').onclick = function() {
 
         vector.removeAllFeatures();
         geolocate.deactivate();
-
-        map.setCenter(
-            new OpenLayers.LonLat(12.55854, 55.676036).transform(
-                new OpenLayers.Projection("EPSG:4326"),
-                map.getProjectionObject()
-            ), 6
-        );
-
         markerControl.activate();
 
 
