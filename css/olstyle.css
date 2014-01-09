@@ -99,7 +99,7 @@ html, body, #map {
     background-color: white;
     padding: 0 0.5em 0.5em 0.5em;
     box-shadow: 10px 10px 5px #888888;
-    border-radius:5px;
+    border-radius:3px;
 }
 
 #services {
@@ -111,7 +111,7 @@ html, body, #map {
     background-color: white;
     padding: 0 0.5em 0.5em 0.5em;
     box-shadow: 10px 10px 5px #888888;
-    border-radius:5px;
+    border-radius:3px;
 }
 
 

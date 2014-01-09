@@ -120,42 +120,35 @@ for (i=0;i<polygonCollection.length;i++){
 }
 map.addLayers([polyServiceVector]);
 
-//
-//
-//
+//hide all service polygons
+hideAllFeatures(polyServiceVector);
 
 
 markerControl.events.register('featureadded', markerControl, function(f) {
-    /*
-    // create a WKT reader/parser/writer
-    var wkt = new OpenLayers.Format.WKT();
 
-    // write out the feature's geometry in WKT format
-    var out = wkt.write(f.feature);
-    console.log(out);
-    console.log(f.feature.geometry.x);
-    */
+    //get postion of marker
+    var latLon = new OpenLayers.Geometry.Point(f.feature.geometry.x,f.feature.geometry.y).transform(WGS84,Spherical);
 
-    var latLon = new OpenLayers.Geometry.Point(f.feature.geometry.x,f.feature.geometry.y);
-
-    latLon.transform(
-        new OpenLayers.Projection("EPSG:900913"),   // transform from WGS 1984
-        new OpenLayers.Projection("EPSG:4326")      // to Spherical Mercator
-    );
-
-    //console.log("point inside polygon?: " +polygon.containsPoint(latLon));
+    //empty memory
     currentServices = [];
+    hideAllFeatures(polyServiceVector);
 
-    //getting right scope
-    var serviceListDiv=document.getElementById("serviceList");
-    var selector = angular.element(serviceListDiv);
-
+    //main loop to control services to show
+    var features = polyServiceVector.features;
     for (i=0;i<polygonCollection.length;i++){
-    if (polygonCollection[i].containsPoint(latLon)) {
-        currentServices.push(service[i].description);
-        console.log('Inside ' +service[i].description);
+
+        if (polygonCollection[i].containsPoint(latLon)) {
+            //List of current services
+            currentServices.push(service[i].description);
+            //Showing polygons
+            features[i].style = null;
+        }
     }
-    }
+    //force redraw
+    polyServiceVector.redraw();
+
+    //getting right scope and forcing angular to apply changes
+    var selector = angular.element(document.getElementById("serviceList"));
     geolocationCtrl(selector.scope());
     selector.scope().$apply();
 });
@@ -241,29 +234,30 @@ geolocate.events.register("locationupdated",geolocate,function(e) {
         this.bind = true;
     //}
 
-    //TESTING
-    console.log("x: " +e.point.x);
-    console.log("y: " +e.point.y);
+    //
+    //which services to show:
+    //
 
-    var latLon = new OpenLayers.Geometry.Point(e.point.x,e.point.y);
+    //get postion of user
+    var latLon = new OpenLayers.Geometry.Point(e.point.x,e.point.y).transform(WGS84,Spherical);
 
-    latLon.transform(
-        new OpenLayers.Projection("EPSG:900913"),   // transform from WGS 1984
-        new OpenLayers.Projection("EPSG:4326")      // to Spherical Mercator
-    );
-
+    //empty memory
     currentServices = [];
+    hideAllFeatures(polyServiceVector);
 
-    //getting right scope
-    var serviceListDiv=document.getElementById("serviceList");
-    var selector = angular.element(serviceListDiv);
 
+    //main loop to control services to show
+    var features = polyServiceVector.features;
     for (i=0;i<polygonCollection.length;i++){
         if (polygonCollection[i].containsPoint(latLon)) {
+            //List of current services
             currentServices.push(service[i].description);
-            console.log('Inside ' +service[i].description);
+            //Showing polygons
+            features[i].style = null;
         }
     }
+    //getting right scope and forcing angular to apply changes
+    var selector = angular.element(document.getElementById("serviceList"));
     geolocationCtrl(selector.scope());
     selector.scope().$apply();
 
@@ -317,6 +311,10 @@ document.getElementById('mapform').onclick = function() {
 
 
     }
+    else if (radios[2].checked) {
+        showAllServices();
+
+    }
     else console.log("not hit");
 
 };
@@ -330,6 +328,30 @@ function geolocationCtrl($scope) {
 
 }
 
+function showAllServices(){
+    currentServices = [];
+
+    //getting right scope
+    var serviceListDiv=document.getElementById("serviceList");
+    var selector = angular.element(serviceListDiv);
+
+    for (i=0;i<polygonCollection.length;i++){
+        currentServices.push(service[i].description);
+    }
+    geolocationCtrl(selector.scope());
+    selector.scope().$apply();
+}
+
+function hideAllFeatures(fromLayer){
+
+    var features = fromLayer.features;
+
+    for( var i = 0; i < features.length; i++ ) {
+        features[i].style = { display: 'none' };
+    }
+
+    fromLayer.redraw();
+}
 
 /*
 document.getElementById('track').onclick = function() {
