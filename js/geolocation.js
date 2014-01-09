@@ -268,6 +268,10 @@ geolocate.events.register("locationupdated",geolocate,function(e) {
     geolocationCtrl(selector.scope());
     selector.scope().$apply();
 
+    map.setCenter(
+        new OpenLayers.LonLat(e.point.x, e.point.y), 6
+    );
+
 });
 geolocate.events.register("locationfailed",this,function() {
     OpenLayers.Console.log('Location detection failed');
