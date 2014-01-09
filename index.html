@@ -45,7 +45,7 @@
     <h2 id="services_title">Available services</h2>
     <div id="serviceList"  ng-controller="geolocationCtrl">
         <div ng-repeat="serviceTitle in serviceTitles">
-            <span>{{serviceTitle}}</span>
+            <li ng-click="markService(serviceTitle)" style="cursor:pointer">{{serviceTitle}}</li>
         </div>
     </div>
 </div>

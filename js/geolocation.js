@@ -12,25 +12,6 @@ var currentServices = [];
 var WGS84 = new OpenLayers.Projection("EPSG:900913");      // WGS 1984
 var Spherical = new OpenLayers.Projection("EPSG:4326");        // Spherical Mercator
 
-//var map = new OpenLayers.Map({
-//    div: "map",
-//    layers: [
-//        new OpenLayers.Layer.OSM("OSM (without buffer)"),
-//        new OpenLayers.Layer.OSM("OSM (with buffer)", null, {buffer: 2})
-//    ],
-//    controls: [
-//        new OpenLayers.Control.Navigation({
-//            dragPanOptions: {
-//                enableKinetic: true
-//            }
-//        }),
-//        new OpenLayers.Control.PanZoom(),
-//        new OpenLayers.Control.Attribution()
-//    ],
-//    center: [0, 0],
-//    zoom: 3
-//});
-
 var map = new OpenLayers.Map('map');
 var layer = new OpenLayers.Layer.OSM( "Simple OSM Map");
 var vector = new OpenLayers.Layer.Vector('Own pos Layer');
@@ -116,7 +97,9 @@ for (i=0;i<service.length;i++){
 var polyServiceVector = new OpenLayers.Layer.Vector('Polygons form Service Layer');
 for (i=0;i<polygonCollection.length;i++){
     console.log("Adding polygon " +i+ " from service");
-    polyServiceVector.addFeatures([new OpenLayers.Feature.Vector(polygonCollectionWGS[i])]);
+    var tempFeature = new OpenLayers.Feature.Vector(polygonCollectionWGS[i]);
+    tempFeature.id = serviceTitles[i];
+    polyServiceVector.addFeatures([tempFeature]);
 }
 map.addLayers([polyServiceVector]);
 
@@ -135,6 +118,7 @@ markerControl.events.register('featureadded', markerControl, function(f) {
 
     //main loop to control services to show
     var features = polyServiceVector.features;
+
     for (i=0;i<polygonCollection.length;i++){
 
         if (polygonCollection[i].containsPoint(latLon)) {
@@ -142,6 +126,7 @@ markerControl.events.register('featureadded', markerControl, function(f) {
             currentServices.push(service[i].description);
             //Showing polygons
             features[i].style = null;
+            //features[i].style = {fill: true,fillColor: "#ff0000"};
         }
     }
     //force redraw
@@ -245,7 +230,6 @@ geolocate.events.register("locationupdated",geolocate,function(e) {
     currentServices = [];
     hideAllFeatures(polyServiceVector);
 
-
     //main loop to control services to show
     var features = polyServiceVector.features;
     for (i=0;i<polygonCollection.length;i++){
@@ -254,8 +238,11 @@ geolocate.events.register("locationupdated",geolocate,function(e) {
             currentServices.push(service[i].description);
             //Showing polygons
             features[i].style = null;
+
         }
     }
+    polyServiceVector.redraw();
+
     //getting right scope and forcing angular to apply changes
     var selector = angular.element(document.getElementById("serviceList"));
     geolocationCtrl(selector.scope());
@@ -277,13 +264,13 @@ document.getElementById('mapform').onclick = function() {
 
     var radios = document.getElementsByName('maptype');
 
+    //Own position filter
     if (radios[0].checked) {
         console.log("Own position checked");
 
         //clean up
         currentServices = [];
         hideAllFeatures(polyServiceVector);
-
 
         markerControl.deactivate();
         vectors.removeAllFeatures();
@@ -295,7 +282,7 @@ document.getElementById('mapform').onclick = function() {
         //firstGeolocation = true;
         geolocate.activate();
     }
-
+    //Marker Positon filter
     else if (radios[1].checked) {
         console.log("Marker position checked");
 
@@ -311,12 +298,26 @@ document.getElementById('mapform').onclick = function() {
         vector.removeAllFeatures();
         geolocate.deactivate();
         markerControl.activate();
-
-
-
     }
+    //No filter
     else if (radios[2].checked) {
+        //clean up
+        markerControl.deactivate();
+        geolocate.deactivate();
+
+        vectors.removeAllFeatures();
+        vector.removeAllFeatures();
+
+        //Show all services in list
         showAllServices();
+        //Show all service polygons
+        var features = polyServiceVector.features;
+        for (i=0;i<features.length;i++){
+                //Showing polygons
+                features[i].style = null;
+        }
+        //force redraw
+        polyServiceVector.redraw();
 
     }
     else console.log("not hit");
@@ -329,6 +330,19 @@ function geolocationCtrl($scope) {
     console.log("in geolocationCtrl");
     $scope.serviceTitles = currentServices;
     console.log("with" +$scope.serviceTitles);
+
+    $scope.markService = function(clickedTitle) {
+        var indexOfTitle = currentServices.indexOf(clickedTitle);
+        console.log("Du trykker på index: "+indexOfTitle);
+        var features = polyServiceVector.features;
+
+        //hideAllFeatures(polyServiceVector);
+
+        var markedFeature = polyServiceVector.getFeatureById(clickedTitle);
+        markedFeature.style = {fillColor: "#ee9900", fillOpacity: 0.4};
+        //features[indexOfTitle].style = {fillColor: "#ee9900", fillOpacity: 0.4};
+        polyServiceVector.redraw();
+    }
 
 }
 
@@ -356,6 +370,7 @@ function hideAllFeatures(fromLayer){
 
     fromLayer.redraw();
 }
+
 
 /*
 document.getElementById('track').onclick = function() {
