@@ -167,6 +167,7 @@ map.setCenter(
     ), 6
 );
 
+
 var pulsate = function(feature) {
     var point = feature.geometry.getCentroid(),
         bounds = feature.geometry.getBounds(),
@@ -282,6 +283,8 @@ document.getElementById('locate').onclick = function() {
 };
 */
 
+//Own position is default
+geolocate.activate();
 
 document.getElementById('mapform').onclick = function() {
 
