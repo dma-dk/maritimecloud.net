@@ -224,10 +224,10 @@ geolocate.events.register("locationupdated",geolocate,function(e) {
             e.point,
             {},
             {
-                graphicName: 'cross',
-                strokeColor: '#f00',
+                graphicName: 'circle',
+                strokeColor: '#000000',
                 strokeWidth: 2,
-                fillOpacity: 0,
+                fillOpacity: 100,
                 pointRadius: 10
             }
         ),
