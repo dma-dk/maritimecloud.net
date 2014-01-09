@@ -295,11 +295,13 @@ document.getElementById('mapform').onclick = function() {
 
         //clean up
         currentServices = [];
+
+        /*
         var serviceListDiv=document.getElementById("serviceList");
         var selector = angular.element(serviceListDiv);
         geolocationCtrl(selector.scope());
         selector.scope().$apply();
-
+        */
 
         markerControl.deactivate();
         vectors.removeAllFeatures();
