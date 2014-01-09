@@ -160,13 +160,14 @@ markerControl.events.register('featureadded', markerControl, function(f) {
     selector.scope().$apply();
 });
 
+/*
 map.setCenter(
     new OpenLayers.LonLat(12.55854, 55.676036).transform(
         new OpenLayers.Projection("EPSG:4326"),
         map.getProjectionObject()
     ), 6
 );
-
+*/
 
 var pulsate = function(feature) {
     var point = feature.geometry.getCentroid(),
@@ -272,17 +273,6 @@ geolocate.events.register("locationfailed",this,function() {
     OpenLayers.Console.log('Location detection failed');
 });
 
-/*
-document.getElementById('locate').onclick = function() {
-    vector.removeAllFeatures();
-    geolocate.deactivate();
-    document.getElementById('track').checked = false;
-    geolocate.watch = false;
-    firstGeolocation = true;
-    geolocate.activate();
-};
-*/
-
 //Own position is default
 geolocate.activate();
 
@@ -295,13 +285,6 @@ document.getElementById('mapform').onclick = function() {
 
         //clean up
         currentServices = [];
-
-        /*
-        var serviceListDiv=document.getElementById("serviceList");
-        var selector = angular.element(serviceListDiv);
-        geolocationCtrl(selector.scope());
-        selector.scope().$apply();
-        */
 
         markerControl.deactivate();
         vectors.removeAllFeatures();
@@ -343,14 +326,6 @@ function geolocationCtrl($scope) {
     console.log("with" +$scope.serviceTitles);
 
 }
-
-
-//console.log("testing json service: " +service[0].description);
-
-//console.log("testing json service: " +service);
-
-
-
 
 
 /*
