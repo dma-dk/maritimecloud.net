@@ -282,6 +282,8 @@ document.getElementById('mapform').onclick = function() {
 
         //clean up
         currentServices = [];
+        hideAllFeatures(polyServiceVector);
+
 
         markerControl.deactivate();
         vectors.removeAllFeatures();
@@ -299,6 +301,8 @@ document.getElementById('mapform').onclick = function() {
 
         //clean up
         currentServices = [];
+        hideAllFeatures(polyServiceVector);
+
         var serviceListDiv=document.getElementById("serviceList");
         var selector = angular.element(serviceListDiv);
         geolocationCtrl(selector.scope());
