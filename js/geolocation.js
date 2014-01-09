@@ -228,7 +228,7 @@ geolocate.events.register("locationupdated",geolocate,function(e) {
                 strokeColor: '#000000',
                 strokeWidth: 2,
                 fillOpacity: 100,
-                pointRadius: 10
+                pointRadius: 8
             }
         ),
         circle
