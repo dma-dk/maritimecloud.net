@@ -160,14 +160,14 @@ markerControl.events.register('featureadded', markerControl, function(f) {
     selector.scope().$apply();
 });
 
-
+/*
 map.setCenter(
     new OpenLayers.LonLat(22.55854, 55.676036).transform(
         new OpenLayers.Projection("EPSG:4326"),
         map.getProjectionObject()
     ), 6
 );
-
+*/
 
 var pulsate = function(feature) {
     var point = feature.geometry.getCentroid(),
