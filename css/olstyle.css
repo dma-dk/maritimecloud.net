@@ -141,3 +141,8 @@ html, body, #map {
     margin-bottom: 0.5em;
 }
 
+.selected-class-name {
+    font-weight:bold;
+    font-size: 110%;
+}
+

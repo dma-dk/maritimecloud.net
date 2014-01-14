@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <title>OpenLayers Geolocation</title>
+    <title>Maritime Cloud Service Broker</title>
 
     <!-- CSS-->
     <!-- Open Layers-->
@@ -45,7 +45,9 @@
     <h2 id="services_title">Available services</h2>
     <div id="serviceList"  ng-controller="geolocationCtrl">
         <div ng-repeat="serviceTitle in serviceTitles">
-            <li ng-click="markService(serviceTitle)" style="cursor:pointer">{{serviceTitle}}</li>
+            <li ng-class="{ 'selected-class-name': $index == selectedIndex }"
+                ng-click="markService(serviceTitle,$index)"
+                style="cursor:pointer">{{serviceTitle}}</li>
         </div>
     </div>
 </div>
