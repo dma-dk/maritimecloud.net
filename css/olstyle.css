@@ -114,6 +114,18 @@ html, body, #map {
     border-radius:3px;
 }
 
+#info {
+    position: absolute;
+    bottom: 2em;
+    right: 2em;
+    width: 300px;
+    z-index: 20000;
+    background-color: white;
+    padding: 0 0.5em 0.5em 0.5em;
+    box-shadow: 10px 10px 5px #888888;
+    border-radius:3px;
+}
+
 
 /*
 #map_container {

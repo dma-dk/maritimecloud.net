@@ -21,7 +21,7 @@
 
 
 </head>
-<body>
+<body ng-controller="geolocationCtrl">
 
 <div id="map"></div>
 
@@ -34,7 +34,7 @@
     <h1 id="title">Maritime Cloud Service Broker</h1>
 </div>
 <div id="filters">
-    <h2 id="filter_title">Service Filters</h2>
+    <h2 id="filter_title">Service filters</h2>
     <form id="mapform">
         <input type="radio" name="maptype" value="own" checked="true">Own pos
         <input type="radio" name="maptype" value="marker">Marker pos
@@ -43,13 +43,16 @@
 </div>
 <div id="services">
     <h2 id="services_title">Available services</h2>
-    <div id="serviceList"  ng-controller="geolocationCtrl">
+    <div id="serviceList">
         <div ng-repeat="serviceTitle in serviceTitles">
             <li ng-class="{ 'selected-class-name': $index == selectedIndex }"
                 ng-click="markService(serviceTitle,$index)"
                 style="cursor:pointer">{{serviceTitle}}</li>
         </div>
     </div>
+</div>
+<div id="info" ng-show="showInfoBox">
+    <h2 id="info_title">Service info</h2>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
 <script src="http://openlayers.org/dev/OpenLayers.js"></script>

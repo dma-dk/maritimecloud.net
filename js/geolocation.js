@@ -5,6 +5,9 @@ var style = {
     fillOpacity: 0.1,
     strokeWidth: 0
 };
+//Service polygon styles
+var defaultServiceStyle = {fillColor: "#ee9900", fillOpacity: 0.1, strokeWidth: 1, strokeColor: '#ee9900'};
+var selectedServiceStyle = {fillColor: "#ee9900", fillOpacity: 0.3,  strokeWidth: 1, strokeColor: '#000000'};
 
 
 var currentServices = [];
@@ -125,7 +128,7 @@ markerControl.events.register('featureadded', markerControl, function(f) {
             //List of current services
             currentServices.push(service[i].description);
             //Showing polygons
-            features[i].style = {fillColor: "#ee9900", fillOpacity: 0.1, strokeWidth: 1, strokeColor: '#ee9900'};
+            features[i].style = defaultServiceStyle;
             //features[i].style = {fill: true,fillColor: "#ff0000"};
         }
     }
@@ -237,7 +240,7 @@ geolocate.events.register("locationupdated",geolocate,function(e) {
             //List of current services
             currentServices.push(service[i].description);
             //Showing polygons
-            features[i].style = {fillColor: "#ee9900", fillOpacity: 0.1, strokeWidth: 1, strokeColor: '#ee9900'};
+            features[i].style = defaultServiceStyle;
 
         }
     }
@@ -314,7 +317,7 @@ document.getElementById('mapform').onclick = function() {
         var features = polyServiceVector.features;
         for (i=0;i<features.length;i++){
                 //Showing polygons
-                features[i].style = {fillColor: "#ee9900", fillOpacity: 0.1, strokeWidth: 1, strokeColor: '#ee9900'};;
+                features[i].style = defaultServiceStyle;
         }
         //force redraw
         polyServiceVector.redraw();
@@ -326,7 +329,7 @@ document.getElementById('mapform').onclick = function() {
 
 //Angular stuff
 function geolocationCtrl($scope) {
-    //$scope.serviceTitles = serviceTitles;
+    $scope.showInfoBox = false;
     console.log("in geolocationCtrl");
     $scope.serviceTitles = currentServices;
     console.log("with" +$scope.serviceTitles);
@@ -334,7 +337,7 @@ function geolocationCtrl($scope) {
     $scope.selectedIndex = -1;
 
     $scope.markService = function(clickedTitle,$index) {
-
+        $scope.showInfoBox = true;
 
         $scope.selectedIndex = $index;
 
@@ -345,12 +348,12 @@ function geolocationCtrl($scope) {
         for (i=0;i<currentServices.length;i++){
             //Resetting polygon styles
             var tempFeature = polyServiceVector.getFeatureById(currentServices[i]);
-            tempFeature.style = {fillColor: "#ee9900", fillOpacity: 0.1, strokeWidth: 1, strokeColor: '#ee9900'};
+            tempFeature.style = defaultServiceStyle;
         }
 
 
         var markedFeature = polyServiceVector.getFeatureById(clickedTitle);
-        markedFeature.style = {fillColor: "#ee9900", fillOpacity: 0.3,  strokeWidth: 1, strokeColor: '#000000'};
+        markedFeature.style = selectedServiceStyle;
 
         polyServiceVector.redraw();
     }
