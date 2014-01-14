@@ -127,24 +127,6 @@ html, body, #map {
 }
 
 
-/*
-#map_container {
-    display: inline-block;
-    position: relative;
-    width: 100%;
-}
-#dummy {
-    margin-top: 40%; /* adjusting aspect ratio */
-/*}
-.smallmap {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    border: 1px solid #ccc;
-}
-*/
 #tags {
     display: none;
 }
@@ -155,6 +137,12 @@ html, body, #map {
 
 .selected-class-name {
     font-weight:bold;
-    font-size: 110%;
+}
+
+ul
+{
+    list-style-type: none;
+    padding:0;
+    margin:0;
 }
 

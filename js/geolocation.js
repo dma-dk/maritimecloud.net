@@ -329,31 +329,59 @@ document.getElementById('mapform').onclick = function() {
 
 //Angular stuff
 function geolocationCtrl($scope) {
+    //control of info-box visibility
     $scope.showInfoBox = false;
-    console.log("in geolocationCtrl");
+
+    //info-box string variables
+    $scope.provider = '';
+    $scope.method = '';
+    $scope.endpoint = '';
+
+
     $scope.serviceTitles = currentServices;
-    console.log("with" +$scope.serviceTitles);
+
 
     $scope.selectedIndex = -1;
 
     $scope.markService = function(clickedTitle,$index) {
-        $scope.showInfoBox = true;
-
         $scope.selectedIndex = $index;
 
-        var indexOfTitle = currentServices.indexOf(clickedTitle);
-
-        var features = polyServiceVector.features;
-
+        //clear all styling of current service polygons
         for (i=0;i<currentServices.length;i++){
             //Resetting polygon styles
             var tempFeature = polyServiceVector.getFeatureById(currentServices[i]);
             tempFeature.style = defaultServiceStyle;
         }
 
-
+        //and style the selected service polygon
         var markedFeature = polyServiceVector.getFeatureById(clickedTitle);
         markedFeature.style = selectedServiceStyle;
+
+        //when service is clicked show infobox
+        $scope.showInfoBox = true;
+
+        //populating infobox
+        var indexOfSerivce = service.length;
+        while( indexOfSerivce-- ) if( service[indexOfSerivce].description == clickedTitle ) break;
+
+        console.log("provider: "+service[indexOfSerivce].provider);
+        console.log("method: "+service[indexOfSerivce].variant.method);
+
+        var tempString = '';
+        for (j=0;j<service[indexOfSerivce].endpoint.length;j++){
+
+            tempString += service[indexOfSerivce].endpoint[j].url+',';
+
+        }
+
+        $scope.provider = "Provider: " +service[indexOfSerivce].provider;
+        $scope.method = "Method: " +service[indexOfSerivce].variant.method;
+        $scope.endpoint = "Endpoint: " +tempString;
+
+
+        console.log("endpoint: "+tempString);
+
+        service[indexOfSerivce].provider;
 
         polyServiceVector.redraw();
     }

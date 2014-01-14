@@ -11,9 +11,10 @@
     <!-- Open Layers-->
     <link rel="stylesheet" href="http://openlayers.org/dev/theme/default/style.css" type="text/css">
     <link rel="stylesheet" href="css/olstyle.css" type="text/css">
+    <!--<link rel="stylesheet" href="css/spinner.css" type="text/css">-->
 
 
-    <!-- Bootstrap-->
+
     <!--
     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
@@ -33,7 +34,7 @@
 <div id="title">
     <h1 id="title">Maritime Cloud Service Broker</h1>
 </div>
-<div id="filters">
+<div id="filters" ng-cloak>
     <h2 id="filter_title">Service filters</h2>
     <form id="mapform">
         <input type="radio" name="maptype" value="own" checked="true">Own pos
@@ -41,18 +42,25 @@
         <input type="radio" name="maptype" value="none">All
     </form>
 </div>
-<div id="services">
+<div id="services" ng-cloak>
     <h2 id="services_title">Available services</h2>
     <div id="serviceList">
         <div ng-repeat="serviceTitle in serviceTitles">
-            <li ng-class="{ 'selected-class-name': $index == selectedIndex }"
-                ng-click="markService(serviceTitle,$index)"
-                style="cursor:pointer">{{serviceTitle}}</li>
+            <ul>
+                <li ng-class="{'selected-class-name': $index == selectedIndex }"
+                     ng-click="markService(serviceTitle,$index)"
+                     style="cursor:pointer">{{serviceTitle}}</li>
+            </ul>
+
         </div>
     </div>
 </div>
-<div id="info" ng-show="showInfoBox">
+<div id="info" ng-show="showInfoBox" ng-cloak>
     <h2 id="info_title">Service info</h2>
+
+    <div ng-bind="provider"></div>
+    <div>{{method}}</div>
+    <div>{{endpoint}}</div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
 <script src="http://openlayers.org/dev/OpenLayers.js"></script>
