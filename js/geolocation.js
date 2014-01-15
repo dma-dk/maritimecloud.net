@@ -22,20 +22,20 @@ var map = new OpenLayers.Map('map', {
 map.addControl(new OpenLayers.Control.ScaleLine({geodesic: true}));
 
 var layer = new OpenLayers.Layer.OSM('Simple OSM Map');
-var vector = new OpenLayers.Layer.Vector('Own pos Layer');
-map.addLayers([layer, vector]);
+var ownPosLayer = new OpenLayers.Layer.Vector('Own pos Layer');
+map.addLayers([layer, ownPosLayer]);
 
 // allow testing of specific renderers via "?renderer=Canvas", etc
 var renderer = OpenLayers.Util.getParameters(window.location.href).renderer;
 renderer = (renderer) ? [renderer] : OpenLayers.Layer.Vector.prototype.renderers;
 
-vectors = new OpenLayers.Layer.Vector("Marker Layer", {
+var markerLayer = new OpenLayers.Layer.Vector("Marker Layer", {
     renderers: renderer
 });
 
-map.addLayers([vectors]);
+map.addLayers([markerLayer]);
 
-var markerControl = new OpenLayers.Control.DrawFeature(vectors,OpenLayers.Handler.Point);
+var markerControl = new OpenLayers.Control.DrawFeature(markerLayer,OpenLayers.Handler.Point);
 
 //map.addControl(new OpenLayers.Control.LayerSwitcher());
 //map.addControl(new OpenLayers.Control.MousePosition());
@@ -222,7 +222,7 @@ var pulsate = function(feature) {
             ratio = - Math.abs(ratio);
         }
         feature.geometry.resize(1+ratio, point);
-        vector.drawFeature(feature);
+        ownPosLayer.drawFeature(feature);
         count++;
     };
     window.resizeInterval = window.setInterval(resize, 50, point, radius);
@@ -239,7 +239,7 @@ var geolocate = new OpenLayers.Control.Geolocate({
 map.addControl(geolocate);
 //var firstGeolocation = true;
 geolocate.events.register("locationupdated",geolocate,function(e) {
-    vector.removeAllFeatures();
+    ownPosLayer.removeAllFeatures();
     var circle = new OpenLayers.Feature.Vector(
         OpenLayers.Geometry.Polygon.createRegularPolygon(
             new OpenLayers.Geometry.Point(e.point.x, e.point.y),
@@ -250,7 +250,7 @@ geolocate.events.register("locationupdated",geolocate,function(e) {
         {},
         style
     );
-    vector.addFeatures([
+    ownPosLayer.addFeatures([
         new OpenLayers.Feature.Vector(
             e.point,
             {},
@@ -324,15 +324,15 @@ document.getElementById('mapform').onclick = function() {
         currentServices = [];
         hideAllFeatures(polyServiceVector);
 
-        //markerControl.deactivate();
-        vectors.removeAllFeatures();
 
-        vector.removeAllFeatures();
+        markerLayer.removeAllFeatures();
+        markerControl.deactivate();
+
+        ownPosLayer.removeAllFeatures();
         geolocate.deactivate();
-        //document.getElementById('track').checked = false;
-        geolocate.watch = false;
-        //firstGeolocation = true;
+
         geolocate.activate();
+        markerControl.activate();
     }
     //Marker Positon filter
     else if (radios[1].checked) {
@@ -347,8 +347,9 @@ document.getElementById('mapform').onclick = function() {
         geolocationCtrl(selector.scope());
         selector.scope().$apply();
 
-        vector.removeAllFeatures();
+        ownPosLayer.removeAllFeatures();
         geolocate.deactivate();
+
         markerControl.activate();
     }
     //No filter
@@ -357,8 +358,8 @@ document.getElementById('mapform').onclick = function() {
         markerControl.deactivate();
         geolocate.deactivate();
 
-        vectors.removeAllFeatures();
-        vector.removeAllFeatures();
+        markerLayer.removeAllFeatures();
+        ownPosLayer.removeAllFeatures();
 
         //Show all services in list
         showAllServices();
