@@ -12,11 +12,16 @@ var selectedServiceStyle = {fillColor: "#ee9900", fillOpacity: 0.3,  strokeWidth
 
 var currentServices = [];
 
-var WGS84 = new OpenLayers.Projection("EPSG:900913");      // WGS 1984
-var Spherical = new OpenLayers.Projection("EPSG:4326");        // Spherical Mercator
+var WGS84 = new OpenLayers.Projection("EPSG:900913");       // WGS 1984
+var Spherical = new OpenLayers.Projection("EPSG:4326");     // Spherical Mercator
 
-var map = new OpenLayers.Map('map');
-var layer = new OpenLayers.Layer.OSM( "Simple OSM Map");
+var map = new OpenLayers.Map('map', {
+    projection: new OpenLayers.Projection("EPSG:900913"),
+    units: "ft"
+});
+map.addControl(new OpenLayers.Control.ScaleLine({geodesic: true}));
+
+var layer = new OpenLayers.Layer.OSM('Simple OSM Map');
 var vector = new OpenLayers.Layer.Vector('Own pos Layer');
 map.addLayers([layer, vector]);
 
@@ -75,26 +80,71 @@ var polygonCollection = [];
 var polygonCollectionWGS = [];
 for (i=0;i<service.length;i++){
     //titles
-
     serviceTitles.push(service[i].description);
 
-    //polygons
-    var tempPoints = service[i].extent.area.points;
-    var tempPoint;
-    var tempPointWGS;
-    var olPoints = [];
-    var olPointsWGS = [];
-    for (j=0;j<tempPoints.length;j++){
-        tempPoint = new OpenLayers.Geometry.Point(tempPoints[j].lon, tempPoints[j].lat);
-        tempPointWGS = new OpenLayers.Geometry.Point(tempPoints[j].lon, tempPoints[j].lat).transform(Spherical,WGS84);
-        olPoints.push(tempPoint);
-        olPointsWGS.push(tempPointWGS);
+    if (service[i].extent.area.type == 'polygon'){
+        //polygons
+        console.log("inside poly");
+        var tempPoints = service[i].extent.area.points;
+        var tempPoint;
+        var tempPointWGS;
+        var olPoints = [];
+        var olPointsWGS = [];
+        for (j=0;j<tempPoints.length;j++){
+            tempPoint = new OpenLayers.Geometry.Point(tempPoints[j].lon, tempPoints[j].lat);
+            tempPointWGS = new OpenLayers.Geometry.Point(tempPoints[j].lon, tempPoints[j].lat).transform(Spherical,WGS84);
+            olPoints.push(tempPoint);
+            olPointsWGS.push(tempPointWGS);
+        }
+        var polygon = new OpenLayers.Geometry.Polygon([new OpenLayers.Geometry.LinearRing(olPoints)]);
+        var polygonWGS = new OpenLayers.Geometry.Polygon([new OpenLayers.Geometry.LinearRing(olPointsWGS)]);
+        polygonCollection.push(polygon);
+        polygonCollectionWGS.push(polygonWGS);
     }
-    var polygon = new OpenLayers.Geometry.Polygon([new OpenLayers.Geometry.LinearRing(olPoints)]);
-    var polygonWGS = new OpenLayers.Geometry.Polygon([new OpenLayers.Geometry.LinearRing(olPointsWGS)]);
-    polygonCollection.push(polygon);
-    polygonCollectionWGS.push(polygonWGS);
+    /*
+    else if (service[i].extent.area.type == 'circle'){
+        //circles
+        console.log("inside circle");
+        var tempCenterPoint = new OpenLayers.Geometry.Point(service[i].extent.area.points[0].lon,
+            service[i].extent.area.points[0].lat);
+        var tempCenterPointWGS = new OpenLayers.Geometry.Point(service[i].extent.area.points[0].lon,
+            service[i].extent.area.points[0].lat).transform(Spherical,WGS84);
 
+        var tempRadius = service[i].extent.area.radius;
+        console.log('projection: ' +map.getProjectionObject());
+
+
+        var circle = OpenLayers.Geometry.Polygon.createRegularPolygon(tempCenterPoint,
+            tempRadius*2,
+            30,
+            0);
+
+        var circleWGS = OpenLayers.Geometry.Polygon.createRegularPolygon(tempCenterPointWGS,
+            tempRadius*2,
+            30,
+            0
+            );
+
+        var olPoints = [];
+        var olPointsWGS = [];
+
+        olPoints = calculateRing(tempCenterPointWGS.x,tempCenterPointWGS.y, tempRadius, 40);
+        console.log("lonner: "+tempCenterPointWGS.x);
+
+        for (j=0;j<olPoints.length;j++){
+            olPointsWGS[j]=olPoints[j];
+        }
+
+        var polygon = new OpenLayers.Geometry.Polygon([new OpenLayers.Geometry.LinearRing(olPoints)]);
+        var polygonWGS = new OpenLayers.Geometry.Polygon([new OpenLayers.Geometry.LinearRing(olPointsWGS)]);
+        polygonCollection.push(polygon);
+        polygonCollectionWGS.push(polygonWGS);
+
+        //polygonCollection.push(circle);
+        //polygonCollectionWGS.push(circleWGS);
+
+    }
+    */
 }
 
 var polyServiceVector = new OpenLayers.Layer.Vector('Polygons form Service Layer');
@@ -129,7 +179,6 @@ markerControl.events.register('featureadded', markerControl, function(f) {
             currentServices.push(service[i].description);
             //Showing polygons
             features[i].style = defaultServiceStyle;
-            //features[i].style = {fill: true,fillColor: "#ff0000"};
         }
     }
     //force redraw
@@ -275,7 +324,7 @@ document.getElementById('mapform').onclick = function() {
         currentServices = [];
         hideAllFeatures(polyServiceVector);
 
-        markerControl.deactivate();
+        //markerControl.deactivate();
         vectors.removeAllFeatures();
 
         vector.removeAllFeatures();
@@ -411,6 +460,32 @@ function hideAllFeatures(fromLayer){
     }
 
     fromLayer.redraw();
+}
+function toRad(degree) {
+    return degree / 360 * 2 * Math.PI;
+}
+function toDegree(rad) {
+    return rad * 360 / 2 / Math.PI;
+}
+
+function calculateRing(longitude, latitude, radius, noPoints) {
+    var points = [];
+    var lat1 = toRad(latitude);
+    var lon1 = toRad(longitude);
+    console.log("point lat1,lon1: "+lat1+","+lon1);
+    var R = 6371; // earths mean radius
+    var d = radius;
+    for (var i = 0; i < noPoints; i++) {
+        var brng = Math.PI * 2 * i / noPoints;
+        var lat2 = Math.asin( Math.sin(lat1)*Math.cos(d/R) +
+            Math.cos(lat1)*Math.sin(d/R)*Math.cos(brng) );
+        var lon2 = lon1 + Math.atan2(Math.sin(brng)*Math.sin(d/R)*Math.cos(lat1),
+            Math.cos(d/R)-Math.sin(lat1)*Math.sin(lat2));
+
+        points.push(new OpenLayers.Geometry.Point(toDegree(lon2), toDegree(lat2)));
+        console.log("point lon2,lat2: "+toDegree(lon2)+","+toDegree(lat2));
+    }
+    return points;
 }
 
 

@@ -78,4 +78,33 @@ var service = [ {
 			"version" : "1.1"
 		}
 	}
+},{
+    "description" : "MSI DMA WebService 2",
+    "endpoint" : [ {
+        "type" : "INTERNET_URL",
+        "url" : "http://msi.dma.dk/msi/warnings?wsdl"
+    } ],
+    "extent" : {
+        "type" : "staticServiceExtent",
+        "area" : {
+            "type" : "circle",
+            "points" : [ {
+                "lat" : 55.385352,
+                "lon" : 10.298856
+            } ],
+            "radius" : 1000000
+        }
+    },
+    "provider" : "DMA",
+    "variant" : {
+        "method" : "SOAP",
+        "specification" : {
+            "description" : "Maritime Safety Information Service",
+            "operationalService" : {
+                "name" : "MSI"
+            },
+            "serviceId" : "MSI",
+            "version" : "1.1"
+        }
+    }
 } ];
