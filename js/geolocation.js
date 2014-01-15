@@ -39,6 +39,7 @@ var markerControl = new OpenLayers.Control.DrawFeature(markerLayer,OpenLayers.Ha
 map.addControl(markerControl);
 
 
+
 //
 //json service testing
 //
@@ -127,22 +128,30 @@ map.addLayers([polyServiceVector]);
 hideAllFeatures(polyServiceVector);
 
 
+markerControl.events.register('beforefeatureadded', markerControl, function(f) {
+    //markerLayer.removeAllFeatures();
+});
+
 markerControl.events.register('featureadded', markerControl, function(f) {
 
-    //get postion of marker
-    var latLon = new OpenLayers.Geometry.Point(f.feature.geometry.x,f.feature.geometry.y).transform(WGS84,Spherical);
+    //delete last marker
+    var markerFeatures = markerLayer.features;
+    if (markerFeatures.length > 1) markerLayer.removeFeatures(markerFeatures[0]);
 
     //empty memory
     currentServices = [];
     hideAllFeatures(polyServiceVector);
 
+    //get postion of marker to check services availability
+    var latLon = new OpenLayers.Geometry.Point(f.feature.geometry.x,f.feature.geometry.y).transform(WGS84,Spherical);
+
     //main loop to control services to show
     var features = polyServiceVector.features;
 
     for (i=0;i<polygonCollection.length;i++){
-
+        //is marker position inside polygon?
         if (polygonCollection[i].containsPoint(latLon)) {
-            //List of current services
+            //push to list of current services
             currentServices.push(service[i].description);
             //Showing polygons
             features[i].style = defaultServiceStyle;
@@ -278,6 +287,8 @@ geolocate.events.register("locationfailed",this,function() {
 
 //Own position is default
 geolocate.activate();
+markerControl.activate();
+
 
 document.getElementById('mapform').onclick = function() {
 
@@ -291,17 +302,17 @@ document.getElementById('mapform').onclick = function() {
         currentServices = [];
         hideAllFeatures(polyServiceVector);
 
-
         markerLayer.removeAllFeatures();
         markerControl.deactivate();
 
         ownPosLayer.removeAllFeatures();
         geolocate.deactivate();
 
-        //geolocate.activate();
+        geolocate.activate();
         markerControl.activate();
     }
     //Marker Positon filter
+    /*
     else if (radios[1].checked) {
         console.log("Marker position checked");
 
@@ -319,10 +330,11 @@ document.getElementById('mapform').onclick = function() {
 
         markerControl.activate();
     }
+    */
     //No filter
-    else if (radios[2].checked) {
+    else if (radios[1].checked) {
         //clean up
-        markerControl.deactivate();
+        //markerControl.deactivate();
         geolocate.deactivate();
 
         markerLayer.removeAllFeatures();
