@@ -36,41 +36,8 @@ var markerLayer = new OpenLayers.Layer.Vector("Marker Layer", {
 map.addLayers([markerLayer]);
 
 var markerControl = new OpenLayers.Control.DrawFeature(markerLayer,OpenLayers.Handler.Point);
-
-//map.addControl(new OpenLayers.Control.LayerSwitcher());
-//map.addControl(new OpenLayers.Control.MousePosition());
-
 map.addControl(markerControl);
 
-/*
-var points = [
-    new OpenLayers.Geometry.Point(12.574539, 55.706418),
-    new OpenLayers.Geometry.Point(12.622553, 55.674487),
-    new OpenLayers.Geometry.Point(12.556635, 55.672551)
-];
-
-var pointsWGS = [
-    new OpenLayers.Geometry.Point(12.574539, 55.706418).transform(Spherical,WGS84),
-    new OpenLayers.Geometry.Point(12.622553, 55.674487).transform(Spherical,WGS84),
-    new OpenLayers.Geometry.Point(12.556635, 55.672551).transform(Spherical,WGS84)
-];
-
-
-var ring = new OpenLayers.Geometry.LinearRing(points);
-var polygon = new OpenLayers.Geometry.Polygon([ring]);
-
-
-var ringWGS = new OpenLayers.Geometry.LinearRing(pointsWGS);
-var polygonWGS = new OpenLayers.Geometry.Polygon([ringWGS]);
-console.log('printing polygon cph: ' +polygonWGS);
-
-var polygonFeature = new OpenLayers.Feature.Vector(polygonWGS);
-
-var polyVector = new OpenLayers.Layer.Vector('Polygon Layer');
-
-polyVector.addFeatures([polygonFeature]);
-map.addLayers([polyVector]);
-*/
 
 //
 //json service testing
@@ -331,7 +298,7 @@ document.getElementById('mapform').onclick = function() {
         ownPosLayer.removeAllFeatures();
         geolocate.deactivate();
 
-        geolocate.activate();
+        //geolocate.activate();
         markerControl.activate();
     }
     //Marker Positon filter
