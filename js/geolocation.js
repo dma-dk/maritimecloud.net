@@ -1,7 +1,7 @@
 //Example from http://openlayers.org/dev/examples/geolocation.html
 
 var style = {
-    fillColor: '#000',
+    fillColor: '#00000',
     fillOpacity: 0.1,
     strokeWidth: 0
 };
@@ -35,7 +35,21 @@ var markerLayer = new OpenLayers.Layer.Vector("Marker Layer", {
 
 map.addLayers([markerLayer]);
 
-var markerControl = new OpenLayers.Control.DrawFeature(markerLayer,OpenLayers.Handler.Point);
+var options = {
+    handlerOptions: {
+        freehand: true,
+        style: {
+            fillColor: "black",
+            fillOpacity: 0.4,
+            strokeColor: "green",
+            strokeOpacity: 1,
+            strokeWidth: 1,
+            pointRadius: 6
+        }
+    }
+};
+
+var markerControl = new OpenLayers.Control.DrawFeature(markerLayer,OpenLayers.Handler.Point,options);
 map.addControl(markerControl);
 
 
@@ -136,6 +150,9 @@ markerControl.events.register('featureadded', markerControl, function(f) {
 
     //delete last marker
     var markerFeatures = markerLayer.features;
+    markerFeatures[0].style=options;
+
+
     if (markerFeatures.length > 1) markerLayer.removeFeatures(markerFeatures[0]);
 
     //empty memory
@@ -154,7 +171,7 @@ markerControl.events.register('featureadded', markerControl, function(f) {
             //push to list of current services
             currentServices.push(service[i].description);
             //Showing polygons
-            features[i].style = defaultServiceStyle;
+            features[i].style = selectedServiceStyle;
         }
     }
     //force redraw
