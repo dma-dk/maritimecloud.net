@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b30ec71-f81c-4205-82a2-55dde08ed83c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/geolocation.js" afterPath="$PROJECT_DIR$/js/geolocation.js" />
-    </list>
+    <list default="true" id="2b30ec71-f81c-4205-82a2-55dde08ed83c" name="Default" comment="" />
     <ignored path="maritimecloud.net.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389691825225" ignored="false" />
-    <file path="/geolocation.js" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389877012072" ignored="false" />
+    <file path="/geolocation.js" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389877589699" ignored="false" />
     <file path="/index.html" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389709453067" ignored="false" />
     <file path="$PROJECT_DIR$/../AisView/src/main/webapp/index.html" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389709517916" ignored="false" />
     <file path="/services.json" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1388751459369" ignored="false" />
@@ -47,7 +45,7 @@
       <file leaf-file-name="geolocation.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/geolocation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="142" column="39" selection-start="5101" selection-end="5101" vertical-scroll-proportion="0.31681034">
+            <state line="262" column="10" selection-start="8449" selection-end="8449" vertical-scroll-proportion="-2.911638">
               <folding />
             </state>
           </provider>
@@ -56,7 +54,7 @@
       <file leaf-file-name="services.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/json/services.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="25" selection-start="1879" selection-end="1879" vertical-scroll-proportion="-17.807692">
+            <state line="181" column="26" selection-start="4153" selection-end="4153" vertical-scroll-proportion="-23.576923">
               <folding />
             </state>
           </provider>
@@ -109,7 +107,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="22" />
+    <option name="y" value="65" />
     <option name="width" value="1920" />
     <option name="height" value="1174" />
   </component>
@@ -273,7 +271,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1920" height="1174" extended-state="6" />
+    <frame x="0" y="65" width="1920" height="1174" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.06831119" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -422,13 +420,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/json/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="25" selection-start="1879" selection-end="1879" vertical-scroll-proportion="-17.807692">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="39" column="69" selection-start="1297" selection-end="1311" vertical-scroll-proportion="-24.375">
@@ -438,9 +429,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/json/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="181" column="26" selection-start="4153" selection-end="4153" vertical-scroll-proportion="-23.576923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/geolocation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="142" column="39" selection-start="5101" selection-end="5101" vertical-scroll-proportion="0.31681034">
+        <state line="262" column="10" selection-start="8449" selection-end="8449" vertical-scroll-proportion="-2.911638">
           <folding />
         </state>
       </provider>

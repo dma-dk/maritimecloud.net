@@ -179,7 +179,7 @@ var service = [ {
                 "lat" : 58.112714,
                 "lon" : 7.963434
             } ],
-            "radius" : 50000
+            "radius" : 200000
         }
     },
     "provider" : "DMA",

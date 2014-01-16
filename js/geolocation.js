@@ -144,10 +144,6 @@ markerControl.events.register('featureadded', markerControl, function(f) {
     for(var i=0;i<radio.length;i++)
         radio[i].checked = false;
 
-    //document.getElementById('mapform').checked = false;
-
-
-
     //change style of marker (TODO: not working)
     //markerFeatures.style=mouseMarkerStyle;
 
@@ -159,43 +155,10 @@ markerControl.events.register('featureadded', markerControl, function(f) {
     var latLon = new OpenLayers.Geometry.Point(f.feature.geometry.x,f.feature.geometry.y).transform(WGS84,Spherical);
     console.log("@ "+latLon.x+","+latLon.y);
 
-
     //main loop to control services to show
     var serviceFeatures = polyServiceVector.features;
+    showSelectedFeatures(latLon,serviceFeatures);
 
-
-
-    for (i=0;i<serviceFeatures.length;i++){
-        //is marker position inside polygon?
-        //polygon
-        if (serviceFeatures[i].data.type == 'polygon'){
-            console.log("marker polygon check");
-            if (polygonCollection[i].containsPoint(latLon)) {
-                //push to list of current services
-                currentServices.push(service[i].description);
-                //Showing polygons
-                serviceFeatures[i].style = defaultServiceStyle;
-            }
-        }
-        else if (serviceFeatures[i].data.type == 'circle'){
-            console.log("marker circle check");
-            var testDistance = getDistanceFromLatLonInM(serviceFeatures[i].data.center.y,serviceFeatures[i].data.center.x,latLon.y,latLon.x);
-            console.log("center @ "+serviceFeatures[i].data.center.x+","+serviceFeatures[i].data.center.y);
-            console.log("marker @ "+latLon.x+","+latLon.y);
-            console.log("testDist: "+testDistance);
-            console.log("radius: "+serviceFeatures[i].data.radius);
-
-            if(testDistance<=serviceFeatures[i].data.radius){
-                //push to list of current services
-                currentServices.push(service[i].description);
-                //Showing polygons
-                serviceFeatures[i].style = defaultServiceStyle;
-            }
-
-
-
-        }
-    }
     //force redraw
     polyServiceVector.redraw();
 
@@ -297,6 +260,10 @@ geolocate.events.register("locationupdated",geolocate,function(e) {
     currentServices = [];
     hideAllFeatures(polyServiceVector);
 
+    //find services to show
+    var serviceFeatures = polyServiceVector.features;
+    showSelectedFeatures(latLon,serviceFeatures);
+    /*
     //main loop to control services to show
     var features = polyServiceVector.features;
     for (i=0;i<polygonCollection.length;i++){
@@ -308,6 +275,8 @@ geolocate.events.register("locationupdated",geolocate,function(e) {
 
         }
     }
+    */
+
     polyServiceVector.redraw();
 
     //getting right scope and forcing angular to apply changes
@@ -480,6 +449,40 @@ function hideAllFeatures(fromLayer){
 
     fromLayer.redraw();
 }
+
+function showSelectedFeatures(testPoint,serviceFeatures){
+    for (i=0;i<serviceFeatures.length;i++){
+        //is marker position inside polygon?
+        //polygon
+        if (serviceFeatures[i].data.type == 'polygon'){
+            console.log("marker polygon check");
+            if (polygonCollection[i].containsPoint(testPoint)) {
+                //push to list of current services
+                currentServices.push(service[i].description);
+                //Showing polygons
+                serviceFeatures[i].style = defaultServiceStyle;
+            }
+        }
+        else if (serviceFeatures[i].data.type == 'circle'){
+            console.log("marker circle check");
+            var testDistance = getDistanceFromLatLonInM(serviceFeatures[i].data.center.y,serviceFeatures[i].data.center.x,testPoint.y,testPoint.x);
+            console.log("center @ "+serviceFeatures[i].data.center.x+","+serviceFeatures[i].data.center.y);
+            console.log("marker @ "+testPoint.x+","+testPoint.y);
+            console.log("testDist: "+testDistance);
+            console.log("radius: "+serviceFeatures[i].data.radius);
+
+            if(testDistance<=serviceFeatures[i].data.radius){
+                //push to list of current services
+                currentServices.push(service[i].description);
+                //Showing polygons
+                serviceFeatures[i].style = defaultServiceStyle;
+            }
+        }
+    }
+}
+
+
+
 function toRad(degree) {
     return degree / 360 * 2 * Math.PI;
 }
