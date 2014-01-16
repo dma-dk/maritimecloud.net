@@ -144,14 +144,15 @@ markerControl.events.register('featureadded', markerControl, function(f) {
         markerLayer.removeFeatures(markerFeatures[0]);
     }
 
+    //remove own position when using marker tool
+    ownPosLayer.removeAllFeatures();
 
     //un-check all options on tool selector
     var radio = document.getElementById('mapform');
     for(var i=0;i<radio.length;i++)
         radio[i].checked = false;
 
-    //change style of marker (TODO: not working)
-
+    //change style of marker
     markerLayer.addFeatures([
         new OpenLayers.Feature.Vector(
             new OpenLayers.Geometry.Point(f.feature.geometry.x,f.feature.geometry.y),
