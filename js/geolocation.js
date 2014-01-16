@@ -139,6 +139,15 @@ markerControl.events.register('featureadded', markerControl, function(f) {
     var markerFeatures = markerLayer.features;
     if (markerFeatures.length > 1) markerLayer.removeFeatures(markerFeatures[0]);
 
+    //un-check all options on tool selector
+    var radio = document.getElementById('mapform');
+    for(var i=0;i<radio.length;i++)
+        radio[i].checked = false;
+
+    //document.getElementById('mapform').checked = false;
+
+
+
     //change style of marker (TODO: not working)
     //markerFeatures.style=mouseMarkerStyle;
 
