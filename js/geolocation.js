@@ -14,10 +14,10 @@ var mouseMarkerStyle = {
         style: {
             fillColor: "black",
             fillOpacity: 0.4,
-            strokeColor: "green",
+            strokeColor: "black",
             strokeOpacity: 1,
-            strokeWidth: 1,
-            pointRadius: 6
+            strokeWidth: 2,
+            pointRadius: 3
         }
     }
 };
@@ -135,9 +135,15 @@ hideAllFeatures(polyServiceVector);
 
 markerControl.events.register('featureadded', markerControl, function(f) {
 
+
+
     //delete last marker
     var markerFeatures = markerLayer.features;
-    if (markerFeatures.length > 1) markerLayer.removeFeatures(markerFeatures[0]);
+    markerLayer.removeFeatures(markerFeatures[0]);
+    if (markerFeatures.length > 0) {
+        markerLayer.removeFeatures(markerFeatures[0]);
+    }
+
 
     //un-check all options on tool selector
     var radio = document.getElementById('mapform');
@@ -145,7 +151,20 @@ markerControl.events.register('featureadded', markerControl, function(f) {
         radio[i].checked = false;
 
     //change style of marker (TODO: not working)
-    //markerFeatures.style=mouseMarkerStyle;
+
+    markerLayer.addFeatures([
+        new OpenLayers.Feature.Vector(
+            new OpenLayers.Geometry.Point(f.feature.geometry.x,f.feature.geometry.y),
+            {},
+            {
+                graphicName: 'circle',
+                strokeColor: '#000000',
+                strokeWidth: 2,
+                fillOpacity: 0.8,
+                pointRadius: 3
+            }
+        )
+    ]);
 
     //empty memory
     currentServices = [];
@@ -236,8 +255,8 @@ geolocate.events.register("locationupdated",geolocate,function(e) {
                 graphicName: 'circle',
                 strokeColor: '#000000',
                 strokeWidth: 2,
-                fillOpacity: 100,
-                pointRadius: 8
+                fillOpacity: 0.8,
+                pointRadius: 3
             }
         ),
         circle
@@ -263,20 +282,8 @@ geolocate.events.register("locationupdated",geolocate,function(e) {
     //find services to show
     var serviceFeatures = polyServiceVector.features;
     showSelectedFeatures(latLon,serviceFeatures);
-    /*
-    //main loop to control services to show
-    var features = polyServiceVector.features;
-    for (i=0;i<polygonCollection.length;i++){
-        if (polygonCollection[i].containsPoint(latLon)) {
-            //List of current services
-            currentServices.push(service[i].description);
-            //Showing polygons
-            features[i].style = defaultServiceStyle;
 
-        }
-    }
-    */
-
+    //force redraw
     polyServiceVector.redraw();
 
     //getting right scope and forcing angular to apply changes
@@ -293,7 +300,7 @@ geolocate.events.register("locationfailed",this,function() {
     OpenLayers.Console.log('Location detection failed');
 });
 
-//Own position is default
+//Own position and marker tool is default
 geolocate.activate();
 markerControl.activate();
 

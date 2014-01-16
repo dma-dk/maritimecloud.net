@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b30ec71-f81c-4205-82a2-55dde08ed83c" name="Default" comment="" />
+    <list default="true" id="2b30ec71-f81c-4205-82a2-55dde08ed83c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/geolocation.js" afterPath="$PROJECT_DIR$/js/geolocation.js" />
+    </list>
     <ignored path="maritimecloud.net.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389691825225" ignored="false" />
-    <file path="/geolocation.js" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389877589699" ignored="false" />
+    <file path="/geolocation.js" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389878970013" ignored="false" />
     <file path="/index.html" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389709453067" ignored="false" />
     <file path="$PROJECT_DIR$/../AisView/src/main/webapp/index.html" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389709517916" ignored="false" />
     <file path="/services.json" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1388751459369" ignored="false" />
@@ -45,7 +47,7 @@
       <file leaf-file-name="geolocation.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/geolocation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="262" column="10" selection-start="8449" selection-end="8449" vertical-scroll-proportion="-2.911638">
+            <state line="162" column="33" selection-start="5634" selection-end="5634" vertical-scroll-proportion="2.6185346">
               <folding />
             </state>
           </provider>
@@ -438,7 +440,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/geolocation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="262" column="10" selection-start="8449" selection-end="8449" vertical-scroll-proportion="-2.911638">
+        <state line="162" column="33" selection-start="5634" selection-end="5634" vertical-scroll-proportion="2.6185346">
           <folding />
         </state>
       </provider>
