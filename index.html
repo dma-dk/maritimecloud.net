@@ -47,8 +47,8 @@
     <div id="authority_serviceList">
         <div ng-repeat="serviceTitle in serviceTitles | filter:authorityFilter">
             <ul>
-                <li ng-class="{'selected-class-name': $index == selectedIndex }"
-                     ng-click="markService(serviceTitle.title,$index)"
+                <li ng-class="{'selected-class-name': $index == selectedIndex1 }"
+                     ng-click="markService(serviceTitle.title,$index,'authority')"
                      style="cursor:pointer">{{serviceTitle.title}}</li>
             </ul>
 
@@ -58,8 +58,8 @@
     <div id="commercial_serviceList">
         <div ng-repeat="serviceTitle in serviceTitles | filter:commercialFilter">
             <ul>
-                <li ng-class="{'selected-class-name': $index == selectedIndex }"
-                    ng-click="markService(serviceTitle.title,$index)"
+                <li ng-class="{'selected-class-name': $index == selectedIndex2 }"
+                    ng-click="markService(serviceTitle.title,$index,'commercial')"
                     style="cursor:pointer">{{serviceTitle.title}}</li>
             </ul>
 

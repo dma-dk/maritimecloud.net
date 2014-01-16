@@ -383,6 +383,8 @@ function geolocationCtrl($scope) {
     $scope.commercialFilter = "Commercial Information Service";
 
 
+
+
     //control of info-box visibility
     $scope.showInfoBox = false;
 
@@ -402,9 +404,10 @@ function geolocationCtrl($scope) {
 
 
 
-    $scope.selectedIndex = -1;
+    $scope.selectedIndex1 = -1;
+    $scope.selectedIndex2 = -1;
 
-    $scope.markService = function(clickedTitle,$index) {
+    $scope.markService = function(clickedTitle,$index,type) {
         //info-box string variables
         $scope.provider = '';
         $scope.method = '';
@@ -414,10 +417,10 @@ function geolocationCtrl($scope) {
         //show internet URL or not
         $scope.isInternet = true;
 
-
-
-
-        $scope.selectedIndex = $index;
+        $scope.selectedIndex1 = -1;
+        $scope.selectedIndex2 = -1;
+        if(type == 'authority') $scope.selectedIndex1 = $index;
+        if(type == 'commercial') $scope.selectedIndex2 = $index;
 
         //clear all styling of current service polygons
         for (i=0;i<currentServices.length;i++){
