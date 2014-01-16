@@ -157,7 +157,7 @@ var service = [ {
     "variant" : {
         "method" : "SOAP",
         "specification" : {
-            "description" : "Maritime Safety Information Service",
+            "description" : "Commercial Information Service",
             "operationalService" : {
                 "name" : "MSI"
             },
@@ -186,7 +186,7 @@ var service = [ {
     "variant" : {
         "method" : "SOAP",
         "specification" : {
-            "description" : "Maritime Safety Information Service",
+            "description" : "Commercial Information Service",
             "operationalService" : {
                 "name" : "MSI"
             },

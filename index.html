@@ -31,7 +31,7 @@
 <input type="checkbox" name="track" id="track">
 <label for="track">Track my position</label>
 -->
-<div id="title">
+<div>
     <h1 id="title">Maritime Cloud Service Broker</h1>
 </div>
 <div id="filters" ng-cloak>
@@ -42,18 +42,32 @@
         <input type="radio" name="maptype" value="none">All
     </form>
 </div>
-<div id="services" ng-cloak>
-    <h2 id="services_title">Available services</h2>
-    <div id="serviceList">
-        <div ng-repeat="serviceTitle in serviceTitles">
+<div id="services" ng-show="authorityServices || commercialServices" ng-cloak>
+    <h2 id="authority_services_title" ng-show="authorityServices">Authority services</h2>
+    <div id="authority_serviceList">
+        <div ng-repeat="serviceTitle in serviceTitles | filter:authorityFilter">
             <ul>
                 <li ng-class="{'selected-class-name': $index == selectedIndex }"
-                     ng-click="markService(serviceTitle,$index)"
-                     style="cursor:pointer">{{serviceTitle}}</li>
+                     ng-click="markService(serviceTitle.title,$index)"
+                     style="cursor:pointer">{{serviceTitle.title}}</li>
             </ul>
 
         </div>
     </div>
+    <h2 id="commercial_services_title" ng-show="commercialServices" >Commercial services</h2>
+    <div id="commercial_serviceList">
+        <div ng-repeat="serviceTitle in serviceTitles | filter:commercialFilter">
+            <ul>
+                <li ng-class="{'selected-class-name': $index == selectedIndex }"
+                    ng-click="markService(serviceTitle.title,$index)"
+                    style="cursor:pointer">{{serviceTitle.title}}</li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+<div id="noServices" ng-hide="authorityServices || commercialServices" ng-cloak>
+    <h2 id="no_services_title">No services available</h2>
 </div>
 <div id="info" ng-show="showInfoBox" ng-cloak>
     <h2 id="info_title">Service info</h2>

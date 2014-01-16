@@ -78,7 +78,7 @@ var polygonCollectionWGS = [];
 var polyServiceVector = new OpenLayers.Layer.Vector('Polygons form Service Layer');
 for (i=0;i<service.length;i++){
     //titles
-    serviceTitles.push(service[i].description);
+    serviceTitles.push({type: "test", title: service[i].description});
 
     if (service[i].extent.area.type == 'polygon'){
         //polygons
@@ -100,7 +100,7 @@ for (i=0;i<service.length;i++){
         polygonCollectionWGS.push(polygonWGS);
 
         var tempPolyFeature = new OpenLayers.Feature.Vector(polygonWGS);
-        tempPolyFeature.id = serviceTitles[i];
+        tempPolyFeature.id = serviceTitles[i].title;
         tempPolyFeature.data = {type: "polygon"};
         polyServiceVector.addFeatures([tempPolyFeature]);
     }
@@ -122,8 +122,7 @@ for (i=0;i<service.length;i++){
         }
         var testPolygonWGS = new OpenLayers.Geometry.Polygon([new OpenLayers.Geometry.LinearRing(testPointsWGS)]);
         var testCircleFeature = new OpenLayers.Feature.Vector(testPolygonWGS);
-        testCircleFeature.id = serviceTitles[i];
-        console.log("cicle titles: "+serviceTitles[i]);
+        testCircleFeature.id = serviceTitles[i].title;
         testCircleFeature.data = {type: "circle", center: tempCenterPoint, radius: tempRadius};
         polyServiceVector.addFeatures([testCircleFeature]);
     }
@@ -183,7 +182,7 @@ markerControl.events.register('featureadded', markerControl, function(f) {
     polyServiceVector.redraw();
 
     //getting right scope and forcing angular to apply changes
-    var selector = angular.element(document.getElementById("serviceList"));
+    var selector = angular.element(document.getElementById("services"));
     geolocationCtrl(selector.scope());
     selector.scope().$apply();
 });
@@ -288,7 +287,7 @@ geolocate.events.register("locationupdated",geolocate,function(e) {
     polyServiceVector.redraw();
 
     //getting right scope and forcing angular to apply changes
-    var selector = angular.element(document.getElementById("serviceList"));
+    var selector = angular.element(document.getElementById("services"));
     geolocationCtrl(selector.scope());
     selector.scope().$apply();
 
@@ -326,6 +325,11 @@ document.getElementById('mapform').onclick = function() {
 
         geolocate.activate();
         markerControl.activate();
+
+        //getting right scope and forcing angular to apply changes
+        var selector = angular.element(document.getElementById("services"));
+        geolocationCtrl(selector.scope());
+        selector.scope().$apply();
     }
     //Marker Positon filter
     /*
@@ -374,24 +378,43 @@ document.getElementById('mapform').onclick = function() {
 
 //Angular stuff
 function geolocationCtrl($scope) {
+    //Filter on services
+    $scope.authorityFilter = "Maritime Safety Information Service";
+    $scope.commercialFilter = "Commercial Information Service";
+
+
     //control of info-box visibility
     $scope.showInfoBox = false;
 
-    //info-box string variables
+    var indexTest1 = currentServices.length;
+    while( indexTest1-- ) if( currentServices[indexTest1].type == $scope.authorityFilter ) break;
+    $scope.authorityServices = true;
+    if (indexTest1==-1) $scope.authorityServices=false;
+
+    var indexTest2 = currentServices.length;
+    while( indexTest2-- ) if( currentServices[indexTest2].type == $scope.commercialFilter ) break;
+    $scope.commercialServices = true;
+    if (indexTest2==-1) $scope.commercialServices=false;
 
 
 
     $scope.serviceTitles = currentServices;
 
 
+
     $scope.selectedIndex = -1;
 
     $scope.markService = function(clickedTitle,$index) {
+        //info-box string variables
         $scope.provider = '';
         $scope.method = '';
         $scope.endpoints = {};
         $scope.endpointUrl = '';
+
+        //show internet URL or not
         $scope.isInternet = true;
+
+
 
 
         $scope.selectedIndex = $index;
@@ -399,7 +422,7 @@ function geolocationCtrl($scope) {
         //clear all styling of current service polygons
         for (i=0;i<currentServices.length;i++){
             //Resetting polygon styles
-            var tempFeature = polyServiceVector.getFeatureById(currentServices[i]);
+            var tempFeature = polyServiceVector.getFeatureById(currentServices[i].title);
             tempFeature.style = defaultServiceStyle;
         }
 
@@ -455,11 +478,12 @@ function showAllServices(features){
     currentServices = [];
 
     //getting right scope
-    var serviceListDiv=document.getElementById("serviceList");
+    var serviceListDiv=document.getElementById("services");
     var selector = angular.element(serviceListDiv);
 
     for (i=0;i<features.length;i++){
-        currentServices.push(service[i].description);
+        currentServices.push({type: service[i].variant.specification.description, title: service[i].description});
+
     }
     geolocationCtrl(selector.scope());
     selector.scope().$apply();
@@ -484,7 +508,7 @@ function showSelectedFeatures(testPoint,serviceFeatures){
             console.log("marker polygon check");
             if (polygonCollection[i].containsPoint(testPoint)) {
                 //push to list of current services
-                currentServices.push(service[i].description);
+                currentServices.push({type: service[i].variant.specification.description, title: service[i].description});
                 //Showing polygons
                 serviceFeatures[i].style = defaultServiceStyle;
             }
@@ -499,7 +523,7 @@ function showSelectedFeatures(testPoint,serviceFeatures){
 
             if(testDistance<=serviceFeatures[i].data.radius){
                 //push to list of current services
-                currentServices.push(service[i].description);
+                currentServices.push({type: service[i].variant.specification.description, title: service[i].description});
                 //Showing polygons
                 serviceFeatures[i].style = defaultServiceStyle;
             }

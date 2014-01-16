@@ -94,7 +94,7 @@ html, body, #map {
     position: absolute;
     top: 2em;
     right: 2em;
-    width: 300px;
+    width: 200px;
     z-index: 20000;
     background-color: white;
     padding: 0 0.5em 0.5em 0.5em;
@@ -106,19 +106,29 @@ html, body, #map {
     position: absolute;
     top: 8em;
     right: 2em;
-    width: 300px;
+    width: 200px;
     z-index: 20000;
     background-color: white;
     padding: 0 0.5em 0.5em 0.5em;
     box-shadow: 10px 10px 5px #888888;
     border-radius:3px;
 }
-
+#noServices {
+    position: absolute;
+    top: 8em;
+    right: 2em;
+    width: 200px;
+    z-index: 20000;
+    background-color: white;
+    padding: 0 0.5em 0.5em 0.5em;
+    box-shadow: 10px 10px 5px #888888;
+    border-radius:3px;
+}
 #info {
     position: absolute;
     bottom: 2em;
     right: 2em;
-    width: 300px;
+    width: 250px;
     z-index: 20000;
     background-color: white;
     padding: 0 0.5em 0.5em 0.5em;
