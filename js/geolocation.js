@@ -8,7 +8,36 @@ var style = {
 //Service polygon styles
 var defaultServiceStyle = {fillColor: "#ee9900", fillOpacity: 0.1, strokeWidth: 1, strokeColor: '#ee9900'};
 var selectedServiceStyle = {fillColor: "#ee9900", fillOpacity: 0.3,  strokeWidth: 1, strokeColor: '#000000'};
+var mouseMarkerStyle = {
+    handlerOptions: {
+        freehand: true,
+        style: {
+            fillColor: "black",
+            fillOpacity: 0.4,
+            strokeColor: "green",
+            strokeOpacity: 1,
+            strokeWidth: 1,
+            pointRadius: 6
+        }
+    }
+};
 
+/*
+var defaultServiceStyle = new OpenLayers.Style({
+    'fillColor': "#ee9900",
+    'fillOpacity': 0.1,
+    'strokeWidth': 1,
+    'strokeColor': "#ee9900"
+});
+
+
+var selectedServiceStyle = new OpenLayers.Style({
+    'fillColor': "#ee9900",
+    'fillOpacity': 0.3,
+    'strokeWidth': 1,
+    'strokeColor': "#000000"
+});
+*/
 
 var currentServices = [];
 
@@ -35,21 +64,7 @@ var markerLayer = new OpenLayers.Layer.Vector("Marker Layer", {
 
 map.addLayers([markerLayer]);
 
-var options = {
-    handlerOptions: {
-        freehand: true,
-        style: {
-            fillColor: "black",
-            fillOpacity: 0.4,
-            strokeColor: "green",
-            strokeOpacity: 1,
-            strokeWidth: 1,
-            pointRadius: 6
-        }
-    }
-};
-
-var markerControl = new OpenLayers.Control.DrawFeature(markerLayer,OpenLayers.Handler.Point,options);
+var markerControl = new OpenLayers.Control.DrawFeature(markerLayer,OpenLayers.Handler.Point,mouseMarkerStyle);
 map.addControl(markerControl);
 
 
@@ -60,6 +75,7 @@ map.addControl(markerControl);
 var serviceTitles = [];
 var polygonCollection = [];
 var polygonCollectionWGS = [];
+var polyServiceVector = new OpenLayers.Layer.Vector('Polygons form Service Layer');
 for (i=0;i<service.length;i++){
     //titles
     serviceTitles.push(service[i].description);
@@ -82,8 +98,13 @@ for (i=0;i<service.length;i++){
         var polygonWGS = new OpenLayers.Geometry.Polygon([new OpenLayers.Geometry.LinearRing(olPointsWGS)]);
         polygonCollection.push(polygon);
         polygonCollectionWGS.push(polygonWGS);
+
+        var tempPolyFeature = new OpenLayers.Feature.Vector(polygonWGS);
+        tempPolyFeature.id = serviceTitles[i];
+        tempPolyFeature.data = {type: "polygon"};
+        polyServiceVector.addFeatures([tempPolyFeature]);
     }
-    /*
+
     else if (service[i].extent.area.type == 'circle'){
         //circles
         console.log("inside circle");
@@ -93,67 +114,33 @@ for (i=0;i<service.length;i++){
             service[i].extent.area.points[0].lat).transform(Spherical,WGS84);
 
         var tempRadius = service[i].extent.area.radius;
-        console.log('projection: ' +map.getProjectionObject());
 
-
-        var circle = OpenLayers.Geometry.Polygon.createRegularPolygon(tempCenterPoint,
-            tempRadius*2,
-            30,
-            0);
-
-        var circleWGS = OpenLayers.Geometry.Polygon.createRegularPolygon(tempCenterPointWGS,
-            tempRadius*2,
-            30,
-            0
-            );
-
-        var olPoints = [];
-        var olPointsWGS = [];
-
-        olPoints = calculateRing(tempCenterPointWGS.x,tempCenterPointWGS.y, tempRadius, 40);
-        console.log("lonner: "+tempCenterPointWGS.x);
-
-        for (j=0;j<olPoints.length;j++){
-            olPointsWGS[j]=olPoints[j];
+        var testPoints = calculateRing(tempCenterPoint.x,tempCenterPoint.y, tempRadius/1000, 30);
+        var testPointsWGS = [];
+        for (j=0;j<testPoints.length;j++){
+            testPointsWGS[j]=testPoints[j].transform(Spherical,WGS84);
         }
-
-        var polygon = new OpenLayers.Geometry.Polygon([new OpenLayers.Geometry.LinearRing(olPoints)]);
-        var polygonWGS = new OpenLayers.Geometry.Polygon([new OpenLayers.Geometry.LinearRing(olPointsWGS)]);
-        polygonCollection.push(polygon);
-        polygonCollectionWGS.push(polygonWGS);
-
-        //polygonCollection.push(circle);
-        //polygonCollectionWGS.push(circleWGS);
-
+        var testPolygonWGS = new OpenLayers.Geometry.Polygon([new OpenLayers.Geometry.LinearRing(testPointsWGS)]);
+        var testCircleFeature = new OpenLayers.Feature.Vector(testPolygonWGS);
+        testCircleFeature.id = serviceTitles[i];
+        console.log("cicle titles: "+serviceTitles[i]);
+        testCircleFeature.data = {type: "circle", center: tempCenterPoint, radius: tempRadius};
+        polyServiceVector.addFeatures([testCircleFeature]);
     }
-    */
-}
-
-var polyServiceVector = new OpenLayers.Layer.Vector('Polygons form Service Layer');
-for (i=0;i<polygonCollection.length;i++){
-    console.log("Adding polygon " +i+ " from service");
-    var tempFeature = new OpenLayers.Feature.Vector(polygonCollectionWGS[i]);
-    tempFeature.id = serviceTitles[i];
-    polyServiceVector.addFeatures([tempFeature]);
 }
 map.addLayers([polyServiceVector]);
 
 //hide all service polygons
 hideAllFeatures(polyServiceVector);
 
-
-markerControl.events.register('beforefeatureadded', markerControl, function(f) {
-    //markerLayer.removeAllFeatures();
-});
-
 markerControl.events.register('featureadded', markerControl, function(f) {
 
     //delete last marker
     var markerFeatures = markerLayer.features;
-    markerFeatures[0].style=options;
-
-
     if (markerFeatures.length > 1) markerLayer.removeFeatures(markerFeatures[0]);
+
+    //change style of marker (TODO: not working)
+    //markerFeatures.style=mouseMarkerStyle;
 
     //empty memory
     currentServices = [];
@@ -161,17 +148,43 @@ markerControl.events.register('featureadded', markerControl, function(f) {
 
     //get postion of marker to check services availability
     var latLon = new OpenLayers.Geometry.Point(f.feature.geometry.x,f.feature.geometry.y).transform(WGS84,Spherical);
+    console.log("@ "+latLon.x+","+latLon.y);
+
 
     //main loop to control services to show
-    var features = polyServiceVector.features;
+    var serviceFeatures = polyServiceVector.features;
 
-    for (i=0;i<polygonCollection.length;i++){
+
+
+    for (i=0;i<serviceFeatures.length;i++){
         //is marker position inside polygon?
-        if (polygonCollection[i].containsPoint(latLon)) {
-            //push to list of current services
-            currentServices.push(service[i].description);
-            //Showing polygons
-            features[i].style = selectedServiceStyle;
+        //polygon
+        if (serviceFeatures[i].data.type == 'polygon'){
+            console.log("marker polygon check");
+            if (polygonCollection[i].containsPoint(latLon)) {
+                //push to list of current services
+                currentServices.push(service[i].description);
+                //Showing polygons
+                serviceFeatures[i].style = defaultServiceStyle;
+            }
+        }
+        else if (serviceFeatures[i].data.type == 'circle'){
+            console.log("marker circle check");
+            var testDistance = getDistanceFromLatLonInM(serviceFeatures[i].data.center.y,serviceFeatures[i].data.center.x,latLon.y,latLon.x);
+            console.log("center @ "+serviceFeatures[i].data.center.x+","+serviceFeatures[i].data.center.y);
+            console.log("marker @ "+latLon.x+","+latLon.y);
+            console.log("testDist: "+testDistance);
+            console.log("radius: "+serviceFeatures[i].data.radius);
+
+            if(testDistance<=serviceFeatures[i].data.radius){
+                //push to list of current services
+                currentServices.push(service[i].description);
+                //Showing polygons
+                serviceFeatures[i].style = defaultServiceStyle;
+            }
+
+
+
         }
     }
     //force redraw
@@ -357,10 +370,10 @@ document.getElementById('mapform').onclick = function() {
         markerLayer.removeAllFeatures();
         ownPosLayer.removeAllFeatures();
 
-        //Show all services in list
-        showAllServices();
-        //Show all service polygons
         var features = polyServiceVector.features;
+        //Show all services in list
+        showAllServices(features);
+        //Show all service polygons
         for (i=0;i<features.length;i++){
                 //Showing polygons
                 features[i].style = defaultServiceStyle;
@@ -434,14 +447,14 @@ function geolocationCtrl($scope) {
 
 }
 
-function showAllServices(){
+function showAllServices(features){
     currentServices = [];
 
     //getting right scope
     var serviceListDiv=document.getElementById("serviceList");
     var selector = angular.element(serviceListDiv);
 
-    for (i=0;i<polygonCollection.length;i++){
+    for (i=0;i<features.length;i++){
         currentServices.push(service[i].description);
     }
     geolocationCtrl(selector.scope());
@@ -469,7 +482,6 @@ function calculateRing(longitude, latitude, radius, noPoints) {
     var points = [];
     var lat1 = toRad(latitude);
     var lon1 = toRad(longitude);
-    console.log("point lat1,lon1: "+lat1+","+lon1);
     var R = 6371; // earths mean radius
     var d = radius;
     for (var i = 0; i < noPoints; i++) {
@@ -480,11 +492,27 @@ function calculateRing(longitude, latitude, radius, noPoints) {
             Math.cos(d/R)-Math.sin(lat1)*Math.sin(lat2));
 
         points.push(new OpenLayers.Geometry.Point(toDegree(lon2), toDegree(lat2)));
-        console.log("point lon2,lat2: "+toDegree(lon2)+","+toDegree(lat2));
     }
     return points;
 }
 
+function getDistanceFromLatLonInM(lat1,lon1,lat2,lon2) {
+    var R = 6371000; // Radius of the earth in m
+    var dLat = deg2rad(lat2-lat1);  // deg2rad below
+    var dLon = deg2rad(lon2-lon1);
+    var a =
+            Math.sin(dLat/2) * Math.sin(dLat/2) +
+                Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+                    Math.sin(dLon/2) * Math.sin(dLon/2)
+        ;
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    var d = R * c; // Distance in m
+    return d;
+}
+
+function deg2rad(deg) {
+    return deg * (Math.PI/180)
+}
 
 /*
 document.getElementById('track').onclick = function() {

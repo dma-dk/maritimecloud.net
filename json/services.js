@@ -89,10 +89,97 @@ var service = [ {
         "area" : {
             "type" : "circle",
             "points" : [ {
-                "lat" : 55.385352,
-                "lon" : 10.298856
+                "lat" : 56.059769,
+                "lon" : 12.094293
             } ],
-            "radius" : 1000000
+            "radius" : 170000
+        }
+    },
+    "provider" : "DMA",
+    "variant" : {
+        "method" : "SOAP",
+        "specification" : {
+            "description" : "Maritime Safety Information Service",
+            "operationalService" : {
+                "name" : "MSI"
+            },
+            "serviceId" : "MSI",
+            "version" : "1.1"
+        }
+    }
+},{
+    "description" : "MSI DMA WebService 3",
+    "endpoint" : [ {
+        "type" : "INTERNET_URL",
+        "url" : "http://msi.dma.dk/msi/warnings?wsdl"
+    } ],
+    "extent" : {
+        "type" : "staticServiceExtent",
+        "area" : {
+            "type" : "circle",
+            "points" : [ {
+                "lat" : 57.171992,
+                "lon" : 12.204157
+            } ],
+            "radius" : 150000
+        }
+    },
+    "provider" : "DMA",
+    "variant" : {
+        "method" : "SOAP",
+        "specification" : {
+            "description" : "Maritime Safety Information Service",
+            "operationalService" : {
+                "name" : "MSI"
+            },
+            "serviceId" : "MSI",
+            "version" : "1.1"
+        }
+    }
+},{
+    "description" : "MSI DMA WebService 4",
+    "endpoint" : [ {
+        "type" : "INTERNET_URL",
+        "url" : "http://msi.dma.dk/msi/warnings?wsdl"
+    } ],
+    "extent" : {
+        "type" : "staticServiceExtent",
+        "area" : {
+            "type" : "circle",
+            "points" : [ {
+                "lat" : 58.608334,
+                "lon" : 11.226373
+            } ],
+            "radius" : 100000
+        }
+    },
+    "provider" : "DMA",
+    "variant" : {
+        "method" : "SOAP",
+        "specification" : {
+            "description" : "Maritime Safety Information Service",
+            "operationalService" : {
+                "name" : "MSI"
+            },
+            "serviceId" : "MSI",
+            "version" : "1.1"
+        }
+    }
+},{
+    "description" : "MSI DMA WebService 5",
+    "endpoint" : [ {
+        "type" : "INTERNET_URL",
+        "url" : "http://msi.dma.dk/msi/warnings?wsdl"
+    } ],
+    "extent" : {
+        "type" : "staticServiceExtent",
+        "area" : {
+            "type" : "circle",
+            "points" : [ {
+                "lat" : 58.112714,
+                "lon" : 7.963434
+            } ],
+            "radius" : 50000
         }
     },
     "provider" : "DMA",
