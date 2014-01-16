@@ -378,9 +378,7 @@ function geolocationCtrl($scope) {
     $scope.showInfoBox = false;
 
     //info-box string variables
-    $scope.provider = '';
-    $scope.method = '';
-    $scope.endpoint = '';
+
 
 
     $scope.serviceTitles = currentServices;
@@ -389,6 +387,13 @@ function geolocationCtrl($scope) {
     $scope.selectedIndex = -1;
 
     $scope.markService = function(clickedTitle,$index) {
+        $scope.provider = '';
+        $scope.method = '';
+        $scope.endpoints = {};
+        $scope.endpointUrl = '';
+        $scope.isInternet = true;
+
+
         $scope.selectedIndex = $index;
 
         //clear all styling of current service polygons
@@ -412,21 +417,34 @@ function geolocationCtrl($scope) {
         console.log("provider: "+service[indexOfSerivce].provider);
         console.log("method: "+service[indexOfSerivce].variant.method);
 
-        var tempString = '';
-        for (j=0;j<service[indexOfSerivce].endpoint.length;j++){
+        var currentService = service[indexOfSerivce];
 
-            tempString += service[indexOfSerivce].endpoint[j].url+',';
+        var tempString = '';
+        for (j=0;j<currentService.endpoint.length;j++){
+
+            if(currentService.endpoint[j].type == "INTERNET_URL"){
+                $scope.isInternet = true;
+                $scope.endpoints[j] = currentService.endpoint[j].url;
+                //tempString = currentService.endpoint[j].url;
+            }
+            else {
+                $scope.isInternet = false;
+                $scope.endpoints[j] = currentService.endpoint[j].url;
+                //tempString = "noURL";
+            }
+
+
+
+            //tempString += service[indexOfSerivce].endpoint[j].url+',';
 
         }
 
+
+
         $scope.provider = "Provider: " +service[indexOfSerivce].provider;
         $scope.method = "Method: " +service[indexOfSerivce].variant.method;
-        $scope.endpoint = "Endpoint: " +tempString;
-
-
-        console.log("endpoint: "+tempString);
-
-        service[indexOfSerivce].provider;
+        //$scope.endpoint ="Endpoint: "+tempString;
+        $scope.endpointUrl=tempString;
 
         polyServiceVector.redraw();
     }

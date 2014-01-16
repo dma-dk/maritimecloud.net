@@ -61,6 +61,15 @@
     <div ng-bind="provider"></div>
     <div>{{method}}</div>
     <div>{{endpoint}}</div>
+    <div>Endpoint:</div>
+    <div ng-repeat="endpoint in endpoints">
+
+        <a ng-href="{{endpoint}}" ng-show="isInternet" target="_blank" style="padding-left: 10px">{{endpoint}}</a>
+        <div ng-bind="endpoint" ng-hide="isInternet" style="padding-left: 10px"></div>
+    </div>
+
+
+
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
 <script src="http://openlayers.org/dev/OpenLayers.js"></script>

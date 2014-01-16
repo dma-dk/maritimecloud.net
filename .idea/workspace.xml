@@ -3,12 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="2b30ec71-f81c-4205-82a2-55dde08ed83c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/geolocation.js" afterPath="$PROJECT_DIR$/js/geolocation.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/json/services.js" afterPath="$PROJECT_DIR$/json/services.js" />
     </list>
     <ignored path="maritimecloud.net.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389691825225" ignored="false" />
-    <file path="/geolocation.js" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389878970013" ignored="false" />
-    <file path="/index.html" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389709453067" ignored="false" />
+    <file path="/geolocation.js" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389884157523" ignored="false" />
+    <file path="/index.html" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389884182610" ignored="false" />
     <file path="$PROJECT_DIR$/../AisView/src/main/webapp/index.html" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389709517916" ignored="false" />
     <file path="/services.json" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1388751459369" ignored="false" />
     <file path="/olstyle.css" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389696236538" ignored="false" />
@@ -33,21 +35,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="69" selection-start="1297" selection-end="1311" vertical-scroll-proportion="-24.375">
+            <state line="67" column="51" selection-start="2335" selection-end="2335" vertical-scroll-proportion="0.6935484">
               <folding>
                 <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#4;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#4;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="geolocation.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="geolocation.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/geolocation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="146" column="48" selection-start="5135" selection-end="5135" vertical-scroll-proportion="0.44288793">
+            <state line="425" column="41" selection-start="12920" selection-end="12920" vertical-scroll-proportion="-22.73077">
               <folding />
             </state>
           </provider>
@@ -56,7 +60,7 @@
       <file leaf-file-name="services.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/json/services.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="181" column="26" selection-start="4153" selection-end="4153" vertical-scroll-proportion="-23.576923">
+            <state line="171" column="35" selection-start="3880" selection-end="3880" vertical-scroll-proportion="-17.807692">
               <folding />
             </state>
           </provider>
@@ -102,9 +106,9 @@
         <option value="$PROJECT_DIR$/js/insidePolygon.js" />
         <option value="$PROJECT_DIR$/css/olstyle.css" />
         <option value="$PROJECT_DIR$/css/spinner.css" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/json/services.js" />
         <option value="$PROJECT_DIR$/js/geolocation.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -360,6 +364,8 @@
         <state line="25" column="74" selection-start="829" selection-end="829" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#4;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#4;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -390,6 +396,8 @@
         <state line="38" column="0" selection-start="1230" selection-end="1230" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#4;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#4;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -422,26 +430,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="69" selection-start="1297" selection-end="1311" vertical-scroll-proportion="-24.375">
-          <folding>
-            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/json/services.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="181" column="26" selection-start="4153" selection-end="4153" vertical-scroll-proportion="-23.576923">
+        <state line="171" column="35" selection-start="3880" selection-end="3880" vertical-scroll-proportion="-17.807692">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/geolocation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="146" column="48" selection-start="5135" selection-end="5135" vertical-scroll-proportion="0.44288793">
+        <state line="425" column="41" selection-start="12920" selection-end="12920" vertical-scroll-proportion="-22.73077">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="51" selection-start="2335" selection-end="2335" vertical-scroll-proportion="0.6935484">
+          <folding>
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#4;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#4;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

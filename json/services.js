@@ -169,7 +169,7 @@ var service = [ {
     "description" : "MSI DMA WebService 5",
     "endpoint" : [ {
         "type" : "INTERNET_URL",
-        "url" : "http://msi.dma.dk/msi/warnings?wsdl"
+        "url" : "http://www.dma.dk"
     } ],
     "extent" : {
         "type" : "staticServiceExtent",
