@@ -85,7 +85,7 @@ html, body, #map {
     position: absolute;
     top: 0.5em;
     left: 2.5em;
-    width: 250px;
+    width: 270px;
     z-index: 20000;
     padding: 0 0.5em 0.5em 0.5em;
 }
@@ -138,7 +138,12 @@ html, body, #map {
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
+    h1 {
+        font-size:100%;
+    }
+
     #title {
+
         position: absolute;
         top: 0.5em;
         left: 2.5em;
