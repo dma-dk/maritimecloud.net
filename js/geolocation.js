@@ -48,7 +48,9 @@ var map = new OpenLayers.Map('map', {
     projection: new OpenLayers.Projection("EPSG:900913"),
     units: "ft"
 });
-map.addControl(new OpenLayers.Control.ScaleLine({geodesic: true}));
+
+var scaleLine = new OpenLayers.Control.ScaleLine({geodesic: true});
+map.addControl(scaleLine);
 
 var layer = new OpenLayers.Layer.OSM('Simple OSM Map');
 var ownPosLayer = new OpenLayers.Layer.Vector('Own pos Layer');
@@ -578,7 +580,41 @@ function getDistanceFromLatLonInM(lat1,lon1,lat2,lon2) {
 function deg2rad(deg) {
     return deg * (Math.PI/180)
 }
-
+/*
+var scaleIsOn = true;
+//Responsejs test
+Response.resize(function() {
+    if ( Response.band(1200) )
+    {
+        console.log(">1200");
+    }
+    else if ( Response.band(992) )
+    {
+        // 992+
+        console.log(">992");
+    }
+    else if ( Response.band(768) )
+    {
+        // 768+
+        console.log(">768");
+        if (!scaleIsOn){
+            console.log("inside addControl");
+            map.addControl(scaleLine);
+            scaleIsOn = true;
+        }
+    }
+    else
+    {
+        // 0->768
+        console.log("mindre end 768");
+        if (scaleIsOn) {
+            console.log("inside removeControl");
+            map.removeControl(scaleLine);
+            scaleIsOn = false;
+        }
+    }
+});
+*/
 /*
 document.getElementById('track').onclick = function() {
     vector.removeAllFeatures();

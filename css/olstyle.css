@@ -137,7 +137,7 @@ html, body, #map {
 }
 
 /* Landscape phone to portrait tablet */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     h1 {
         font-size:100%;
     }
@@ -217,5 +217,9 @@ ul
     list-style-type: none;
     padding:0;
     margin:0;
+}
+
+#map {
+    border-top-left-radius: 5px;
 }
 
