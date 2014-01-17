@@ -2,23 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b30ec71-f81c-4205-82a2-55dde08ed83c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/geolocation.js" afterPath="$PROJECT_DIR$/js/geolocation.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/olstyle.css" afterPath="$PROJECT_DIR$/css/olstyle.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/responsive-nav-styles.css" afterPath="$PROJECT_DIR$/responsive-nav-styles.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="maritimecloud.net.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389691825225" ignored="false" />
     <file path="/geolocation.js" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389956694570" ignored="false" />
-    <file path="/index.html" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389966460926" ignored="false" />
+    <file path="/index.html" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389972223093" ignored="false" />
     <file path="$PROJECT_DIR$/../AisView/src/main/webapp/index.html" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389709517916" ignored="false" />
     <file path="/services.json" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1388751459369" ignored="false" />
-    <file path="/olstyle.css" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389966800218" ignored="false" />
+    <file path="/olstyle.css" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389971097615" ignored="false" />
     <file path="/services.js" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389772857527" ignored="false" />
     <file path="/a.dummy" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389101068037" ignored="false" />
     <file path="$USER_HOME$/WebstormProjects/sidrTest/index.html" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389961934309" ignored="false" />
-    <file path="/responsive-nav-styles.css" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389965356851" ignored="false" />
+    <file path="/responsive-nav-styles.css" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389971319258" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,14 +41,14 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="71" selection-start="402" selection-end="402" vertical-scroll-proportion="-1.7647059">
+            <state line="134" column="20" selection-start="3388" selection-end="5619" vertical-scroll-proportion="-13.411765">
               <folding>
-                <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#1;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#div#4;n#div#5;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#4;n#div#5;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#4;n#div#3;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#4;n#div#3;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -57,16 +57,16 @@
       <file leaf-file-name="responsive-nav-styles.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/responsive-nav-styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="4" selection-start="1302" selection-end="1330" vertical-scroll-proportion="0.0">
+            <state line="13" column="0" selection-start="274" selection-end="274" vertical-scroll-proportion="-7.5">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="geolocation.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="geolocation.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/geolocation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="616" column="2" selection-start="19015" selection-end="19015" vertical-scroll-proportion="0.74085367">
+            <state line="616" column="2" selection-start="19015" selection-end="19015" vertical-scroll-proportion="-28.038462">
               <folding />
             </state>
           </provider>
@@ -84,7 +84,7 @@
       <file leaf-file-name="olstyle.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/olstyle.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="222" column="32" selection-start="4539" selection-end="4539" vertical-scroll-proportion="-36.192307">
+            <state line="158" column="32" selection-start="3151" selection-end="3151" vertical-scroll-proportion="-63.307693">
               <folding />
             </state>
           </provider>
@@ -99,10 +99,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$USER_HOME$/Downloads/responsive-nav.js-master/demos/advanced-left-navigation/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="4" selection-start="146" selection-end="213" vertical-scroll-proportion="-3.125">
+            <state line="32" column="16" selection-start="815" selection-end="2804" vertical-scroll-proportion="0.49331963">
               <folding />
             </state>
           </provider>
@@ -131,10 +131,10 @@
         <option value="$PROJECT_DIR$/css/spinner.css" />
         <option value="$PROJECT_DIR$/json/services.js" />
         <option value="$PROJECT_DIR$/css/responsive-nav-styles.css" />
-        <option value="$PROJECT_DIR$/responsive-nav-styles.css" />
-        <option value="$PROJECT_DIR$/css/olstyle.css" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/geolocation.js" />
+        <option value="$PROJECT_DIR$/css/olstyle.css" />
+        <option value="$PROJECT_DIR$/responsive-nav-styles.css" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -429,12 +429,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="38" column="0" selection-start="1230" selection-end="1230" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#1;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#4;n#div#5;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#4;n#div#5;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#4;n#div#3;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#4;n#div#3;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -490,44 +490,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/responsive-nav-styles.css">
+    <entry file="file://$PROJECT_DIR$/js/geolocation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="4" selection-start="1302" selection-end="1330" vertical-scroll-proportion="0.0">
+        <state line="616" column="2" selection-start="19015" selection-end="19015" vertical-scroll-proportion="-28.038462">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/olstyle.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="222" column="32" selection-start="4539" selection-end="4539" vertical-scroll-proportion="-36.192307">
+        <state line="158" column="32" selection-start="3151" selection-end="3151" vertical-scroll-proportion="-63.307693">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Downloads/responsive-nav.js-master/demos/advanced-left-navigation/index.html">
+    <entry file="file://$PROJECT_DIR$/responsive-nav-styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="4" selection-start="146" selection-end="213" vertical-scroll-proportion="-3.125">
+        <state line="13" column="0" selection-start="274" selection-end="274" vertical-scroll-proportion="-7.5">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="71" selection-start="402" selection-end="402" vertical-scroll-proportion="-1.7647059">
+        <state line="134" column="20" selection-start="3388" selection-end="5619" vertical-scroll-proportion="-13.411765">
           <folding>
-            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#1;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#4;n#div#5;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#4;n#div#5;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#4;n#div#3;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#4;n#div#3;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/geolocation.js">
+    <entry file="file://$USER_HOME$/Downloads/responsive-nav.js-master/demos/advanced-left-navigation/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="616" column="2" selection-start="19015" selection-end="19015" vertical-scroll-proportion="0.74085367">
+        <state line="32" column="16" selection-start="815" selection-end="2804" vertical-scroll-proportion="0.49331963">
           <folding />
         </state>
       </provider>

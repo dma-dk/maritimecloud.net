@@ -16,11 +16,11 @@
     <!--<link rel="stylesheet" href="css/jquery.sidr.light.css" type="text/css">-->
 
     <!--<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">-->
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <!--<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">-->
 
 
     <!-- Open Layers-->
-    <link rel="stylesheet" href="http://openlayers.org/dev/theme/default/style.css" type="text/css">
+    <!--<link rel="stylesheet" href="http://openlayers.org/dev/theme/default/style.css" type="text/css"-->
     <link rel="stylesheet" href="css/olstyle.css" type="text/css">
 
     <link rel="stylesheet" href="css/responsive-nav.css">
@@ -33,7 +33,7 @@
 </head>
 <body ng-controller="geolocationCtrl">
 
-<nav class="nav-collapse">
+<div role="navigation" id="foo" class="nav-collapse">
     <div id="filters2" ng-cloak>
         <h2 id="filter_title">Service filters</h2>
         <form id="mapform">
@@ -69,11 +69,11 @@
     <div id="noServices2" ng-hide="authorityServices || commercialServices" ng-cloak>
         <h2 id="no_services_title">No services available</h2>
     </div>
-</nav>
+</div>
 
 <div role="main" class="main">
     <a href="#nav" class="nav-toggle">Menu</a>
-    <div id="map"></div>
+    <p id="map"></p>
 
     <!--
     <button id="locate">Locate me!</button>
@@ -81,9 +81,9 @@
     <label for="track">Track my position</label>
     -->
 
-    <div>
-        <h1 id="title">Maritime Cloud Service Broker</h1>
-    </div>
+
+
+
     <div id="filters" ng-cloak>
         <h2 id="filter_title">Service filters</h2>
         <form id="mapform">

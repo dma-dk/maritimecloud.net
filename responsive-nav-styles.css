@@ -12,9 +12,6 @@ ol,ul,li {
 @-o-viewport { width: device-width; }
 @viewport { width: device-width; }
 
-html, body {
-    min-height: 100%;
-}
 
 body {
     min-width: 290px;
@@ -159,7 +156,7 @@ a:hover {
         -ms-user-select: none;
         user-select: none;
         width: 70px;
-        height: 55px;
+        height:     55px;
         float: right;
         display: block;
         margin: 0 -2em 1em 0;
@@ -174,6 +171,7 @@ a:hover {
         border-radius: 0;
         position: relative;
         width: 100%;
+        heigt: 100%;
         overflow: hidden;
     }
     .main::-webkit-scrollbar { background-color: transparent }
