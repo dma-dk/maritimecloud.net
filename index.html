@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app style="overflow-y: hidden;">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -33,8 +33,68 @@
 
 </head>
 <body ng-controller="geolocationCtrl">
-<div class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm" style="z-index: 20000;">
-    <a class="navmenu-brand visible-md visible-lg" href="#">Maritime Cloud Service Broker</a>
+<div class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm">
+
+        <div id="services" ng-show="authorityServices || commercialServices" ng-cloak>
+            <h2 id="authority_services_title" ng-show="authorityServices">Authority services</h2>
+            <div id="authority_serviceList">
+                <div ng-repeat="serviceTitle in serviceTitles | filter:authorityFilter">
+                    <ul>
+                        <li ng-class="{'selected-class-name': $index == selectedIndex1 }"
+                            ng-click="markService(serviceTitle.title,$index,'authority')"
+                            style="cursor:pointer">{{serviceTitle.title}}</li>
+                    </ul>
+
+                </div>
+            </div>
+            <h2 id="commercial_services_title" ng-show="commercialServices" >Commercial services</h2>
+            <div id="commercial_serviceList">
+                <div ng-repeat="serviceTitle in serviceTitles | filter:commercialFilter">
+                    <ul>
+                        <li ng-class="{'selected-class-name': $index == selectedIndex2 }"
+                            ng-click="markService(serviceTitle.title,$index,'commercial')"
+                            style="cursor:pointer">{{serviceTitle.title}}</li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <div id="noServices" ng-hide="authorityServices || commercialServices" ng-cloak>
+            <h2 id="no_services_title">No services available</h2>
+        </div>
+        <div id="info" ng-show="showInfoBox" ng-cloak>
+            <h2 id="info_title">Service info</h2>
+
+            <div ng-bind="provider"></div>
+            <div>{{method}}</div>
+            <div>{{endpoint}}</div>
+            <div>Endpoint:</div>
+            <div ng-repeat="endpoint in endpoints">
+
+                <a ng-href="{{endpoint}}" ng-show="isInternet" target="_blank" style="padding-left: 10px">{{endpoint}}</a>
+                <div ng-bind="endpoint" ng-hide="isInternet" style="padding-left: 10px"></div>
+            </div>
+
+        </div>
+
+</div>
+
+<div class="navbar navbar-default navbar-fixed-top visible-sm visible-xs">
+    <button type="button" class="navbar-toggle visible-sm visible-xs" data-toggle="offcanvas" data-target=".navmenu">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+</div>
+
+<div class="container" style="border: none; height: 100%; width: 100%;">
+
+    <div>
+           <h1 id="title">Maritime Cloud Service Broker</h1>
+    </div>
+
+    <div id="map"></div>
+
     <div id="filters" ng-cloak>
         <h2 id="filter_title">Service filters</h2>
         <form id="mapform">
@@ -43,61 +103,6 @@
             <input type="radio" name="maptype" value="none">All
         </form>
     </div>
-    <div id="services" ng-show="authorityServices || commercialServices" ng-cloak>
-        <h2 id="authority_services_title" ng-show="authorityServices">Authority services</h2>
-        <div id="authority_serviceList">
-            <div ng-repeat="serviceTitle in serviceTitles | filter:authorityFilter">
-                <ul>
-                    <li ng-class="{'selected-class-name': $index == selectedIndex1 }"
-                        ng-click="markService(serviceTitle.title,$index,'authority')"
-                        style="cursor:pointer">{{serviceTitle.title}}</li>
-                </ul>
-
-            </div>
-        </div>
-        <h2 id="commercial_services_title" ng-show="commercialServices" >Commercial services</h2>
-        <div id="commercial_serviceList">
-            <div ng-repeat="serviceTitle in serviceTitles | filter:commercialFilter">
-                <ul>
-                    <li ng-class="{'selected-class-name': $index == selectedIndex2 }"
-                        ng-click="markService(serviceTitle.title,$index,'commercial')"
-                        style="cursor:pointer">{{serviceTitle.title}}</li>
-                </ul>
-
-            </div>
-        </div>
-    </div>
-    <div id="noServices" ng-hide="authorityServices || commercialServices" ng-cloak>
-        <h2 id="no_services_title">No services available</h2>
-    </div>
-    <div id="info" ng-show="showInfoBox" ng-cloak>
-        <h2 id="info_title">Service info</h2>
-
-        <div ng-bind="provider"></div>
-        <div>{{method}}</div>
-        <div>{{endpoint}}</div>
-        <div>Endpoint:</div>
-        <div ng-repeat="endpoint in endpoints">
-
-            <a ng-href="{{endpoint}}" ng-show="isInternet" target="_blank" style="padding-left: 10px">{{endpoint}}</a>
-            <div ng-bind="endpoint" ng-hide="isInternet" style="padding-left: 10px"></div>
-        </div>
-
-    </div>
-</div>
-
-<div class="navbar navbar-default navbar-fixed-top visible-sm visible-xs" style="z-index: 20000;">
-    <button type="button" class="navbar-toggle visible-sm visible-xs" data-toggle="offcanvas" data-target=".navmenu">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="#">Maritime Cloud Service Broker</a>
-</div>
-
-<div class="container" style="border: none; position: absolute; height: 100%; width: 100%;">
-
-    <div id="map"></div>
 
     <!--
     <button id="locate">Locate me!</button>
