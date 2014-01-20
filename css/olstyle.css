@@ -18,7 +18,7 @@ a img {border:none;}
 body {
     font-family: "Lucida Grande", Verdana, Geneva, Lucida, Arial, Helvetica, sans-serif;
     font-size: 80%;
-    color: #222;
+    color: #FCFCFC;
     background: #fff;
     margin: 1em 1.5em;
 }
@@ -35,7 +35,7 @@ a[href] {
     background-color: transparent;
 }
 h1, h2, h3, h4, h5, h6 {
-    color: #003a6b;
+    color: #FCFCFC;
     background-color: transparent;
     font: 100% 'Lucida Grande', Verdana, Geneva, Lucida, Arial, Helvetica, sans-serif;
     margin: 0;
@@ -81,27 +81,20 @@ html, body, #map {
     height: 100%;
 }
 
-#title {
-    position: absolute;
-    top: 0.5em;
-    left: 15em;
-    width: 270px;
-    z-index: 20000;
-    padding: 0 0.5em 0.5em 0.5em;
-}
+
 #filters2 {
     padding: 0 0.5em 0.5em 0.5em;
 }
 #filters {
     position: absolute;
-    bottom: 2em;
-    right: 2em;
-    width: 120px;
+    bottom: 0em;
+    right: 0em;
+    width: 130px;
     z-index: 20000;
-    background-color: white;
+    background-image: url("../images/debut_dark_@2X.png");
     padding: 0 0.5em 0.5em 0.5em;
     box-shadow: 10px 10px 5px #888888;
-    border-radius:3px;
+    border-top-left-radius:4px;
 }
 #services {
     padding-left: 10px;

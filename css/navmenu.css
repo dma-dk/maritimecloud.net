@@ -10,7 +10,8 @@ body {
 }
 
 .navbar {
-  text-align: center;
+    text-align: center;
+    background-image: url("../images/debut_dark_@2X.png");
 }
 .navbar-brand {
   display: inline-block;
@@ -22,6 +23,13 @@ body {
   position: absolute;
 }
 
+.navmenu-default {
+    background-image: url("../images/debut_dark_@2X.png");
+}
+.container {
+    background-image: url("../images/debut_dark_@2X.png");
+}
+
 @media (min-width: 992px) {
   body {
     padding: 0 0 0 200px;
@@ -29,5 +37,24 @@ body {
   .navmenu {
     padding-top: 0;
   }
+  #title {
+    position: absolute;
+    top: 0.8em;
+    left: 15em;
+    width: 270px;
+    z-index: 20000;
+    padding: 0 0.5em 0.5em 0.5em;
+  }
 }
+@media (max-width: 992px) {
+    #title {
+        position: absolute;
+        top: 0.8em;
+        left: 4em;
+        width: 270px;
+        z-index: 20000;
+        padding: 0 0.5em 0.5em 0.5em;
+    }
+}
+
 
