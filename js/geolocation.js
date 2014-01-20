@@ -443,7 +443,7 @@ function geolocationCtrl($scope) {
         while( indexOfSerivce-- ) if( service[indexOfSerivce].description == clickedTitle ) break;
 
         console.log("provider: "+service[indexOfSerivce].provider);
-        console.log("method: "+service[indexOfSerivce].variant.method);
+        console.log("transport: "+service[indexOfSerivce].specification.transport);
 
         var currentService = service[indexOfSerivce];
 
@@ -470,7 +470,7 @@ function geolocationCtrl($scope) {
 
 
         $scope.provider = "Provider: " +service[indexOfSerivce].provider;
-        $scope.method = "Method: " +service[indexOfSerivce].variant.method;
+        $scope.method = "Method: " +service[indexOfSerivce].specification.transport;
         //$scope.endpoint ="Endpoint: "+tempString;
         $scope.endpointUrl=tempString;
 
@@ -487,7 +487,7 @@ function showAllServices(features){
     var selector = angular.element(serviceListDiv);
 
     for (i=0;i<features.length;i++){
-        currentServices.push({type: service[i].variant.specification.description, title: service[i].description});
+        currentServices.push({type: service[i].specification.description, title: service[i].description});
 
     }
     geolocationCtrl(selector.scope());
@@ -506,14 +506,14 @@ function hideAllFeatures(fromLayer){
 }
 
 function showSelectedFeatures(testPoint,serviceFeatures){
-    for (i=0;i<serviceFeatures.length;i++){
+    for (var i=0;i<serviceFeatures.length;i++){
         //is marker position inside polygon?
         //polygon
         if (serviceFeatures[i].data.type == 'polygon'){
             console.log("marker polygon check");
             if (polygonCollection[i].containsPoint(testPoint)) {
                 //push to list of current services
-                currentServices.push({type: service[i].variant.specification.description, title: service[i].description});
+                currentServices.push({type: service[i].specification.description, title: service[i].description});
                 //Showing polygons
                 serviceFeatures[i].style = defaultServiceStyle;
             }
@@ -528,7 +528,7 @@ function showSelectedFeatures(testPoint,serviceFeatures){
 
             if(testDistance<=serviceFeatures[i].data.radius){
                 //push to list of current services
-                currentServices.push({type: service[i].variant.specification.description, title: service[i].description});
+                currentServices.push({type: service[i].specification.description, title: service[i].description});
                 //Showing polygons
                 serviceFeatures[i].style = defaultServiceStyle;
             }
