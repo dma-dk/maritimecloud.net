@@ -10,7 +10,8 @@ body {
 }
 
 .navbar {
-  text-align: center;
+    text-align: center;
+    background-image: url("../images/debut_dark_@2X.png");
 }
 .navbar-brand {
   display: inline-block;
@@ -20,6 +21,13 @@ body {
   float: left;
   margin-left: 15px;
   position: absolute;
+}
+
+.navmenu-default {
+    background-image: url("../images/debut_dark_@2X.png");
+}
+.container {
+    background-image: url("../images/debut_dark_@2X.png");
 }
 
 @media (min-width: 992px) {
