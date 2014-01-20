@@ -12,78 +12,29 @@
 
     <!--<link rel="stylesheet" href="css/spinner.css" type="text/css">-->
 
-    <!-- sidr plug-in layout-->
-    <!--<link rel="stylesheet" href="css/jquery.sidr.light.css" type="text/css">-->
+
+
 
     <!--<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">-->
     <!--<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">-->
+    <!--special edition boorstrap to get nav menu to work: from: http://jasny.github.io/bootstrap/dist/css/bootstrap.css -->
+    <link href="css/bootstrap-Jasny.css" rel="stylesheet">
+
 
 
     <!-- Open Layers-->
     <!--<link rel="stylesheet" href="http://openlayers.org/dev/theme/default/style.css" type="text/css"-->
     <link rel="stylesheet" href="css/olstyle.css" type="text/css">
 
-    <link rel="stylesheet" href="css/responsive-nav.css">
-    <link rel="stylesheet" href="responsive-nav-styles.css">
-
-    <script src="js/responsive-nav.min.js"></script>
+    <!-- Custom styles for the off canvas 'menu' -->
+    <link href="css/navmenu.css" rel="stylesheet">
 
 
 
 </head>
 <body ng-controller="geolocationCtrl">
-
-<div role="navigation" id="foo" class="nav-collapse">
-    <div id="filters2" ng-cloak>
-        <h2 id="filter_title">Service filters</h2>
-        <form id="mapform">
-            <input type="radio" name="maptype" value="own" checked="true">Own pos
-            <!--<input type="radio" name="maptype" value="marker">Marker pos-->
-            <input type="radio" name="maptype" value="none">All
-        </form>
-    </div>
-    <div id="services2" ng-show="authorityServices || commercialServices" ng-cloak>
-        <h2 id="authority_services_title" ng-show="authorityServices">Authority services</h2>
-        <div id="authority_serviceList">
-            <div ng-repeat="serviceTitle in serviceTitles | filter:authorityFilter">
-                <ul>
-                    <li ng-class="{'selected-class-name': $index == selectedIndex1 }"
-                        ng-click="markService(serviceTitle.title,$index,'authority')"
-                        style="cursor:pointer">{{serviceTitle.title}}</li>
-                </ul>
-
-            </div>
-        </div>
-        <h2 id="commercial_services_title" ng-show="commercialServices" >Commercial services</h2>
-        <div id="commercial_serviceList">
-            <div ng-repeat="serviceTitle in serviceTitles | filter:commercialFilter">
-                <ul>
-                    <li ng-class="{'selected-class-name': $index == selectedIndex2 }"
-                        ng-click="markService(serviceTitle.title,$index,'commercial')"
-                        style="cursor:pointer">{{serviceTitle.title}}</li>
-                </ul>
-
-            </div>
-        </div>
-    </div>
-    <div id="noServices2" ng-hide="authorityServices || commercialServices" ng-cloak>
-        <h2 id="no_services_title">No services available</h2>
-    </div>
-</div>
-
-<div role="main" class="main">
-    <a href="#nav" class="nav-toggle">Menu</a>
-    <p id="map"></p>
-
-    <!--
-    <button id="locate">Locate me!</button>
-    <input type="checkbox" name="track" id="track">
-    <label for="track">Track my position</label>
-    -->
-
-
-
-
+<div class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm" style="z-index: 20000;">
+    <a class="navmenu-brand visible-md visible-lg" href="#">Maritime Cloud Service Broker</a>
     <div id="filters" ng-cloak>
         <h2 id="filter_title">Service filters</h2>
         <form id="mapform">
@@ -98,8 +49,8 @@
             <div ng-repeat="serviceTitle in serviceTitles | filter:authorityFilter">
                 <ul>
                     <li ng-class="{'selected-class-name': $index == selectedIndex1 }"
-                         ng-click="markService(serviceTitle.title,$index,'authority')"
-                         style="cursor:pointer">{{serviceTitle.title}}</li>
+                        ng-click="markService(serviceTitle.title,$index,'authority')"
+                        style="cursor:pointer">{{serviceTitle.title}}</li>
                 </ul>
 
             </div>
@@ -135,20 +86,50 @@
     </div>
 </div>
 
+<div class="navbar navbar-default navbar-fixed-top visible-sm visible-xs" style="z-index: 20000;">
+    <button type="button" class="navbar-toggle visible-sm visible-xs" data-toggle="offcanvas" data-target=".navmenu">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">Maritime Cloud Service Broker</a>
+</div>
+
+<div class="container" style="border: none; position: absolute; left: 0; height: 100%; width: 100%;">
+
+    <div id="map"></div>
+
+    <!--
+    <button id="locate">Locate me!</button>
+    <input type="checkbox" name="track" id="track">
+    <label for="track">Track my position</label>
+    -->
+    <!--
+    <div id="title" ng-cloak>
+        <h1 id="maintitle">Maritime Cloud Service Broker</h1>
+    </div>
+    -->
+
+
+
+</div>
+
+
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
 <script src="http://openlayers.org/dev/OpenLayers.js"></script>
 <script src="json/services.js"></script>
+<script src="js/geolocation.js"></script>
 
 
 <!--used for responsive design-->
 <script src="js/jquery-1.10.2.min.js"></script>
 
-<script src="js/response.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/offcanvas.js"></script>
 
-<script src="js/geolocation.js"></script>
 
-<script>
-    var nav = responsiveNav(".nav-collapse");
-</script>
+
 </body>
 </html>
