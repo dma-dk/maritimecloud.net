@@ -442,7 +442,7 @@ function geolocationCtrl($scope) {
         var indexOfSerivce = service.length;
         while( indexOfSerivce-- ) if( service[indexOfSerivce].description == clickedTitle ) break;
 
-        console.log("provider: "+service[indexOfSerivce].provider);
+        console.log("provider: "+service[indexOfSerivce].provider.id);
         console.log("transport: "+service[indexOfSerivce].specification.transport);
 
         var currentService = service[indexOfSerivce];
@@ -469,7 +469,7 @@ function geolocationCtrl($scope) {
 
 
 
-        $scope.provider = "Provider: " +service[indexOfSerivce].provider;
+        $scope.provider = "Provider: " +service[indexOfSerivce].provider.id;
         $scope.method = "Method: " +service[indexOfSerivce].specification.transport;
         //$scope.endpoint ="Endpoint: "+tempString;
         $scope.endpointUrl=tempString;
