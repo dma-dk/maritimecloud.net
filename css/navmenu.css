@@ -41,7 +41,7 @@ body {
     position: absolute;
     top: 0.8em;
     left: 15em;
-    width: 270px;
+    width: 320px;
     z-index: 20000;
     padding: 0 0.5em 0.5em 0.5em;
   }
@@ -51,7 +51,7 @@ body {
         position: absolute;
         top: 0.8em;
         left: 4em;
-        width: 270px;
+        width: 320px;
         z-index: 20000;
         padding: 0 0.5em 0.5em 0.5em;
     }

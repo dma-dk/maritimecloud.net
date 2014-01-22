@@ -37,7 +37,7 @@ a[href] {
 h1, h2, h3, h4, h5, h6 {
     color: #FCFCFC;
     background-color: transparent;
-    font: 100% 'Lucida Grande', Verdana, Geneva, Lucida, Arial, Helvetica, sans-serif;
+    font: 100% Helvetica, Arial, Verdana, Geneva, Lucida, sans-serif;
     margin: 0;
     padding-top: 0.5em;
 }
@@ -56,11 +56,9 @@ h3 {
 }
 h4 {
     font-size: 100%;
-    font-weight: bold;
 }
 h5 {
-    font-size: 100%;
-    font-weight: bold;
+    font-size: 90%;
 }
 h6 {
     font-size: 80%;
@@ -153,14 +151,17 @@ html, body, #map {
     font-weight:bold;
 }
 
-ul
-{
-    list-style-type: none;
-    padding:0;
-    margin:0;
-}
 
 #map {
     border-top-left-radius: 5px;
+}
+#serviceList{
+
+    list-style-type: none;
+    padding:0px;
+    margin:2px;
+    margin-left:10px;
+    font-size: 80%;
+    font-weight: 10;
 }
 

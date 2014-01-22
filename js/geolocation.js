@@ -147,11 +147,15 @@ for (i=0;i<service.length;i++){
         for (j=0;j<testPoints.length;j++){
             testPointsWGS[j]=testPoints[j].transform(Spherical,WGS84);
         }
-        var testPolygonWGS = new OpenLayers.Geometry.Polygon([new OpenLayers.Geometry.LinearRing(testPointsWGS)]);
-        var testCircleFeature = new OpenLayers.Feature.Vector(testPolygonWGS);
-        testCircleFeature.id = service[i].name;
-        testCircleFeature.data = {type: "circle", center: tempCenterPoint, radius: tempRadius};
-        polyServiceVector.addFeatures([testCircleFeature]);
+        var circlePolygon = new OpenLayers.Geometry.Polygon([new OpenLayers.Geometry.LinearRing(testPoints)]);
+        var circlePolygonWGS = new OpenLayers.Geometry.Polygon([new OpenLayers.Geometry.LinearRing(testPointsWGS)]);
+        polygonCollection.push(circlePolygon);
+        polygonCollectionWGS.push(circlePolygonWGS);
+
+        var tempCircleFeature = new OpenLayers.Feature.Vector(circlePolygonWGS);
+        tempCircleFeature.id = service[i].name;
+        tempCircleFeature.data = {type: "circle", center: tempCenterPoint, radius: tempRadius};
+        polyServiceVector.addFeatures([tempCircleFeature]);
     }
 }
 map.addLayers([polyServiceVector]);
