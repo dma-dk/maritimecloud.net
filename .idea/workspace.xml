@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b30ec71-f81c-4205-82a2-55dde08ed83c" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/css/jquery.sidr.light.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/css/responsive-nav.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/debut_dark.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/debut_dark_@2X.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hamburger-retina.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hamburger.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/sidr/component.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/sidr/sidr.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/sidr/stylesheets/jquery.sidr.dark.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/sidr/stylesheets/jquery.sidr.light.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/responsive-nav-styles.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/testNav.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-    </list>
+    <list default="true" id="2b30ec71-f81c-4205-82a2-55dde08ed83c" name="Default" comment="" />
     <ignored path="maritimecloud.net.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1390223088457" ignored="false" />
