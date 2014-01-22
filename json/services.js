@@ -528,7 +528,7 @@ var service = [
       },
       "specification" : {
          "transport" : "navtex",
-         "variant" : "navtex",
+         "variant" : "broadcast-low",
          "version" : "1.0",
          "name" : "MSI (navtex)",
          "operationalService" : {
@@ -648,7 +648,7 @@ var service = [
       },
       "specification" : {
          "transport" : "web",
-         "variant" : "navtex",
+         "variant" : "web",
          "version" : "1.0",
          "name" : "MSI (web)",
          "operationalService" : {
@@ -1130,7 +1130,7 @@ var service = [
       },
       "specification" : {
          "transport" : "soap",
-         "variant" : "ws",
+         "variant" : "req-resp",
          "version" : "1.0",
          "name" : "MSI local (web service)",
          "operationalService" : {
