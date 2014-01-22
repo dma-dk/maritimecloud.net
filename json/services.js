@@ -2523,7 +2523,7 @@ var service = [
             "type" : "polygon"
          }
       }
-   },
+   }/*,
    {
       "provider" : {
          "name" : "Arina Arctica",
@@ -2548,5 +2548,5 @@ var service = [
             "type" : "URL"
          }
       ]
-   }
+   }*/
 ]

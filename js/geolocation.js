@@ -6,6 +6,12 @@ Array.prototype.contains = function(v) {
     }
     return false;
 };
+Array.prototype.containsType = function(v) {
+    for(var i = 0; i < this.length; i++) {
+        if(this[i].type === v) return true;
+    }
+    return false;
+};
 
 Array.prototype.unique = function() {
     var arr = [];
@@ -432,8 +438,7 @@ function geolocationCtrl($scope) {
 
 
 
-    $scope.serviceTitles = currentServices;
-    console.log("length "+serviceTitles.length);
+    $scope.servicesAngular = currentServices;
     console.log("authorityServices: "+$scope.authorityServices);
     console.log("commercialServices: "+$scope.commercialServices);
 
@@ -443,7 +448,13 @@ function geolocationCtrl($scope) {
     $scope.selectedIndex1 = -1;
     $scope.selectedIndex2 = -1;
 
-    $scope.markService = function(clickedTitle,$index,type) {
+    $scope.checkHeadline = function(headLine) {
+
+        console.log("is headline? "+currentServices.containsType(headLine));
+        return currentServices.containsType(headLine);
+    }
+
+    $scope.markService = function(clickedTitle,$index) {
         //info-box string variables
         $scope.provider = '';
         $scope.method = '';
@@ -453,10 +464,14 @@ function geolocationCtrl($scope) {
         //show internet URL or not
         $scope.isInternet = true;
 
+        /*
         $scope.selectedIndex1 = -1;
         $scope.selectedIndex2 = -1;
         if(type == 'authority') $scope.selectedIndex1 = $index;
         if(type == 'commercial') $scope.selectedIndex2 = $index;
+        */
+        $scope.markedTitle = clickedTitle;
+        $scope.selectedIndex = $index;
 
         //clear all styling of current service polygons
         for (i=0;i<currentServices.length;i++){
@@ -473,6 +488,7 @@ function geolocationCtrl($scope) {
         $scope.showInfoBox = true;
 
         //populating infobox
+        /*
         var indexOfSerivce = service.length;
         while( indexOfSerivce-- ) if( service[indexOfSerivce].description == clickedTitle ) break;
 
@@ -507,7 +523,7 @@ function geolocationCtrl($scope) {
         $scope.method = "Method: " +service[indexOfSerivce].specification.transport;
         //$scope.endpoint ="Endpoint: "+tempString;
         $scope.endpointUrl=tempString;
-
+        */
         polyServiceVector.redraw();
     }
 

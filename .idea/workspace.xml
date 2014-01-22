@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b30ec71-f81c-4205-82a2-55dde08ed83c" name="Default" comment="" />
+    <list default="true" id="2b30ec71-f81c-4205-82a2-55dde08ed83c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/geolocation.js" afterPath="$PROJECT_DIR$/js/geolocation.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/json/services.js" afterPath="$PROJECT_DIR$/json/services.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="maritimecloud.net.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1390377547338" ignored="false" />
-    <file path="/geolocation.js" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1390385191041" ignored="false" />
-    <file path="/index.html" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1390385407339" ignored="false" />
+    <file path="/Dummy.txt" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1390385809573" ignored="false" />
+    <file path="/geolocation.js" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1390394656065" ignored="false" />
+    <file path="/index.html" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1390393742073" ignored="false" />
     <file path="$PROJECT_DIR$/../AisView/src/main/webapp/index.html" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389709517916" ignored="false" />
     <file path="/services.json" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1388751459369" ignored="false" />
     <file path="/olstyle.css" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1390226575881" ignored="false" />
@@ -35,10 +40,10 @@
       <content type="file-editors">
         <state>
           <leaf>
-            <file leaf-file-name="services.js" pinned="false" current="true" current-in-tab="true">
+            <file leaf-file-name="services.js" pinned="false" current="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/json/services.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state line="6" column="20" selection-start="127" selection-end="140" vertical-scroll-proportion="0.084586464">
+                  <state line="1620" column="43" selection-start="49888" selection-end="49915" vertical-scroll-proportion="-0.8660886">
                     <folding />
                   </state>
                 </provider>
@@ -55,21 +60,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="9" selection-start="1534" selection-end="1534" vertical-scroll-proportion="-1.2">
+            <state line="50" column="11" selection-start="2122" selection-end="2122" vertical-scroll-proportion="0.37798545">
               <folding>
-                <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="geolocation.js" pinned="false" current="false" current-in-tab="true">
+      <file leaf-file-name="geolocation.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/geolocation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="68" selection-end="68" vertical-scroll-proportion="0.030395137">
+            <state line="440" column="11" selection-start="13199" selection-end="13214" vertical-scroll-proportion="-10.923077">
               <folding />
             </state>
           </provider>
@@ -96,15 +101,15 @@
         <option value="$PROJECT_DIR$/json/services.json" />
         <option value="$PROJECT_DIR$/js/insidePolygon.js" />
         <option value="$PROJECT_DIR$/css/spinner.css" />
-        <option value="$PROJECT_DIR$/json/services.js" />
         <option value="$PROJECT_DIR$/css/responsive-nav-styles.css" />
         <option value="$PROJECT_DIR$/responsive-nav-styles.css" />
         <option value="$PROJECT_DIR$/testNav.html" />
         <option value="$PROJECT_DIR$/css/bootstrap-Jasny.css" />
         <option value="$PROJECT_DIR$/css/navmenu.css" />
         <option value="$PROJECT_DIR$/css/olstyle.css" />
-        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/json/services.js" />
         <option value="$PROJECT_DIR$/js/geolocation.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -147,7 +152,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+    <navigator proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -158,85 +163,7 @@
       <autoscrollFromSource />
       <sortByType />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="maritimecloud.net" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="maritimecloud.net" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="maritimecloud.net" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="maritimecloud.net" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="maritimecloud.net" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="json" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="maritimecloud.net" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="maritimecloud.net" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="maritimecloud.net" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="maritimecloud.net" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="maritimecloud.net" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="maritimecloud.net" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -376,6 +303,22 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/geolocation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="68" selection-end="68" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/css/olstyle.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="78" column="12" selection-start="1850" selection-end="1850" vertical-scroll-proportion="0.0">
@@ -417,9 +360,7 @@
     <entry file="file://$PROJECT_DIR$/js/offcanvas.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1390210780000" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -432,31 +373,29 @@
     </entry>
     <entry file="file://$USER_HOME$/Downloads/responsive-nav.js-master/demos/advanced-left-navigation/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="75" selection-start="724" selection-end="724" vertical-scroll-proportion="0.3033367">
+        <state line="20" column="75" selection-start="724" selection-end="724" vertical-scroll-proportion="0.3033367" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/json/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1620" column="43" selection-start="49888" selection-end="49915" vertical-scroll-proportion="-0.8660886">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/geolocation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="440" column="11" selection-start="13199" selection-end="13214" vertical-scroll-proportion="-10.923077">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="9" selection-start="1534" selection-end="1534" vertical-scroll-proportion="-1.2">
+        <state line="50" column="11" selection-start="2122" selection-end="2122" vertical-scroll-proportion="0.37798545">
           <folding>
-            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/geolocation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="68" selection-end="68" vertical-scroll-proportion="0.030395137">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/json/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="20" selection-start="127" selection-end="140" vertical-scroll-proportion="0.084586464">
-          <folding />
         </state>
       </provider>
     </entry>
