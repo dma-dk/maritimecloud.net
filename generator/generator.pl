@@ -10,12 +10,14 @@ my $s;
 
 ##
 ## Operational services
-my $op_serv_tugs   = { name => 'Tugs service' };
+my $op_serv_tugs   = { name => 'Tugs services' };
 my $op_serv_lps    = { name => 'Local Port Service (LPS)' };
 my $op_serv_tos    = { name => 'Traffic Organization Service (TOS)' };
 my $op_serv_msi    = { name => 'Maritime Safety Information' };
 my $op_serv_report = { name => 'Vessel shore reporting' };
 my $op_serv_ship   = { name => 'Ship sensor services' };
+my $op_serv_met    = { name => 'Meteorological Information Services' };
+my $op_serv_wwvg   = { name => 'World Vessel Traffic Services Guide' };
 
 ##
 ## Create Copenhagen port tug acquire service
@@ -329,6 +331,180 @@ $s->{endpoint}                 = [
 ];
 push( @services, $s );
 
+
+##
+## World VTS guide Great Belt
+##
+$s                                        = {};
+$s->{specification}->{operationalService} = $op_serv_wwvg;
+$s->{specification}->{serviceId}          = "imo.worldvtsguide";
+$s->{specification}->{version}            = "1.0";
+$s->{specification}->{variant}            = "web";
+$s->{specification}->{transport}          = "web";
+$s->{specification}->{name}               = "World VTS Guide (web)";
+$s->{provider}->{id}                      = "DK-VTS-000001";
+$s->{provider}->{name}                    = "Great Belt VTS";
+$s->{type}                                = "STATIC";
+$s->{name}                                = "Great Belt WVG";
+$s->{description}                         = <<TEXT;
+TEXT
+$s->{extent}->{area}->{type}   = "polygon";
+$s->{extent}->{area}->{points} = loadPolygon("tos_gb_vts.kml");
+$s->{endpoint}                 = [
+	{
+		type => 'URL',
+		url  => 'http://www.worldvtsguide.org/Denmark/Storebelt'
+	}
+];
+push( @services, $s );
+
+
+##
+## World VTS guide Oslo
+##
+$s                                        = {};
+$s->{specification}->{operationalService} = $op_serv_wwvg;
+$s->{specification}->{serviceId}          = "imo.worldvtsguide";
+$s->{specification}->{version}            = "1.0";
+$s->{specification}->{variant}            = "web";
+$s->{specification}->{transport}          = "web";
+$s->{specification}->{name}               = "World VTS Guide (web)";
+$s->{provider}->{id}                      = "NO-VTS-000001";
+$s->{provider}->{name}                    = "Oslo VTS";
+$s->{type}                                = "STATIC";
+$s->{name}                                = "Oslo WVG";
+$s->{description}                         = <<TEXT;
+TEXT
+$s->{extent}->{area}->{type}   = "polygon";
+$s->{extent}->{area}->{points} = loadPolygon("tos_oslo_vts.kml");
+$s->{endpoint}                 = [
+	{
+		type => 'URL',
+		url  => 'http://www.worldvtsguide.org/Norway/Oslofjord'
+	}
+];
+push( @services, $s );
+
+
+##
+## World VTS guide Valparaiso - Chile
+##
+$s                                        = {};
+$s->{specification}->{operationalService} = $op_serv_wwvg;
+$s->{specification}->{serviceId}          = "imo.worldvtsguide";
+$s->{specification}->{version}            = "1.0";
+$s->{specification}->{variant}            = "web";
+$s->{specification}->{transport}          = "web";
+$s->{specification}->{name}               = "World VTS Guide (web)";
+$s->{provider}->{id}                      = "CL-VTS-000003";
+$s->{provider}->{name}                    = "Valparaiso VTS";
+$s->{type}                                = "STATIC";
+$s->{name}                                = "Valparaiso WVG";
+$s->{description}                         = <<TEXT;
+TEXT
+$s->{extent}->{area}->{type}   = "polygon";
+$s->{extent}->{area}->{points} = loadPolygon("vts_valparaiso.kml");
+$s->{endpoint}                 = [
+	{
+		type => 'URL',
+		url  => 'http://www.worldvtsguide.org/Chile/Valparaiso'
+	}
+];
+push( @services, $s );
+
+
+##
+## World VTS guide Rotterdam
+##
+$s                                        = {};
+$s->{specification}->{operationalService} = $op_serv_wwvg;
+$s->{specification}->{serviceId}          = "imo.worldvtsguide";
+$s->{specification}->{version}            = "1.0";
+$s->{specification}->{variant}            = "web";
+$s->{specification}->{transport}          = "web";
+$s->{specification}->{name}               = "World VTS Guide (web)";
+$s->{provider}->{id}                      = "NL-VTS-000001";
+$s->{provider}->{name}                    = "Rotterdam VTS";
+$s->{type}                                = "STATIC";
+$s->{name}                                = "Rotterdam WVG";
+$s->{description}                         = <<TEXT;
+TEXT
+$s->{extent}->{area}->{type}   = "circle";
+$s->{extent}->{area}->{points} = [{lat => 52, lon => 3.9722}];
+$s->{extent}->{area}->{radius} = 70376;
+$s->{endpoint}                 = [
+	{
+		type => 'URL',
+		url  => 'http://www.worldvtsguide.org/Netherlands/Rotterham'
+	}
+];
+push( @services, $s );
+
+
+##
+## World VTS guide Singapore STRAITREP
+##
+$s                                        = {};
+$s->{specification}->{operationalService} = $op_serv_wwvg;
+$s->{specification}->{serviceId}          = "imo.worldvtsguide";
+$s->{specification}->{version}            = "1.0";
+$s->{specification}->{variant}            = "web";
+$s->{specification}->{transport}          = "web";
+$s->{specification}->{name}               = "World VTS Guide (web)";
+$s->{provider}->{id}                      = "SG-VTS-000001";
+$s->{provider}->{name}                    = "Singapore VTS";
+$s->{type}                                = "STATIC";
+$s->{name}                                = "Singapore WVG";
+$s->{description}                         = <<TEXT;
+TEXT
+$s->{extent}->{area}->{type}   = "polygon";
+$s->{extent}->{area}->{points} = loadPolygon("vts_singapore.kml");
+$s->{endpoint}                 = [
+	{
+		type => 'URL',
+		url  => 'http://www.worldvtsguide.org/Singapore/Singapore-STRAITREP'
+	}
+];
+push( @services, $s );
+
+
+##
+## World VTS guide Dover Strait
+##
+$s                                        = {};
+$s->{specification}->{operationalService} = $op_serv_wwvg;
+$s->{specification}->{serviceId}          = "imo.worldvtsguide";
+$s->{specification}->{version}            = "1.0";
+$s->{specification}->{variant}            = "web";
+$s->{specification}->{transport}          = "web";
+$s->{specification}->{name}               = "World VTS Guide (web)";
+$s->{provider}->{id}                      = "GB-VTS-000002";
+$s->{provider}->{name}                    = "Dover Strait VTS";
+$s->{type}                                = "STATIC";
+$s->{name}                                = "Dover Strait WVG";
+$s->{description}                         = <<TEXT;
+TEXT
+$s->{extent}->{area}->{type}   = "polygon";
+$s->{extent}->{area}->{points} = loadPolygon("vts_dover.kml");
+$s->{endpoint}                 = [
+	{
+		type => 'URL',
+		url  => 'http://www.worldvtsguide.org/United-Kingdom/Dover-Strait'
+	}
+];
+push( @services, $s );
+
+
+
+
+
+
+
+
+
+
+
+
 ##
 ## Great belt VTS route suggestion (GM)
 ##
@@ -382,10 +558,36 @@ $s->{endpoint}                 = [
 push( @services, $s );
 
 ##
+## METOC on route
+##
+$s                                        = {};
+$s->{specification}->{operationalService} = $op_serv_met;
+$s->{specification}->{serviceId}          = "imo.met.metocroute";
+$s->{specification}->{version}            = "1.0";
+$s->{specification}->{variant}            = "req-resp";
+$s->{specification}->{transport}          = "rest";
+$s->{specification}->{name}               = "METOC on route";
+$s->{provider}->{id}                      = "DK-AUH-00002";
+$s->{provider}->{name}                    = "Danish Meteorological Institute";
+$s->{type}                                = "STATIC";
+$s->{name}                                = "DMI METOC on route";
+$s->{description}                         = <<TEXT;
+TEXT
+$s->{extent}->{area}->{type}   = "polygon";
+$s->{extent}->{area}->{points} = loadPolygon("met_metoc_dmi.kml");
+$s->{endpoint}                 = [
+	{
+		type => 'URL',
+		url  => 'http://sejlrute.dmi.dk/SejlRute/SR'
+	}
+];
+push( @services, $s );
+
+##
 ## Arina Arctica webcam
 ##
 $s                                        = {};
-$s->{specification}->{operationalService} = $op_serv_tos;
+$s->{specification}->{operationalService} = $op_serv_ship;
 $s->{specification}->{serviceId}          = "imo.ship.sensor.webcam";
 $s->{specification}->{version}            = "1.0";
 $s->{specification}->{variant}            = "req";
@@ -407,6 +609,7 @@ $s->{endpoint}                 = [
 	}
 ];
 push( @services, $s );
+
 
 
 
