@@ -37,6 +37,12 @@
 
 <div class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm">
 
+
+    <div ng-repeat=" serviceHeadline in serviceHeadlines">
+        <h2 ng-bind="serviceHeadline"></h2>
+    </div>
+
+    <!--
         <div id="services" ng-show="authorityServices || commercialServices" ng-cloak>
             <h2 id="authority_services_title" ng-show="authorityServices">Authority services</h2>
             <div id="authority_serviceList">
@@ -57,10 +63,10 @@
                             ng-click="markService(serviceTitle.title,$index,'commercial')"
                             style="cursor:pointer">{{serviceTitle.title}}</li>
                     </ul>
-
                 </div>
             </div>
         </div>
+
         <div id="noServices" ng-hide="authorityServices || commercialServices" ng-cloak>
             <h2 id="no_services_title">No services available</h2>
         </div>
@@ -78,6 +84,7 @@
             </div>
 
         </div>
+        -->
 
 </div>
 

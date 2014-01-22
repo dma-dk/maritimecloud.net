@@ -1,5 +1,22 @@
 //Example from http://openlayers.org/dev/examples/geolocation.html
 
+Array.prototype.contains = function(v) {
+    for(var i = 0; i < this.length; i++) {
+        if(this[i] === v) return true;
+    }
+    return false;
+};
+
+Array.prototype.unique = function() {
+    var arr = [];
+    for(var i = 0; i < this.length; i++) {
+        if(!arr.contains(this[i])) {
+            arr.push(this[i]);
+        }
+    }
+    return arr;
+}
+
 var style = {
     fillColor: '#00000',
     fillOpacity: 0.1,
@@ -74,14 +91,16 @@ map.addControl(markerControl);
 //
 //json service testing
 //
-var serviceTitles = [];
+//var serviceTitles = [];
+var serviceHeadlines = [];
 var polygonCollection = [];
 var polygonCollectionWGS = [];
 var polyServiceVector = new OpenLayers.Layer.Vector('Polygons form Service Layer');
 for (i=0;i<service.length;i++){
-    //titles
-    serviceTitles.push({type: "test", title: service[i].description});
+    //collect service headlines
+    serviceHeadlines.push(service[i].specification.operationalService.name);
 
+    //console.log("name: "+service[i].name);
     if (service[i].extent.area.type == 'polygon'){
         //polygons
         console.log("inside poly");
@@ -102,7 +121,7 @@ for (i=0;i<service.length;i++){
         polygonCollectionWGS.push(polygonWGS);
 
         var tempPolyFeature = new OpenLayers.Feature.Vector(polygonWGS);
-        tempPolyFeature.id = serviceTitles[i].title;
+        tempPolyFeature.id = service[i].name;
         tempPolyFeature.data = {type: "polygon"};
         polyServiceVector.addFeatures([tempPolyFeature]);
     }
@@ -124,12 +143,15 @@ for (i=0;i<service.length;i++){
         }
         var testPolygonWGS = new OpenLayers.Geometry.Polygon([new OpenLayers.Geometry.LinearRing(testPointsWGS)]);
         var testCircleFeature = new OpenLayers.Feature.Vector(testPolygonWGS);
-        testCircleFeature.id = serviceTitles[i].title;
+        testCircleFeature.id = service[i].name;
         testCircleFeature.data = {type: "circle", center: tempCenterPoint, radius: tempRadius};
         polyServiceVector.addFeatures([testCircleFeature]);
     }
 }
 map.addLayers([polyServiceVector]);
+
+//make serviceHeadlines unique values
+serviceHeadlines = serviceHeadlines.unique();
 
 //hide all service polygons
 hideAllFeatures(polyServiceVector);
@@ -364,6 +386,7 @@ document.getElementById('mapform').onclick = function() {
 
         var features = polyServiceVector.features;
         //Show all services in list
+        console.log("length of services: "+features.length);
         showAllServices(features);
         //Show all service polygons
         for (i=0;i<features.length;i++){
@@ -380,9 +403,12 @@ document.getElementById('mapform').onclick = function() {
 
 //Angular stuff
 function geolocationCtrl($scope) {
+
+    $scope.serviceHeadlines = serviceHeadlines;
+
     //Filter on services
-    $scope.authorityFilter = "Maritime Safety Information Service";
-    $scope.commercialFilter = "Commercial Information Service";
+    $scope.authorityFilter = "Tugs service";
+    $scope.commercialFilter = "Local Port Service (LPS)";
 
 
 
@@ -391,7 +417,11 @@ function geolocationCtrl($scope) {
     $scope.showInfoBox = false;
 
     var indexTest1 = currentServices.length;
-    while( indexTest1-- ) if( currentServices[indexTest1].type == $scope.authorityFilter ) break;
+    while( indexTest1-- ) {
+        console.log("typRR: "+currentServices[indexTest1].type);
+        if( currentServices[indexTest1].type == $scope.authorityFilter ) break;
+    }
+    console.log("indexTest1 "+indexTest1);
     $scope.authorityServices = true;
     if (indexTest1==-1) $scope.authorityServices=false;
 
@@ -403,6 +433,10 @@ function geolocationCtrl($scope) {
 
 
     $scope.serviceTitles = currentServices;
+    console.log("length "+serviceTitles.length);
+    console.log("authorityServices: "+$scope.authorityServices);
+    console.log("commercialServices: "+$scope.commercialServices);
+
 
 
 
@@ -487,7 +521,8 @@ function showAllServices(features){
     var selector = angular.element(serviceListDiv);
 
     for (i=0;i<features.length;i++){
-        currentServices.push({type: service[i].specification.description, title: service[i].description});
+        currentServices.push({type: service[i].specification.operationalService.name, title: service[i].name});
+        console.log("type: "+service[i].specification.operationalService.name+", title: "+service[i].name);
 
     }
     geolocationCtrl(selector.scope());
@@ -513,7 +548,7 @@ function showSelectedFeatures(testPoint,serviceFeatures){
             console.log("marker polygon check");
             if (polygonCollection[i].containsPoint(testPoint)) {
                 //push to list of current services
-                currentServices.push({type: service[i].specification.description, title: service[i].description});
+                currentServices.push({type: service[i].specification.operationalService.name, title: service[i].name});
                 //Showing polygons
                 serviceFeatures[i].style = defaultServiceStyle;
             }
@@ -528,7 +563,7 @@ function showSelectedFeatures(testPoint,serviceFeatures){
 
             if(testDistance<=serviceFeatures[i].data.radius){
                 //push to list of current services
-                currentServices.push({type: service[i].specification.description, title: service[i].description});
+                currentServices.push({type: service[i].specification.operationalService.name, title: service[i].name});
                 //Showing polygons
                 serviceFeatures[i].style = defaultServiceStyle;
             }
@@ -580,6 +615,13 @@ function getDistanceFromLatLonInM(lat1,lon1,lat2,lon2) {
 function deg2rad(deg) {
     return deg * (Math.PI/180)
 }
+
+//
+//Prototype functions
+//===================
+
+
+
 /*
 var scaleIsOn = true;
 //Responsejs test
