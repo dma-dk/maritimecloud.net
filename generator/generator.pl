@@ -11,7 +11,7 @@ my $s;
 ##
 ## Operational services
 my $op_serv_tugs   = { name => 'Tugs services' };
-my $op_serv_lps    = { name => 'Local Port Service (LPS)' };
+my $op_serv_lps    = { name => 'Local Port Service' };
 my $op_serv_tos    = { name => 'Traffic Organization Service' };
 my $op_serv_msi    = { name => 'Maritime Safety Information' };
 my $op_serv_report = { name => 'Vessel shore reporting' };

@@ -4413,7 +4413,7 @@ var service = [
          "version" : "1.0",
          "name" : "Local Port Service",
          "operationalService" : {
-            "name" : "Local Port Service (LPS)"
+            "name" : "Local Port Service"
          },
          "serviceId" : "imo.lps"
       },
@@ -4475,7 +4475,7 @@ var service = [
          "version" : "1.0",
          "name" : "Local Port Service",
          "operationalService" : {
-            "name" : "Local Port Service (LPS)"
+            "name" : "Local Port Service"
          },
          "serviceId" : "imo.lps"
       },
