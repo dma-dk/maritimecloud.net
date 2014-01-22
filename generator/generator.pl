@@ -28,12 +28,12 @@ $s->{specification}->{serviceId}          = "imo.tos";
 $s->{specification}->{version}            = "1.0";
 $s->{specification}->{variant}            = "web";
 $s->{specification}->{transport}          = "web";
-$s->{specification}->{name} = "Traffic Organisation Service (web)";
-$s->{provider}->{id}        = "NO-VTS-000001";
-$s->{provider}->{name}      = "Oslo VTS";
-$s->{type}                  = "STATIC";
-$s->{name}                  = "Oslo VTS TOS (web)";
-$s->{description}           = <<TEXT;
+$s->{specification}->{name}               = "Traffic Organisation Service (web)";
+$s->{provider}->{id}                      = "NO-VTS-000001";
+$s->{provider}->{name}                    = "Oslo VTS";
+$s->{type}                                = "STATIC";
+$s->{name}                                = "Oslo VTS TOS (web)";
+$s->{description}                         = <<TEXT;
 Oslo VTS Traffic Organization Service
 TEXT
 $s->{extent}->{area}->{type}   = "polygon";
@@ -41,8 +41,7 @@ $s->{extent}->{area}->{points} = loadPolygon("tos_oslo_vts.kml");
 $s->{endpoint}                 = [
 	{
 		type => 'URL',
-		url  =>
-		  'http://www.oslohavn.no/en/cargo/services_at_port_of_oslo/oslo_vts/'
+		url  => 'http://www.oslohavn.no/en/cargo/services_at_port_of_oslo/oslo_vts/'
 	}
 ];
 push( @services, $s );
@@ -56,12 +55,12 @@ $s->{specification}->{serviceId}          = "imo.tos";
 $s->{specification}->{version}            = "1.0";
 $s->{specification}->{variant}            = "web";
 $s->{specification}->{transport}          = "web";
-$s->{specification}->{name} = "Traffic Organisation Service (web)";
-$s->{provider}->{id}        = "SE-VTS-000002";
-$s->{provider}->{name}      = "Gothenburg VTS";
-$s->{type}                  = "STATIC";
-$s->{name}                  = "Gothenburg VTS TOS (web)";
-$s->{description}           = <<TEXT;
+$s->{specification}->{name}               = "Traffic Organisation Service (web)";
+$s->{provider}->{id}                      = "SE-VTS-000002";
+$s->{provider}->{name}                    = "Gothenburg VTS";
+$s->{type}                                = "STATIC";
+$s->{name}                                = "Gothenburg VTS TOS (web)";
+$s->{description}                         = <<TEXT;
 Oslo VTS Traffic Organization Service
 TEXT
 $s->{extent}->{area}->{type}   = "polygon";
@@ -69,8 +68,7 @@ $s->{extent}->{area}->{points} = loadPolygon("tos_goth_vts.kml");
 $s->{endpoint}                 = [
 	{
 		type => 'URL',
-		url  =>
-		  'http://goteborgshamn.se/Om-hamnen/Maritimt2/Gothenburg-Approach/'
+		url  => 'http://goteborgshamn.se/Om-hamnen/Maritimt2/Gothenburg-Approach/'
 	}
 ];
 push( @services, $s );
@@ -84,12 +82,12 @@ $s->{specification}->{serviceId}          = "imo.tos";
 $s->{specification}->{version}            = "1.0";
 $s->{specification}->{variant}            = "web";
 $s->{specification}->{transport}          = "web";
-$s->{specification}->{name} = "Traffic Organisation Service (web)";
-$s->{provider}->{id}        = "SE-VTS-000004";
-$s->{provider}->{name}      = "Sound VTS";
-$s->{type}                  = "STATIC";
-$s->{name}                  = "Sound VTS TOS (web)";
-$s->{description}           = <<TEXT;
+$s->{specification}->{name}               = "Traffic Organisation Service (web)";
+$s->{provider}->{id}                      = "SE-VTS-000004";
+$s->{provider}->{name}                    = "Sound VTS";
+$s->{type}                                = "STATIC";
+$s->{name}                                = "Sound VTS TOS (web)";
+$s->{description}                         = <<TEXT;
 The Sound VTS Traffic Organization Service
 TEXT
 $s->{extent}->{area}->{type}   = "polygon";
@@ -153,8 +151,7 @@ $s->{extent}->{area}->{points} = loadPolygon("msi_baltico_navtex.kml");
 $s->{endpoint}                 = [
 	{
 		type => 'URL',
-		url  =>
-'http://www.sjofartsverket.se/en/Maritime-services/Maritime-Traffic-Information/Navigational-Warnings/NAVTEX1/'
+		url  => 'http://www.sjofartsverket.se/en/Maritime-services/Maritime-Traffic-Information/Navigational-Warnings/NAVTEX1/'
 	}
 ];
 push( @services, $s );
@@ -198,7 +195,7 @@ $s->{specification}->{name}               = "MSI local (vhf)";
 $s->{provider}->{id}                      = "DK-AUH-000001";
 $s->{provider}->{name}                    = "Danish Maritime Authority";
 $s->{type}                                = "STATIC";
-$s->{name}                                 = "Danish local MSI (vhf)";
+$s->{name}                                = "Danish local MSI (vhf)";
 $s->{description}                         = <<TEXT;
 Navigational Warnings are broadcasted first time immediately after the first period of silence 
 after reception and after this as follows: In connection with the periods of silence at 0133, 
@@ -236,6 +233,60 @@ $s->{endpoint}                 = [
 push( @services, $s );
 
 ##
+## MSI NAVAREA VIII
+##
+$s                                        = {};
+$s->{specification}->{operationalService} = $op_serv_msi;
+$s->{specification}->{serviceId}          = "imo.msi";
+$s->{specification}->{version}            = "1.0";
+$s->{specification}->{variant}            = "web";
+$s->{specification}->{transport}          = "web";
+$s->{specification}->{name}               = "MSI (web)";
+$s->{provider}->{id}                      = "IN-AUH-000005";
+$s->{provider}->{name}                    = "Indian Naval Hydrographic Department";
+$s->{type}                                = "STATIC";
+$s->{name}                                = "MSI NAVAREA VIII (web)";
+$s->{description}                         = <<TEXT;
+TEXT
+$s->{extent}->{area}->{type}   = "polygon";
+$s->{extent}->{area}->{points} = loadPolygon("navarea_india.kml");
+$s->{endpoint}                 = [
+	{
+		type => 'URL',
+		url  => 'http://www.hydrobharat.nic.in/pdf/navarea_warnings_in_force.pdf'
+	}
+];
+push( @services, $s );
+
+##
+## MSI NAVAREA IX
+##
+$s                                        = {};
+$s->{specification}->{operationalService} = $op_serv_msi;
+$s->{specification}->{serviceId}          = "imo.msi";
+$s->{specification}->{version}            = "1.0";
+$s->{specification}->{variant}            = "web";
+$s->{specification}->{transport}          = "web";
+$s->{specification}->{name}               = "MSI (web)";
+$s->{provider}->{id}                      = "PK-AUH-000005";
+$s->{provider}->{name}                    = "Pakistan Navy Hydrographic Department";
+$s->{type}                                = "STATIC";
+$s->{name}                                = "MSI NAVAREA IX (web)";
+$s->{description}                         = <<TEXT;
+TEXT
+$s->{extent}->{area}->{type}   = "polygon";
+$s->{extent}->{area}->{points} = loadPolygon("navarea_pakistan.kml");
+$s->{endpoint}                 = [
+	{
+		type => 'URL',
+		url  => 'http://www.paknavy.gov.pk/hydro/n_navwarn.asp'
+	}
+];
+push( @services, $s );
+
+
+
+##
 ## Create Copenhagen port tug acquire service
 ##
 $s                                        = {};
@@ -248,8 +299,8 @@ $s->{specification}->{name}               = "Tugs acquire service";
 $s->{provider}->{id}                      = "DK-PRT-000001";
 $s->{provider}->{name}                    = "Copenhagen Port";
 $s->{type}                                = "STATIC";
-$s->{name}        = "Copenhagen Tugs acquire service";
-$s->{description} = <<TEXT;
+$s->{name}                                = "Copenhagen Tugs acquire service";
+$s->{description}                         = <<TEXT;
 * Tugs can be acquired on VHF Channel 16/9
 * 4h notice required, but 18h recommended. 1h notice for cancellation. 
   45% extra charge might be added for late order or cancellations. 
@@ -305,7 +356,6 @@ $s->{extent}->{area}->{type}   = "polygon";
 $s->{extent}->{area}->{points} = loadPolygon("lps_goth_port.kml");
 push( @services, $s );
 
-
 ##
 ## Norweigian reporting service
 ##
@@ -331,7 +381,6 @@ $s->{endpoint}                 = [
 	}
 ];
 push( @services, $s );
-
 
 ##
 ## World VTS guide Great Belt
@@ -359,7 +408,6 @@ $s->{endpoint}                 = [
 ];
 push( @services, $s );
 
-
 ##
 ## World VTS guide Oslo
 ##
@@ -385,7 +433,6 @@ $s->{endpoint}                 = [
 	}
 ];
 push( @services, $s );
-
 
 ##
 ## World VTS guide Valparaiso - Chile
@@ -413,7 +460,6 @@ $s->{endpoint}                 = [
 ];
 push( @services, $s );
 
-
 ##
 ## World VTS guide Rotterdam
 ##
@@ -431,7 +477,7 @@ $s->{name}                                = "Rotterdam WVG (web)";
 $s->{description}                         = <<TEXT;
 TEXT
 $s->{extent}->{area}->{type}   = "circle";
-$s->{extent}->{area}->{points} = [{lat => 52, lon => 3.9722}];
+$s->{extent}->{area}->{points} = [ { lat => 52, lon => 3.9722 } ];
 $s->{extent}->{area}->{radius} = 70376;
 $s->{endpoint}                 = [
 	{
@@ -440,7 +486,6 @@ $s->{endpoint}                 = [
 	}
 ];
 push( @services, $s );
-
 
 ##
 ## World VTS guide Singapore STRAITREP
@@ -468,7 +513,6 @@ $s->{endpoint}                 = [
 ];
 push( @services, $s );
 
-
 ##
 ## World VTS guide Dover Strait
 ##
@@ -494,8 +538,6 @@ $s->{endpoint}                 = [
 	}
 ];
 push( @services, $s );
-
-
 
 ##
 ## Great belt VTS route suggestion (GM)
@@ -591,19 +633,16 @@ $s->{type}                                = "DYNAMIC";
 $s->{name}                                = "Arina Arctica Webcam";
 $s->{description}                         = <<TEXT;
 TEXT
-#$s->{extent}->{area}->{type}   = "cirle";
-#$s->{extent}->{area}->{points} = [ { lat => 67.5799, lon => -54.1436 } ];
-#$s->{extent}->{area}->{radius} = 10000;
-$s->{endpoint}                 = [
+$s->{extent}->{area}->{type}   = "cirle";
+$s->{extent}->{area}->{points} = [ { lat => 67.5799, lon => -54.1436 } ];
+$s->{extent}->{area}->{radius} = 0;
+$s->{endpoint} = [
 	{
 		type => 'URL',
 		url  => 'http://webcam.ral.dk/arina.jpg'
 	}
 ];
 push( @services, $s );
-
-
-
 
 print "var service = " . $json->encode( \@services );
 
