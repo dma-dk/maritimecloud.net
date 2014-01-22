@@ -15,6 +15,7 @@ my $op_serv_lps    = { name => 'Local Port Service (LPS)' };
 my $op_serv_tos    = { name => 'Traffic Organization Service (TOS)' };
 my $op_serv_msi    = { name => 'Maritime Safety Information' };
 my $op_serv_report = { name => 'Vessel shore reporting' };
+my $op_serv_ship   = { name => 'Ship sensor services' };
 
 ##
 ## Create Copenhagen port tug acquire service
@@ -29,8 +30,8 @@ $s->{specification}->{name}               = "Tugs acquire service";
 $s->{provider}->{id}                      = "DK-PRT-000001";
 $s->{provider}->{name}                    = "Copenhagen Port";
 $s->{type}                                = "STATIC";
-$s->{name}                                = "Copenhagen Port Tug Acquire Service";
-$s->{description}                         = <<TEXT;
+$s->{name}        = "Copenhagen Port Tug Acquire Service";
+$s->{description} = <<TEXT;
 * Tugs can be acquired on VHF Channel 16/9
 * 4h notice required, but 18h recommended. 1h notice for cancellation. 
   45% extra charge might be added for late order or cancellations. 
@@ -95,12 +96,12 @@ $s->{specification}->{serviceId}          = "imo.tos";
 $s->{specification}->{version}            = "1.0";
 $s->{specification}->{variant}            = "web";
 $s->{specification}->{transport}          = "web";
-$s->{specification}->{name}               = "Traffic Organisation Service (web)";
-$s->{provider}->{id}                      = "NO-VTS-000001";
-$s->{provider}->{name}                    = "Oslo VTS";
-$s->{type}                                = "STATIC";
-$s->{name}                                = "Oslo VTS TOS";
-$s->{description}                         = <<TEXT;
+$s->{specification}->{name} = "Traffic Organisation Service (web)";
+$s->{provider}->{id}        = "NO-VTS-000001";
+$s->{provider}->{name}      = "Oslo VTS";
+$s->{type}                  = "STATIC";
+$s->{name}                  = "Oslo VTS TOS";
+$s->{description}           = <<TEXT;
 Oslo VTS Traffic Organization Service
 TEXT
 $s->{extent}->{area}->{type}   = "polygon";
@@ -108,7 +109,8 @@ $s->{extent}->{area}->{points} = loadPolygon("tos_oslo_vts.kml");
 $s->{endpoint}                 = [
 	{
 		type => 'URL',
-		url  => 'http://www.oslohavn.no/en/cargo/services_at_port_of_oslo/oslo_vts/'
+		url  =>
+		  'http://www.oslohavn.no/en/cargo/services_at_port_of_oslo/oslo_vts/'
 	}
 ];
 push( @services, $s );
@@ -122,12 +124,12 @@ $s->{specification}->{serviceId}          = "imo.tos";
 $s->{specification}->{version}            = "1.0";
 $s->{specification}->{variant}            = "web";
 $s->{specification}->{transport}          = "web";
-$s->{specification}->{name}               = "Traffic Organisation Service (web)";
-$s->{provider}->{id}                      = "SE-VTS-000002";
-$s->{provider}->{name}                    = "Gothenburg VTS";
-$s->{type}                                = "STATIC";
-$s->{name}                                = "Gothenburg VTS TOS";
-$s->{description}                         = <<TEXT;
+$s->{specification}->{name} = "Traffic Organisation Service (web)";
+$s->{provider}->{id}        = "SE-VTS-000002";
+$s->{provider}->{name}      = "Gothenburg VTS";
+$s->{type}                  = "STATIC";
+$s->{name}                  = "Gothenburg VTS TOS";
+$s->{description}           = <<TEXT;
 Oslo VTS Traffic Organization Service
 TEXT
 $s->{extent}->{area}->{type}   = "polygon";
@@ -135,7 +137,8 @@ $s->{extent}->{area}->{points} = loadPolygon("tos_goth_vts.kml");
 $s->{endpoint}                 = [
 	{
 		type => 'URL',
-		url  => 'http://goteborgshamn.se/Om-hamnen/Maritimt2/Gothenburg-Approach/'
+		url  =>
+		  'http://goteborgshamn.se/Om-hamnen/Maritimt2/Gothenburg-Approach/'
 	}
 ];
 push( @services, $s );
@@ -149,12 +152,12 @@ $s->{specification}->{serviceId}          = "imo.tos";
 $s->{specification}->{version}            = "1.0";
 $s->{specification}->{variant}            = "web";
 $s->{specification}->{transport}          = "web";
-$s->{specification}->{name}               = "Traffic Organisation Service (web)";
-$s->{provider}->{id}                      = "SE-VTS-000004";
-$s->{provider}->{name}                    = "Sound VTS";
-$s->{type}                                = "STATIC";
-$s->{name}                                = "Sound VTS TOS";
-$s->{description}                         = <<TEXT;
+$s->{specification}->{name} = "Traffic Organisation Service (web)";
+$s->{provider}->{id}        = "SE-VTS-000004";
+$s->{provider}->{name}      = "Sound VTS";
+$s->{type}                  = "STATIC";
+$s->{name}                  = "Sound VTS TOS";
+$s->{description}           = <<TEXT;
 The Sound VTS Traffic Organization Service
 TEXT
 $s->{extent}->{area}->{type}   = "polygon";
@@ -218,7 +221,8 @@ $s->{extent}->{area}->{points} = loadPolygon("msi_baltico_navtex.kml");
 $s->{endpoint}                 = [
 	{
 		type => 'URL',
-		url  => 'http://www.sjofartsverket.se/en/Maritime-services/Maritime-Traffic-Information/Navigational-Warnings/NAVTEX1/'
+		url  =>
+'http://www.sjofartsverket.se/en/Maritime-services/Maritime-Traffic-Information/Navigational-Warnings/NAVTEX1/'
 	}
 ];
 push( @services, $s );
@@ -299,7 +303,6 @@ $s->{endpoint}                 = [
 ];
 push( @services, $s );
 
-
 ##
 ## Norweigian reporting service
 ##
@@ -317,7 +320,7 @@ $s->{name}                                = "Shiprep Norway";
 $s->{description}                         = <<TEXT;
 TEXT
 $s->{extent}->{area}->{type}   = "polygon";
-$s->{extent}->{area}->{points} = [];
+$s->{extent}->{area}->{points} = loadPolygon("rep_no.kml");
 $s->{endpoint}                 = [
 	{
 		type => 'URL',
@@ -378,16 +381,32 @@ $s->{endpoint}                 = [
 ];
 push( @services, $s );
 
-
-
-
-
-
-
-
-
-
-
+##
+## Arina Arctica webcam
+##
+$s                                        = {};
+$s->{specification}->{operationalService} = $op_serv_tos;
+$s->{specification}->{serviceId}          = "imo.ship.sensor.webcam";
+$s->{specification}->{version}            = "1.0";
+$s->{specification}->{variant}            = "req";
+$s->{specification}->{transport}          = "web";
+$s->{specification}->{name}               = "Ship Webcam";
+$s->{provider}->{id}                      = "DK-SHP-001432";
+$s->{provider}->{name}                    = "Arina Arctica";
+$s->{type}                                = "DYNAMIC";
+$s->{name}                                = "Arina Arctica Webcam";
+$s->{description}                         = <<TEXT;
+TEXT
+#$s->{extent}->{area}->{type}   = "cirle";
+#$s->{extent}->{area}->{points} = [ { lat => 67.5799, lon => -54.1436 } ];
+#$s->{extent}->{area}->{radius} = 10000;
+$s->{endpoint}                 = [
+	{
+		type => 'URL',
+		url  => 'http://webcam.ral.dk/arina.jpg'
+	}
+];
+push( @services, $s );
 
 
 
