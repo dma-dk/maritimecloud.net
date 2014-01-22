@@ -632,8 +632,8 @@ $s->{type}                                = "DYNAMIC";
 $s->{name}                                = "Arina Arctica Webcam";
 $s->{description}                         = <<TEXT;
 TEXT
-$s->{extent}->{area}->{type}   = "cirle";
-$s->{extent}->{area}->{points} = [ { lat => 67.5799, lon => -54.1436 } ];
+$s->{extent}->{area}->{type}   = "circle";
+$s->{extent}->{area}->{points} = [ { lat => 67.5799, lon => 54.1436 } ];
 $s->{extent}->{area}->{radius} = 0;
 $s->{endpoint} = [
 	{
@@ -644,7 +644,7 @@ $s->{endpoint} = [
 push( @services, $s );
 
 
-print "var service = " . $json->encode( \@services );
+print "var service = " . $json->encode( \@services ) . ";";
 
 sub loadPolygon {
 	my $file = shift;
