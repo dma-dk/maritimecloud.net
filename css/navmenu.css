@@ -32,7 +32,7 @@ body {
 
 @media (min-width: 992px) {
   body {
-    padding: 0 0 0 321px;
+    padding: 0 0 0 250px;
   }
   .navmenu {
     padding-top: 0;
@@ -40,8 +40,8 @@ body {
   #title {
     position: absolute;
     top: 0.8em;
-    left: 15em;
-    width: 320px;
+    left: 18em;
+    width: 300px;
     z-index: 20000;
     padding: 0 0.5em 0.5em 0.5em;
   }
@@ -51,7 +51,7 @@ body {
         position: absolute;
         top: 0.8em;
         left: 4em;
-        width: 320px;
+        width: 300px;
         z-index: 20000;
         padding: 0 0.5em 0.5em 0.5em;
     }
