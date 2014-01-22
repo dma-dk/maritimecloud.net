@@ -10,7 +10,7 @@ var service = [
          "version" : "1.0",
          "name" : "Traffic Organisation Service (web)",
          "operationalService" : {
-            "name" : "Traffic Organization Service (TOS)"
+            "name" : "Traffic Organization Service"
          },
          "serviceId" : "imo.tos"
       },
@@ -90,7 +90,7 @@ var service = [
          "version" : "1.0",
          "name" : "Traffic Organisation Service (web)",
          "operationalService" : {
-            "name" : "Traffic Organization Service (TOS)"
+            "name" : "Traffic Organization Service"
          },
          "serviceId" : "imo.tos"
       },
@@ -162,7 +162,7 @@ var service = [
          "version" : "1.0",
          "name" : "Traffic Organisation Service (web)",
          "operationalService" : {
-            "name" : "Traffic Organization Service (TOS)"
+            "name" : "Traffic Organization Service"
          },
          "serviceId" : "imo.tos"
       },
@@ -3175,272 +3175,6 @@ var service = [
    },
    {
       "provider" : {
-         "name" : "Copenhagen Port",
-         "id" : "DK-PRT-000001"
-      },
-      "specification" : {
-         "transport" : "none",
-         "variant" : "text",
-         "version" : "1.0",
-         "name" : "Tugs acquire service",
-         "operationalService" : {
-            "name" : "Tugs services"
-         },
-         "serviceId" : "imo.tug.acquire"
-      },
-      "name" : "Copenhagen Tugs acquire service",
-      "type" : "STATIC",
-      "description" : "* Tugs can be acquired on VHF Channel 16/9\n* 4h notice required, but 18h recommended. 1h notice for cancellation. \n  45% extra charge might be added for late order or cancellations. \n  Late request/notice may lead to tugs being not available in the port.\n",
-      "extent" : {
-         "area" : {
-            "points" : [
-               {
-                  "lat" : "55.67356740242492",
-                  "lon" : "12.58980188079239"
-               },
-               {
-                  "lat" : "55.67989361948808",
-                  "lon" : "12.60229414325821"
-               },
-               {
-                  "lat" : "55.69419190340919",
-                  "lon" : "12.61693642781405"
-               },
-               {
-                  "lat" : "55.6796728003044",
-                  "lon" : "12.61974304991921"
-               },
-               {
-                  "lat" : "55.66238629183269",
-                  "lon" : "12.63572738385687"
-               },
-               {
-                  "lat" : "55.67241223378677",
-                  "lon" : "12.65921358390734"
-               },
-               {
-                  "lat" : "55.68523507450432",
-                  "lon" : "12.65975414127439"
-               },
-               {
-                  "lat" : "55.72239109792934",
-                  "lon" : "12.65197058054286"
-               },
-               {
-                  "lat" : "55.72478815581839",
-                  "lon" : "12.63366738979955"
-               },
-               {
-                  "lat" : "55.71370225328965",
-                  "lon" : "12.59124341393774"
-               },
-               {
-                  "lat" : "55.69582513513867",
-                  "lon" : "12.5908245360242"
-               },
-               {
-                  "lat" : "55.67941503361401",
-                  "lon" : "12.58842137844189"
-               },
-               {
-                  "lat" : "55.66382583083183",
-                  "lon" : "12.56365906402069"
-               },
-               {
-                  "lat" : "55.66177161390107",
-                  "lon" : "12.57117192334714"
-               },
-               {
-                  "lat" : "55.67356740242492",
-                  "lon" : "12.58980188079239"
-               }
-            ],
-            "type" : "polygon"
-         }
-      }
-   },
-   {
-      "provider" : {
-         "name" : "Oslo Port",
-         "id" : "NO-PRT-000001"
-      },
-      "specification" : {
-         "transport" : "none",
-         "variant" : "text",
-         "version" : "1.0",
-         "name" : "Local Port Service",
-         "operationalService" : {
-            "name" : "Local Port Service (LPS)"
-         },
-         "serviceId" : "imo.lps"
-      },
-      "name" : "Oslo LPS",
-      "type" : "STATIC",
-      "description" : "* Phone +47 815 00 606\n* Oslo port operates on VHF channel 80 (main channel for all)\n* VHF channel 12 in the harbour district \n",
-      "extent" : {
-         "area" : {
-            "points" : [
-               {
-                  "lat" : "59.75020364011537",
-                  "lon" : "10.72799638463457"
-               },
-               {
-                  "lat" : "59.81048552165145",
-                  "lon" : "10.77360405179664"
-               },
-               {
-                  "lat" : "59.88428047932964",
-                  "lon" : "10.79379044441497"
-               },
-               {
-                  "lat" : "59.91845033749655",
-                  "lon" : "10.72705068438618"
-               },
-               {
-                  "lat" : "59.90466068698812",
-                  "lon" : "10.56578450285417"
-               },
-               {
-                  "lat" : "59.83684949355812",
-                  "lon" : "10.46462901129754"
-               },
-               {
-                  "lat" : "59.7599981140963",
-                  "lon" : "10.49876798353649"
-               },
-               {
-                  "lat" : "59.76086510123581",
-                  "lon" : "10.59184011723"
-               },
-               {
-                  "lat" : "59.75020364011537",
-                  "lon" : "10.72799638463457"
-               }
-            ],
-            "type" : "polygon"
-         }
-      }
-   },
-   {
-      "provider" : {
-         "name" : "Gothenburg Port",
-         "id" : "SE-PRT-000004"
-      },
-      "specification" : {
-         "transport" : "none",
-         "variant" : "text",
-         "version" : "1.0",
-         "name" : "Local Port Service",
-         "operationalService" : {
-            "name" : "Local Port Service (LPS)"
-         },
-         "serviceId" : "imo.lps"
-      },
-      "name" : "Gothenburg LPS",
-      "type" : "STATIC",
-      "description" : "* VHF: Channel 12\n* Telephone: +46 31 368 75 15\n* E-mail: portcontrol@portgot.se\n",
-      "extent" : {
-         "area" : {
-            "points" : [
-               {
-                  "lat" : "57.6506674251164",
-                  "lon" : "11.76399586611927"
-               },
-               {
-                  "lat" : "57.65102746075926",
-                  "lon" : "11.85582812848289"
-               },
-               {
-                  "lat" : "57.66784231506892",
-                  "lon" : "11.86095712086628"
-               },
-               {
-                  "lat" : "57.67644768594504",
-                  "lon" : "11.86638943598096"
-               },
-               {
-                  "lat" : "57.68676177865788",
-                  "lon" : "11.90232377446022"
-               },
-               {
-                  "lat" : "57.69529556088835",
-                  "lon" : "11.91935276521047"
-               },
-               {
-                  "lat" : "57.69926851840271",
-                  "lon" : "11.94731837073538"
-               },
-               {
-                  "lat" : "57.70399192557183",
-                  "lon" : "11.95988026741323"
-               },
-               {
-                  "lat" : "57.71221985309078",
-                  "lon" : "11.97191609613468"
-               },
-               {
-                  "lat" : "57.71807679572643",
-                  "lon" : "11.98809665926507"
-               },
-               {
-                  "lat" : "57.72737448124823",
-                  "lon" : "11.99982538042182"
-               },
-               {
-                  "lat" : "57.72974558097118",
-                  "lon" : "11.99154784858386"
-               },
-               {
-                  "lat" : "57.72506445879296",
-                  "lon" : "11.98294603977963"
-               },
-               {
-                  "lat" : "57.72021876907742",
-                  "lon" : "11.96197143893018"
-               },
-               {
-                  "lat" : "57.71839434498919",
-                  "lon" : "11.95069212919782"
-               },
-               {
-                  "lat" : "57.70911675690143",
-                  "lon" : "11.92870958973685"
-               },
-               {
-                  "lat" : "57.70110103118248",
-                  "lon" : "11.91388113823099"
-               },
-               {
-                  "lat" : "57.69589097002618",
-                  "lon" : "11.89617580761494"
-               },
-               {
-                  "lat" : "57.69520535280711",
-                  "lon" : "11.87016092452417"
-               },
-               {
-                  "lat" : "57.69543106507575",
-                  "lon" : "11.83287877536267"
-               },
-               {
-                  "lat" : "57.70019163093668",
-                  "lon" : "11.796447051123"
-               },
-               {
-                  "lat" : "57.69868966310005",
-                  "lon" : "11.7630149375549"
-               },
-               {
-                  "lat" : "57.6506674251164",
-                  "lon" : "11.76399586611927"
-               }
-            ],
-            "type" : "polygon"
-         }
-      }
-   },
-   {
-      "provider" : {
          "name" : "Norwegian Coastal Administration",
          "id" : "NO-AUH-000001"
       },
@@ -4263,7 +3997,7 @@ var service = [
          "version" : "1.0",
          "name" : "Route suggestion",
          "operationalService" : {
-            "name" : "Traffic Organization Service (TOS)"
+            "name" : "Traffic Organization Service"
          },
          "serviceId" : "imo.tos.routesuggestion"
       },
@@ -4371,7 +4105,7 @@ var service = [
          "version" : "1.0",
          "name" : "Route suggestion",
          "operationalService" : {
-            "name" : "Traffic Organization Service (TOS)"
+            "name" : "Traffic Organization Service"
          },
          "serviceId" : "imo.tos.routesuggestion"
       },
@@ -4662,6 +4396,272 @@ var service = [
                {
                   "lat" : "55.91122969323488",
                   "lon" : "3.397555270135544"
+               }
+            ],
+            "type" : "polygon"
+         }
+      }
+   },
+   {
+      "provider" : {
+         "name" : "Oslo Port",
+         "id" : "NO-PRT-000001"
+      },
+      "specification" : {
+         "transport" : "none",
+         "variant" : "text",
+         "version" : "1.0",
+         "name" : "Local Port Service",
+         "operationalService" : {
+            "name" : "Local Port Service (LPS)"
+         },
+         "serviceId" : "imo.lps"
+      },
+      "name" : "Oslo LPS",
+      "type" : "STATIC",
+      "description" : "* Phone +47 815 00 606\n* Oslo port operates on VHF channel 80 (main channel for all)\n* VHF channel 12 in the harbour district \n",
+      "extent" : {
+         "area" : {
+            "points" : [
+               {
+                  "lat" : "59.75020364011537",
+                  "lon" : "10.72799638463457"
+               },
+               {
+                  "lat" : "59.81048552165145",
+                  "lon" : "10.77360405179664"
+               },
+               {
+                  "lat" : "59.88428047932964",
+                  "lon" : "10.79379044441497"
+               },
+               {
+                  "lat" : "59.91845033749655",
+                  "lon" : "10.72705068438618"
+               },
+               {
+                  "lat" : "59.90466068698812",
+                  "lon" : "10.56578450285417"
+               },
+               {
+                  "lat" : "59.83684949355812",
+                  "lon" : "10.46462901129754"
+               },
+               {
+                  "lat" : "59.7599981140963",
+                  "lon" : "10.49876798353649"
+               },
+               {
+                  "lat" : "59.76086510123581",
+                  "lon" : "10.59184011723"
+               },
+               {
+                  "lat" : "59.75020364011537",
+                  "lon" : "10.72799638463457"
+               }
+            ],
+            "type" : "polygon"
+         }
+      }
+   },
+   {
+      "provider" : {
+         "name" : "Gothenburg Port",
+         "id" : "SE-PRT-000004"
+      },
+      "specification" : {
+         "transport" : "none",
+         "variant" : "text",
+         "version" : "1.0",
+         "name" : "Local Port Service",
+         "operationalService" : {
+            "name" : "Local Port Service (LPS)"
+         },
+         "serviceId" : "imo.lps"
+      },
+      "name" : "Gothenburg LPS",
+      "type" : "STATIC",
+      "description" : "* VHF: Channel 12\n* Telephone: +46 31 368 75 15\n* E-mail: portcontrol@portgot.se\n",
+      "extent" : {
+         "area" : {
+            "points" : [
+               {
+                  "lat" : "57.6506674251164",
+                  "lon" : "11.76399586611927"
+               },
+               {
+                  "lat" : "57.65102746075926",
+                  "lon" : "11.85582812848289"
+               },
+               {
+                  "lat" : "57.66784231506892",
+                  "lon" : "11.86095712086628"
+               },
+               {
+                  "lat" : "57.67644768594504",
+                  "lon" : "11.86638943598096"
+               },
+               {
+                  "lat" : "57.68676177865788",
+                  "lon" : "11.90232377446022"
+               },
+               {
+                  "lat" : "57.69529556088835",
+                  "lon" : "11.91935276521047"
+               },
+               {
+                  "lat" : "57.69926851840271",
+                  "lon" : "11.94731837073538"
+               },
+               {
+                  "lat" : "57.70399192557183",
+                  "lon" : "11.95988026741323"
+               },
+               {
+                  "lat" : "57.71221985309078",
+                  "lon" : "11.97191609613468"
+               },
+               {
+                  "lat" : "57.71807679572643",
+                  "lon" : "11.98809665926507"
+               },
+               {
+                  "lat" : "57.72737448124823",
+                  "lon" : "11.99982538042182"
+               },
+               {
+                  "lat" : "57.72974558097118",
+                  "lon" : "11.99154784858386"
+               },
+               {
+                  "lat" : "57.72506445879296",
+                  "lon" : "11.98294603977963"
+               },
+               {
+                  "lat" : "57.72021876907742",
+                  "lon" : "11.96197143893018"
+               },
+               {
+                  "lat" : "57.71839434498919",
+                  "lon" : "11.95069212919782"
+               },
+               {
+                  "lat" : "57.70911675690143",
+                  "lon" : "11.92870958973685"
+               },
+               {
+                  "lat" : "57.70110103118248",
+                  "lon" : "11.91388113823099"
+               },
+               {
+                  "lat" : "57.69589097002618",
+                  "lon" : "11.89617580761494"
+               },
+               {
+                  "lat" : "57.69520535280711",
+                  "lon" : "11.87016092452417"
+               },
+               {
+                  "lat" : "57.69543106507575",
+                  "lon" : "11.83287877536267"
+               },
+               {
+                  "lat" : "57.70019163093668",
+                  "lon" : "11.796447051123"
+               },
+               {
+                  "lat" : "57.69868966310005",
+                  "lon" : "11.7630149375549"
+               },
+               {
+                  "lat" : "57.6506674251164",
+                  "lon" : "11.76399586611927"
+               }
+            ],
+            "type" : "polygon"
+         }
+      }
+   },
+   {
+      "provider" : {
+         "name" : "Copenhagen Port",
+         "id" : "DK-PRT-000001"
+      },
+      "specification" : {
+         "transport" : "none",
+         "variant" : "text",
+         "version" : "1.0",
+         "name" : "Tugs acquire service",
+         "operationalService" : {
+            "name" : "Tugs services"
+         },
+         "serviceId" : "imo.tug.acquire"
+      },
+      "name" : "Copenhagen Tugs acquire service",
+      "type" : "STATIC",
+      "description" : "* Tugs can be acquired on VHF Channel 16/9\n* 4h notice required, but 18h recommended. 1h notice for cancellation. \n  45% extra charge might be added for late order or cancellations. \n  Late request/notice may lead to tugs being not available in the port.\n",
+      "extent" : {
+         "area" : {
+            "points" : [
+               {
+                  "lat" : "55.67356740242492",
+                  "lon" : "12.58980188079239"
+               },
+               {
+                  "lat" : "55.67989361948808",
+                  "lon" : "12.60229414325821"
+               },
+               {
+                  "lat" : "55.69419190340919",
+                  "lon" : "12.61693642781405"
+               },
+               {
+                  "lat" : "55.6796728003044",
+                  "lon" : "12.61974304991921"
+               },
+               {
+                  "lat" : "55.66238629183269",
+                  "lon" : "12.63572738385687"
+               },
+               {
+                  "lat" : "55.67241223378677",
+                  "lon" : "12.65921358390734"
+               },
+               {
+                  "lat" : "55.68523507450432",
+                  "lon" : "12.65975414127439"
+               },
+               {
+                  "lat" : "55.72239109792934",
+                  "lon" : "12.65197058054286"
+               },
+               {
+                  "lat" : "55.72478815581839",
+                  "lon" : "12.63366738979955"
+               },
+               {
+                  "lat" : "55.71370225328965",
+                  "lon" : "12.59124341393774"
+               },
+               {
+                  "lat" : "55.69582513513867",
+                  "lon" : "12.5908245360242"
+               },
+               {
+                  "lat" : "55.67941503361401",
+                  "lon" : "12.58842137844189"
+               },
+               {
+                  "lat" : "55.66382583083183",
+                  "lon" : "12.56365906402069"
+               },
+               {
+                  "lat" : "55.66177161390107",
+                  "lon" : "12.57117192334714"
+               },
+               {
+                  "lat" : "55.67356740242492",
+                  "lon" : "12.58980188079239"
                }
             ],
             "type" : "polygon"

@@ -12,7 +12,7 @@ my $s;
 ## Operational services
 my $op_serv_tugs   = { name => 'Tugs services' };
 my $op_serv_lps    = { name => 'Local Port Service (LPS)' };
-my $op_serv_tos    = { name => 'Traffic Organization Service (TOS)' };
+my $op_serv_tos    = { name => 'Traffic Organization Service' };
 my $op_serv_msi    = { name => 'Maritime Safety Information' };
 my $op_serv_report = { name => 'Vessel shore reporting' };
 my $op_serv_ship   = { name => 'Ship sensor services' };
@@ -284,78 +284,6 @@ $s->{endpoint}                 = [
 ];
 push( @services, $s );
 
-
-
-##
-## Create Copenhagen port tug acquire service
-##
-$s                                        = {};
-$s->{specification}->{operationalService} = $op_serv_tugs;
-$s->{specification}->{serviceId}          = "imo.tug.acquire";
-$s->{specification}->{version}            = "1.0";
-$s->{specification}->{variant}            = "text";
-$s->{specification}->{transport}          = "none";
-$s->{specification}->{name}               = "Tugs acquire service";
-$s->{provider}->{id}                      = "DK-PRT-000001";
-$s->{provider}->{name}                    = "Copenhagen Port";
-$s->{type}                                = "STATIC";
-$s->{name}                                = "Copenhagen Tugs acquire service";
-$s->{description}                         = <<TEXT;
-* Tugs can be acquired on VHF Channel 16/9
-* 4h notice required, but 18h recommended. 1h notice for cancellation. 
-  45% extra charge might be added for late order or cancellations. 
-  Late request/notice may lead to tugs being not available in the port.
-TEXT
-$s->{extent}->{area}->{type}   = "polygon";
-$s->{extent}->{area}->{points} = loadPolygon("tugs_cph_port.kml");
-push( @services, $s );
-
-##
-## Create Oslo port Local Port Service
-##
-$s                                        = {};
-$s->{specification}->{operationalService} = $op_serv_lps;
-$s->{specification}->{serviceId}          = "imo.lps";
-$s->{specification}->{version}            = "1.0";
-$s->{specification}->{variant}            = "text";
-$s->{specification}->{transport}          = "none";
-$s->{specification}->{name}               = "Local Port Service";
-$s->{provider}->{id}                      = "NO-PRT-000001";
-$s->{provider}->{name}                    = "Oslo Port";
-$s->{type}                                = "STATIC";
-$s->{name}                                = "Oslo LPS";
-$s->{description}                         = <<TEXT;
-* Phone +47 815 00 606
-* Oslo port operates on VHF channel 80 (main channel for all)
-* VHF channel 12 in the harbour district 
-TEXT
-$s->{extent}->{area}->{type}   = "polygon";
-$s->{extent}->{area}->{points} = loadPolygon("lps_oslo_port.kml");
-push( @services, $s );
-
-##
-## Create Göteborg port Local Port Service
-##
-$s                                        = {};
-$s->{specification}->{operationalService} = $op_serv_lps;
-$s->{specification}->{serviceId}          = "imo.lps";
-$s->{specification}->{version}            = "1.0";
-$s->{specification}->{variant}            = "text";
-$s->{specification}->{transport}          = "none";
-$s->{specification}->{name}               = "Local Port Service";
-$s->{provider}->{id}                      = "SE-PRT-000004";
-$s->{provider}->{name}                    = "Gothenburg Port";
-$s->{type}                                = "STATIC";
-$s->{name}                                = "Gothenburg LPS";
-$s->{description}                         = <<TEXT;
-* VHF: Channel 12
-* Telephone: +46 31 368 75 15
-* E-mail: portcontrol\@portgot.se
-TEXT
-$s->{extent}->{area}->{type}   = "polygon";
-$s->{extent}->{area}->{points} = loadPolygon("lps_goth_port.kml");
-push( @services, $s );
-
 ##
 ## Norweigian reporting service
 ##
@@ -618,6 +546,77 @@ $s->{endpoint}                 = [
 push( @services, $s );
 
 ##
+## Create Oslo port Local Port Service
+##
+$s                                        = {};
+$s->{specification}->{operationalService} = $op_serv_lps;
+$s->{specification}->{serviceId}          = "imo.lps";
+$s->{specification}->{version}            = "1.0";
+$s->{specification}->{variant}            = "text";
+$s->{specification}->{transport}          = "none";
+$s->{specification}->{name}               = "Local Port Service";
+$s->{provider}->{id}                      = "NO-PRT-000001";
+$s->{provider}->{name}                    = "Oslo Port";
+$s->{type}                                = "STATIC";
+$s->{name}                                = "Oslo LPS";
+$s->{description}                         = <<TEXT;
+* Phone +47 815 00 606
+* Oslo port operates on VHF channel 80 (main channel for all)
+* VHF channel 12 in the harbour district 
+TEXT
+$s->{extent}->{area}->{type}   = "polygon";
+$s->{extent}->{area}->{points} = loadPolygon("lps_oslo_port.kml");
+push( @services, $s );
+
+##
+## Create Göteborg port Local Port Service
+##
+$s                                        = {};
+$s->{specification}->{operationalService} = $op_serv_lps;
+$s->{specification}->{serviceId}          = "imo.lps";
+$s->{specification}->{version}            = "1.0";
+$s->{specification}->{variant}            = "text";
+$s->{specification}->{transport}          = "none";
+$s->{specification}->{name}               = "Local Port Service";
+$s->{provider}->{id}                      = "SE-PRT-000004";
+$s->{provider}->{name}                    = "Gothenburg Port";
+$s->{type}                                = "STATIC";
+$s->{name}                                = "Gothenburg LPS";
+$s->{description}                         = <<TEXT;
+* VHF: Channel 12
+* Telephone: +46 31 368 75 15
+* E-mail: portcontrol\@portgot.se
+TEXT
+$s->{extent}->{area}->{type}   = "polygon";
+$s->{extent}->{area}->{points} = loadPolygon("lps_goth_port.kml");
+push( @services, $s );
+
+
+##
+## Create Copenhagen port tug acquire service
+##
+$s                                        = {};
+$s->{specification}->{operationalService} = $op_serv_tugs;
+$s->{specification}->{serviceId}          = "imo.tug.acquire";
+$s->{specification}->{version}            = "1.0";
+$s->{specification}->{variant}            = "text";
+$s->{specification}->{transport}          = "none";
+$s->{specification}->{name}               = "Tugs acquire service";
+$s->{provider}->{id}                      = "DK-PRT-000001";
+$s->{provider}->{name}                    = "Copenhagen Port";
+$s->{type}                                = "STATIC";
+$s->{name}                                = "Copenhagen Tugs acquire service";
+$s->{description}                         = <<TEXT;
+* Tugs can be acquired on VHF Channel 16/9
+* 4h notice required, but 18h recommended. 1h notice for cancellation. 
+  45% extra charge might be added for late order or cancellations. 
+  Late request/notice may lead to tugs being not available in the port.
+TEXT
+$s->{extent}->{area}->{type}   = "polygon";
+$s->{extent}->{area}->{points} = loadPolygon("tugs_cph_port.kml");
+push( @services, $s );
+
+##
 ## Arina Arctica webcam
 ##
 $s                                        = {};
@@ -643,6 +642,7 @@ $s->{endpoint} = [
 	}
 ];
 push( @services, $s );
+
 
 print "var service = " . $json->encode( \@services );
 
