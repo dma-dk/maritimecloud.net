@@ -35,9 +35,7 @@
 <body ng-controller="geolocationCtrl">
 <!--nav from: http://jasny.github.io/bootstrap/components/#navmenu-fixed-->
 
-<script>
-    $('#left-navbar').offcanvas({'autohide':false});
-</script>
+
 <div id="left-navbar" class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm">
 
     <div id="services" ng-cloak>
@@ -227,6 +225,11 @@
 
 <script src="js/bootstrap.min.js"></script>
 <script src="js/offcanvas.js"></script>
+
+<script>
+    $('#left-navbar').offcanvas({'autohide':false});
+    $('#right-navbar').offcanvas({'autohide':false});
+</script>
 
 
 

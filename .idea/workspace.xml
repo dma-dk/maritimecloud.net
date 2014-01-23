@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2b30ec71-f81c-4205-82a2-55dde08ed83c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/navmenu.css" afterPath="$PROJECT_DIR$/css/navmenu.css" />
     </list>
     <ignored path="maritimecloud.net.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -58,10 +57,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="5" selection-start="1480" selection-end="1480" vertical-scroll-proportion="-11.833333">
+            <state line="230" column="13" selection-start="9560" selection-end="9560" vertical-scroll-proportion="0.8786653">
               <folding>
                 <element signature="n#style#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#li#0;n#ul#0;n#ul#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -124,10 +123,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="navmenu.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="navmenu.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/navmenu.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="23" selection-start="1004" selection-end="1004" vertical-scroll-proportion="0.805">
+            <state line="64" column="23" selection-start="1004" selection-end="1004" vertical-scroll-proportion="-30.961538">
               <folding />
             </state>
           </provider>
@@ -161,8 +160,8 @@
         <option value="$PROJECT_DIR$/css/bootstrap-Jasny.css" />
         <option value="$PROJECT_DIR$/js/geolocation.js" />
         <option value="$PROJECT_DIR$/css/olstyle.css" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/css/navmenu.css" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -548,9 +547,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/olstyle.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="163" column="4" selection-start="3258" selection-end="3273" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/navmenu.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="23" selection-start="1004" selection-end="1004" vertical-scroll-proportion="-30.961538">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="5" selection-start="1480" selection-end="1480" vertical-scroll-proportion="-11.833333">
+        <state line="230" column="13" selection-start="9560" selection-end="9560" vertical-scroll-proportion="0.8786653">
           <folding>
             <element signature="n#style#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#li#0;n#ul#0;n#ul#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -569,20 +582,6 @@
             <element signature="n#style#0;n#button#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/olstyle.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="163" column="4" selection-start="3258" selection-end="3273" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/navmenu.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="23" selection-start="1004" selection-end="1004" vertical-scroll-proportion="0.805">
-          <folding />
         </state>
       </provider>
     </entry>
