@@ -40,17 +40,22 @@
     <div id="services" ng-cloak>
         <div ng-repeat="serviceHeadline in serviceHeadlines">
             <h4 ng-bind="serviceHeadline" ng-show="checkHeadline(serviceHeadline)"></h4>
+            <div class="headline-divider" ng-show="checkHeadline(serviceHeadline)"></div>
             <div id="serviceLists" ng-repeat="service in servicesAngular | filter:serviceHeadline">
                <ul id="serviceList">
-                    <li
+                   <li
+                        ng-bind="service.title"
                         ng-click="markService(service.title,$index)"
-                        ng-class="{'selected-class-name': service.title == markedTitle }"
-                        style="cursor:pointer">{{service.title}}</li>
+                        ng-class="{'selected-service': service.title == markedTitle }"
+                        style="cursor:pointer">
+                   </li>
                </ul>
             </div>
         </div>
     </div>
-
+    <div id="noServices" ng-show="noServices()" ng-cloak>
+        <h4 id="no_services_title">No services available</h4>
+    </div>
 
     <!--
         <div id="services" ng-show="authorityServices || commercialServices" ng-cloak>

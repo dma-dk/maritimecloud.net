@@ -96,6 +96,7 @@ html, body, #map {
 }
 #services {
     padding-left: 10px;
+    padding-right: 10px;
 }
 #noServices {
     padding-left: 10px;
@@ -147,10 +148,9 @@ html, body, #map {
     margin-bottom: 0.5em;
 }
 
-.selected-class-name {
-    font-weight:bold;
+.selected-service {
+    color: #3399FF;
 }
-
 
 #map {
     border-top-left-radius: 5px;
@@ -163,5 +163,11 @@ html, body, #map {
     margin-left:10px;
     font-size: 80%;
     font-weight: 10;
+}
+
+.headline-divider{
+    background-color: white;
+    min-height: 1px;
+    margin-bottom: 6px;
 }
 

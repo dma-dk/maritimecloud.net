@@ -72,8 +72,8 @@ var map = new OpenLayers.Map('map', {
     units: "ft"
 });
 
-var scaleLine = new OpenLayers.Control.ScaleLine({geodesic: true});
-map.addControl(scaleLine);
+//var scaleLine = new OpenLayers.Control.ScaleLine({geodesic: true});
+//map.addControl(scaleLine);
 
 var layer = new OpenLayers.Layer.OSM('Simple OSM Map');
 var ownPosLayer = new OpenLayers.Layer.Vector('Own pos Layer');
@@ -452,6 +452,11 @@ function geolocationCtrl($scope) {
     $scope.selectedIndex1 = -1;
     $scope.selectedIndex2 = -1;
 
+    $scope.noServices = function(){
+        if (currentServices.length == 0) return true;
+        else return false;
+    }
+
     $scope.checkHeadline = function(headLine) {
 
         console.log("is headline? "+currentServices.containsType(headLine));
@@ -487,6 +492,9 @@ function geolocationCtrl($scope) {
         //and style the selected service polygon
         var markedFeature = polyServiceVector.getFeatureById(clickedTitle);
         markedFeature.style = selectedServiceStyle;
+
+        //zoomToFeature
+        map.zoomToExtent(markedFeature.geometry.getBounds(), closest=false);
 
         //when service is clicked show infobox
         $scope.showInfoBox = true;
