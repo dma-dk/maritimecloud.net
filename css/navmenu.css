@@ -18,9 +18,20 @@ body {
   float: none;
 }
 .navbar-toggle {
+    float: left;
+    margin-left: 15px;
+    position: absolute;
+}
+.left-navbar-toggle {
   float: left;
   margin-left: 15px;
-  position: absolute;
+
+}
+.right-navbar-toggle {
+    float: right;
+    margin-left: 15px;
+
+
 }
 
 .navmenu-default {

@@ -481,6 +481,11 @@ function geolocationCtrl($scope) {
     }
 
     $scope.markService = function(clickedTitle,$index) {
+        //$('#right-navbar').offcanvas('hide');
+        //$('#right-navbar').offcanvas('show');
+
+        //$('#left-navbar').offcanvas({autohide:false});
+
         //info-box string variables
         $scope.provider = '';
         $scope.method = '';

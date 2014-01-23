@@ -35,7 +35,7 @@
 <body ng-controller="geolocationCtrl">
 <!--nav from: http://jasny.github.io/bootstrap/components/#navmenu-fixed-->
 
-<div class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm">
+<div id="left-navbar" class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm">
 
     <div id="services" ng-cloak>
         <div ng-repeat="serviceHeadline in serviceHeadlines">
@@ -102,32 +102,7 @@
         -->
 
 </div>
-
-<div class="navbar navbar-default navbar-fixed-top visible-sm visible-xs">
-    <button type="button" class="navbar-toggle visible-sm visible-xs" data-toggle="offcanvas" data-target=".navmenu">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-    </button>
-</div>
-
-<div class="container" style="border: none; height: 100%; width: 100%; ">
-
-    <div>
-           <h1 id="title">Maritime Service Portfolio Registry</h1>
-    </div>
-
-    <div id="map"></div>
-
-    <div id="filters" ng-cloak>
-        <h2 id="filter_title">Service filters</h2>
-        <form id="mapform">
-            <input type="radio" name="maptype" value="own" >Own pos
-            <!--<input type="radio" name="maptype" value="marker">Marker pos-->
-            <input type="radio" name="maptype" value="none" checked="true">All
-        </form>
-    </div>
-
+<div id="right-navbar" class="navmenu navmenu-default navmenu-fixed-right offcanvas-sm">
     <div id="info" ng-show="showInfoBox" ng-cloak>
         <h4 id="info_title">Service info</h4>
         <div class="headline-divider" ></div>
@@ -182,9 +157,43 @@
                 <li class="horizontal-list" ng-bind="serviceTransport"></li>
             </ul>
         </ul>
-
-
     </div>
+</div>
+
+<div class="navbar navbar-default navbar-fixed-top visible-sm visible-xs">
+    <button type="button" class="navbar-toggle visible-sm visible-xs" data-toggle="offcanvas" data-target="#left-navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+
+    <button type="button" class="navbar-toggle visible-sm visible-xs" data-toggle="offcanvas" data-target="#right-navbar"
+            style="float: right; margin-right: 15px; position: relative;">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+
+</div>
+
+<div class="container" style="border: none; height: 100%; width: 100%; ">
+
+    <div>
+           <h1 id="title">Maritime Service Portfolio Registry</h1>
+    </div>
+
+    <div id="map"></div>
+
+    <div id="filters" ng-cloak>
+        <h2 id="filter_title">Service filters</h2>
+        <form id="mapform">
+            <input type="radio" name="maptype" value="own" >Own pos
+            <!--<input type="radio" name="maptype" value="marker">Marker pos-->
+            <input type="radio" name="maptype" value="none" checked="true">All
+        </form>
+    </div>
+
+
 
     <!--
     <button id="locate">Locate me!</button>

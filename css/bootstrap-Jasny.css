@@ -4621,6 +4621,30 @@ textarea.input-group-sm > .input-group-btn > .btn {
   border-radius: 4px;
 }
 
+.left-navbar-toggle {
+    position: relative;
+    float: right;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-right: 15px;
+    margin-bottom: 8px;
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.right-navbar-toggle {
+    position: relative;
+    float: right;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-right: 15px;
+    margin-bottom: 8px;
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
 .navbar-toggle .icon-bar {
   display: block;
   width: 22px;
@@ -4631,6 +4655,29 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .navbar-toggle .icon-bar + .icon-bar {
   margin-top: 4px;
 }
+
+.left-navbar-toggle .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+}
+
+.left-navbar-toggle .icon-bar + .icon-bar {
+    margin-top: 4px;
+}
+
+.right-navbar-toggle .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+}
+
+.right-navbar-toggle .icon-bar + .icon-bar {
+    margin-top: 4px;
+}
+
 
 @media (min-width: 768px) {
   .navbar-toggle {
