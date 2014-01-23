@@ -18,6 +18,7 @@ my $op_serv_report = { name => 'Vessel shore reporting' };
 my $op_serv_ship   = { name => 'Ship sensor services' };
 my $op_serv_met    = { name => 'Meteorological Information Services' };
 my $op_serv_wwvg   = { name => 'World Vessel Traffic Services Guide' };
+my $op_serv_hyd    = { name => 'Real-time Hydrographic and Environmental Information Services'};
 
 ##
 ## Create Oslo TOS
@@ -591,6 +592,60 @@ $s->{extent}->{area}->{type}   = "polygon";
 $s->{extent}->{area}->{points} = loadPolygon("lps_goth_port.kml");
 push( @services, $s );
 
+##
+## Create Pago Pago Tidal predtion service
+##
+$s                                        = {};
+$s->{specification}->{operationalService} = $op_serv_hyd;
+$s->{specification}->{serviceId}          = "imo.rthydenv.tidalprediction";
+$s->{specification}->{version}            = "1.0";
+$s->{specification}->{variant}            = "web";
+$s->{specification}->{transport}          = "web";
+$s->{specification}->{name}               = "Tidal Prediction";
+$s->{provider}->{id}                      = "US-AUH-000012";
+$s->{provider}->{name}                    = "National Oceanic and Atmospheric Administration";
+$s->{type}                                = "STATIC";
+$s->{name}                                = "American Samoa - Pago Pago Tidal Prediction";
+$s->{description}                         = <<TEXT;
+TEXT
+$s->{extent}->{area}->{type}   = "polygon";
+$s->{extent}->{area}->{points} = loadPolygon("rthydenv_pagopago.kml");
+$s->{endpoint}                 = [
+	{
+		type => 'URL',
+		url  => 'http://tidesandcurrents.noaa.gov/noaatidepredictions/NOAATidesFacade.jsp?Stationid=1770000'
+	}
+];
+push( @services, $s );
+
+##
+## Create Pago Pago Tidal predtion service
+##
+$s                                        = {};
+$s->{specification}->{operationalService} = $op_serv_hyd;
+$s->{specification}->{serviceId}          = "imo.rthydenv.tidalprediction";
+$s->{specification}->{version}            = "1.0";
+$s->{specification}->{variant}            = "web";
+$s->{specification}->{transport}          = "web";
+$s->{specification}->{name}               = "Tidal Prediction";
+$s->{provider}->{id}                      = "US-AUH-000012";
+$s->{provider}->{name}                    = "National Oceanic and Atmospheric Administration";
+$s->{type}                                = "STATIC";
+$s->{name}                                = "Cook Islands - Puka Puka Tidal Prediction ";
+$s->{description}                         = <<TEXT;
+TEXT
+$s->{extent}->{area}->{type}   = "polygon";
+$s->{extent}->{area}->{points} = loadPolygon("rthydenv_pukapuka.kml");
+$s->{endpoint}                 = [
+	{
+		type => 'URL',
+		url  => 'http://tidesandcurrents.noaa.gov/noaatidepredictions/NOAATidesFacade.jsp?Stationid=TPT2827'
+	}
+];
+push( @services, $s );
+
+
+
 
 ##
 ## Create Copenhagen port tug acquire service
@@ -664,3 +719,6 @@ sub loadPolygon {
 	}
 	return \@points;
 }
+
+
+

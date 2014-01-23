@@ -4584,6 +4584,142 @@ var service = [
    },
    {
       "provider" : {
+         "name" : "National Oceanic and Atmospheric Administration",
+         "id" : "US-AUH-000012"
+      },
+      "specification" : {
+         "transport" : "web",
+         "variant" : "web",
+         "version" : "1.0",
+         "name" : "Tidal Prediction",
+         "operationalService" : {
+            "name" : "Real-time Hydrographic and Environmental Information Services"
+         },
+         "serviceId" : "imo.rthydenv.tidalprediction"
+      },
+      "name" : "American Samoa - Pago Pago Tidal Prediction",
+      "type" : "STATIC",
+      "description" : "",
+      "endpoint" : [
+         {
+            "url" : "http://tidesandcurrents.noaa.gov/noaatidepredictions/NOAATidesFacade.jsp?Stationid=1770000",
+            "type" : "URL"
+         }
+      ],
+      "extent" : {
+         "area" : {
+            "points" : [
+               {
+                  "lat" : "-13.84278832701046",
+                  "lon" : "-171.1667199767268"
+               },
+               {
+                  "lat" : "-14.25835995009505",
+                  "lon" : "-171.250720807686"
+               },
+               {
+                  "lat" : "-14.6899914581173",
+                  "lon" : "-171.0724642583198"
+               },
+               {
+                  "lat" : "-14.81612398333577",
+                  "lon" : "-170.6796735154811"
+               },
+               {
+                  "lat" : "-14.6168546777407",
+                  "lon" : "-170.1722608588133"
+               },
+               {
+                  "lat" : "-14.10366825364781",
+                  "lon" : "-170.117737744576"
+               },
+               {
+                  "lat" : "-13.79461427306634",
+                  "lon" : "-170.3398463309648"
+               },
+               {
+                  "lat" : "-13.67737831265615",
+                  "lon" : "-170.6931138724234"
+               },
+               {
+                  "lat" : "-13.84278832701046",
+                  "lon" : "-171.1667199767268"
+               }
+            ],
+            "type" : "polygon"
+         }
+      }
+   },
+   {
+      "provider" : {
+         "name" : "National Oceanic and Atmospheric Administration",
+         "id" : "US-AUH-000012"
+      },
+      "specification" : {
+         "transport" : "web",
+         "variant" : "web",
+         "version" : "1.0",
+         "name" : "Tidal Prediction",
+         "operationalService" : {
+            "name" : "Real-time Hydrographic and Environmental Information Services"
+         },
+         "serviceId" : "imo.rthydenv.tidalprediction"
+      },
+      "name" : "Cook Islands - Puka Puka Tidal Prediction ",
+      "type" : "STATIC",
+      "description" : "",
+      "endpoint" : [
+         {
+            "url" : "http://tidesandcurrents.noaa.gov/noaatidepredictions/NOAATidesFacade.jsp?Stationid=TPT2827",
+            "type" : "URL"
+         }
+      ],
+      "extent" : {
+         "area" : {
+            "points" : [
+               {
+                  "lat" : "-11.68072675489637",
+                  "lon" : "-166.4696428431615"
+               },
+               {
+                  "lat" : "-11.8132079972447",
+                  "lon" : "-165.7131954356616"
+               },
+               {
+                  "lat" : "-11.53921603755758",
+                  "lon" : "-164.8364781405246"
+               },
+               {
+                  "lat" : "-10.80501971891555",
+                  "lon" : "-164.6887064193281"
+               },
+               {
+                  "lat" : "-10.10299680364305",
+                  "lon" : "-164.7787636991192"
+               },
+               {
+                  "lat" : "-9.713829159061271",
+                  "lon" : "-165.8209003020203"
+               },
+               {
+                  "lat" : "-10.09146058316396",
+                  "lon" : "-166.6103074404031"
+               },
+               {
+                  "lat" : "-10.93898438708771",
+                  "lon" : "-166.790900841499"
+               },
+               {
+                  "lat" : "-11.68072675489637",
+                  "lon" : "-166.4696428431615"
+               }
+            ],
+            "type" : "polygon"
+         }
+      }
+   },
+   {
+      "provider" : {
          "name" : "Copenhagen Port",
          "id" : "DK-PRT-000001"
       },
