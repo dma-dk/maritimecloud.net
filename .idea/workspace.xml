@@ -3,10 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="2b30ec71-f81c-4205-82a2-55dde08ed83c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/bootstrap-Jasny.css" afterPath="$PROJECT_DIR$/css/bootstrap-Jasny.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="maritimecloud.net.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1390398670965" ignored="false" />
+    <file path="/Dummy.txt" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1390400633706" ignored="false" />
     <file path="/geolocation.js" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1390395571246" ignored="false" />
     <file path="/index.html" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1390396647763" ignored="false" />
     <file path="$PROJECT_DIR$/../AisView/src/main/webapp/index.html" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389709517916" ignored="false" />
@@ -40,7 +41,7 @@
             <file leaf-file-name="services.js" pinned="false" current="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/json/services.js">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state line="36" column="40" selection-start="1059" selection-end="1059" vertical-scroll-proportion="0.014097745">
+                  <state line="36" column="40" selection-start="1053" selection-end="1053" vertical-scroll-proportion="0.014097745">
                     <folding />
                   </state>
                 </provider>
@@ -60,7 +61,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="14" selection-start="1390" selection-end="1448" vertical-scroll-proportion="-16.875">
+            <state line="35" column="14" selection-start="1390" selection-end="1448" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -69,7 +70,7 @@
       <file leaf-file-name="bootstrap-Jasny.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/bootstrap-Jasny.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="776" column="20" selection-start="9793" selection-end="9793" vertical-scroll-proportion="0.8753799">
+            <state line="775" column="27" selection-start="9778" selection-end="9778" vertical-scroll-proportion="0.11846002">
               <folding />
             </state>
           </provider>
@@ -87,7 +88,7 @@
       <file leaf-file-name="olstyle.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/olstyle.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="4" selection-start="1704" selection-end="1705" vertical-scroll-proportion="-29.307692">
+            <state line="72" column="4" selection-start="1704" selection-end="1705" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -425,16 +426,9 @@
         <state line="20" column="75" selection-start="724" selection-end="724" vertical-scroll-proportion="0.3033367" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/json/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="40" selection-start="1059" selection-end="1059" vertical-scroll-proportion="0.014097745">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="14" selection-start="1390" selection-end="1448" vertical-scroll-proportion="-16.875">
+        <state line="35" column="14" selection-start="1390" selection-end="1448" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -455,14 +449,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/olstyle.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="4" selection-start="1704" selection-end="1705" vertical-scroll-proportion="-29.307692">
+        <state line="72" column="4" selection-start="1704" selection-end="1705" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/json/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="40" selection-start="1053" selection-end="1053" vertical-scroll-proportion="0.014097745">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/bootstrap-Jasny.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="776" column="20" selection-start="9793" selection-end="9793" vertical-scroll-proportion="0.8753799">
+        <state line="775" column="27" selection-start="9778" selection-end="9778" vertical-scroll-proportion="0.11846002">
           <folding />
         </state>
       </provider>
