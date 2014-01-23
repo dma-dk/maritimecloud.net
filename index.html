@@ -42,7 +42,7 @@
             <h4 ng-bind="serviceHeadline" ng-show="checkHeadline(serviceHeadline)"></h4>
             <div class="headline-divider" ng-show="checkHeadline(serviceHeadline)"></div>
             <div id="serviceLists" ng-repeat="service in servicesAngular | filter:serviceHeadline">
-               <ul id="serviceList">
+               <ul class="serviceList">
                    <li
                         ng-bind="service.title"
                         ng-click="markService(service.title,$index)"
@@ -126,6 +126,63 @@
             <!--<input type="radio" name="maptype" value="marker">Marker pos-->
             <input type="radio" name="maptype" value="none" checked="true">All
         </form>
+    </div>
+
+    <div id="info" ng-show="showInfoBox" ng-cloak>
+        <h4 id="info_title">Service info</h4>
+        <div class="headline-divider" ></div>
+        <ul class="serviceList">
+            <ul class="list-in-list">
+                <li class="horizontal-list" style="font-weight: bold;">Instance Name: </li>
+                <li class="horizontal-list" ng-bind="instanceName"></li>
+            </ul>
+            <ul class="list-in-list">
+                <li class="horizontal-list" style="font-weight: bold;">Provider: </li>
+                <li class="horizontal-list" ng-bind="provider"></li>
+            </ul>
+            <li ng-hide="isEndpoint" style="font-weight: bold;">Description:</li>
+            <pre ng-hide="isEndpoint" ng-bind="description"></pre>
+            <li ng-show="isEndpoint" style="font-weight: bold;">Endpoint:</li>
+
+            <ul class="list-in-list-indent">
+                <li class="horizontal-list" style="font-weight: bold;">Type: </li>
+                <li class="horizontal-list" ng-bind="endpointType"></li>
+            </ul>
+            <ul class="list-in-list-indent">
+                <li class="horizontal-list" style="font-weight: bold;">Url: </li>
+                <li  class="horizontal-list" >
+                    <a ng-href="{{endpointUrl}}" target="_blank">Link</a>
+                </li>
+            </ul>
+
+            <ul class="list-in-list">
+                <li class="horizontal-list" style="font-weight: bold;">Operational Service: </li>
+                <li class="horizontal-list" ng-bind="operationalService"></li>
+            </ul>
+            <li>Service specification:</li>
+            <ul class="list-in-list-indent">
+                <li class="horizontal-list" style="font-weight: bold;">Service ID: </li>
+                <li class="horizontal-list" ng-bind="serviceID"></li>
+            </ul>
+            <ul class="list-in-list-indent">
+                <li class="horizontal-list" style="font-weight: bold;">Name: </li>
+                <li class="horizontal-list" ng-bind="serviceName"></li>
+            </ul>
+            <ul class="list-in-list-indent">
+                <li class="horizontal-list" style="font-weight: bold;">Version: </li>
+                <li class="horizontal-list" ng-bind="serviceVersion"></li>
+            </ul>
+            <ul class="list-in-list-indent">
+                <li class="horizontal-list" style="font-weight: bold;">Variant: </li>
+                <li class="horizontal-list" ng-bind="serviceVariant"></li>
+            </ul>
+            <ul class="list-in-list-indent" style="padding-left: 10px;">
+                <li class="horizontal-list" style="font-weight: bold;">Transport: </li>
+                <li class="horizontal-list" ng-bind="serviceTransport"></li>
+            </ul>
+        </ul>
+
+
     </div>
 
     <!--

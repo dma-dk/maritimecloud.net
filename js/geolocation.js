@@ -31,7 +31,7 @@ var style = {
 };
 //Service polygon styles
 var defaultServiceStyle = {fillColor: "#ee9900", fillOpacity: 0.1, strokeWidth: 1, strokeColor: '#ee9900'};
-var selectedServiceStyle = {fillColor: "#ee9900", fillOpacity: 0.3,  strokeWidth: 1, strokeColor: '#000000'};
+var selectedServiceStyle = {fillColor: "#ee9900", fillOpacity: 0.3,  strokeWidth: 3, strokeColor: '#000000'};
 var mouseMarkerStyle = {
     handlerOptions: {
         freehand: true,
@@ -135,21 +135,28 @@ for (i=0;i<service.length;i++){
 
     else if (service[i].extent.area.type == 'circle'){
         //circles
-        console.log("inside circle");
         var tempCenterPoint = new OpenLayers.Geometry.Point(service[i].extent.area.points[0].lon,
             service[i].extent.area.points[0].lat);
         var tempCenterPointWGS = new OpenLayers.Geometry.Point(service[i].extent.area.points[0].lon,
             service[i].extent.area.points[0].lat).transform(Spherical,WGS84);
-
         var tempRadius = service[i].extent.area.radius;
+        //control of circles with no area
+        if (tempRadius == 0){
+            var circlePolygon = tempCenterPoint;
+            var circlePolygonWGS = tempCenterPointWGS;
 
-        var testPoints = calculateRing(tempCenterPoint.x,tempCenterPoint.y, tempRadius/1000, 30);
-        var testPointsWGS = [];
-        for (j=0;j<testPoints.length;j++){
-            testPointsWGS[j]=testPoints[j].transform(Spherical,WGS84);
         }
-        var circlePolygon = new OpenLayers.Geometry.Polygon([new OpenLayers.Geometry.LinearRing(testPoints)]);
-        var circlePolygonWGS = new OpenLayers.Geometry.Polygon([new OpenLayers.Geometry.LinearRing(testPointsWGS)]);
+        else{
+            var testPoints = calculateRing(tempCenterPoint.x,tempCenterPoint.y, tempRadius/1000, 30);
+            var testPointsWGS = [];
+            for (j=0;j<testPoints.length;j++){
+                testPointsWGS[j]=testPoints[j].transform(Spherical,WGS84);
+            }
+            var circlePolygon = new OpenLayers.Geometry.Polygon([new OpenLayers.Geometry.LinearRing(testPoints)]);
+            var circlePolygonWGS = new OpenLayers.Geometry.Polygon([new OpenLayers.Geometry.LinearRing(testPointsWGS)]);
+
+        }
+
         polygonCollection.push(circlePolygon);
         polygonCollectionWGS.push(circlePolygonWGS);
 
@@ -470,8 +477,6 @@ function geolocationCtrl($scope) {
     }
 
     $scope.checkHeadline = function(headLine) {
-
-        console.log("is headline? "+currentServices.containsType(headLine));
         return currentServices.containsType(headLine);
     }
 
@@ -506,21 +511,50 @@ function geolocationCtrl($scope) {
         markedFeature.style = selectedServiceStyle;
 
         //zoomToFeature
-        map.zoomToExtent(markedFeature.geometry.getBounds(), closest=false);
+        var markedFeatureBounds = markedFeature.geometry.getBounds();
+        //no area
+        if (markedFeatureBounds.left==markedFeatureBounds.right || markedFeatureBounds.top==markedFeatureBounds.bottom){
+            map.setCenter(new OpenLayers.LonLat(markedFeatureBounds.left,markedFeatureBounds.top),8);
+        }
+        //area
+        else map.zoomToExtent(markedFeatureBounds, closest=false);
+
+
 
         //when service is clicked show infobox
         $scope.showInfoBox = true;
 
-        //populating infobox
-        /*
-        var indexOfSerivce = service.length;
-        while( indexOfSerivce-- ) if( service[indexOfSerivce].description == clickedTitle ) break;
+        //control when there is no endpoint
+        $scope.isEndpoint = true;
 
-        console.log("provider: "+service[indexOfSerivce].provider.id);
-        console.log("transport: "+service[indexOfSerivce].specification.transport);
+        //populating infobox
+        var indexOfSerivce = service.length;
+        while( indexOfSerivce-- ) if( service[indexOfSerivce].name == clickedTitle ) break;
 
         var currentService = service[indexOfSerivce];
+        $scope.instanceName = currentService.name;
+        $scope.provider = currentService.provider.name + " ("+currentService.provider.id +")";
+        $scope.operationalService = currentService.specification.operationalService.name;
+        $scope.serviceID = currentService.specification.serviceId;
+        $scope.serviceName = currentService.specification.name;
+        $scope.serviceVersion = currentService.specification.version;
+        $scope.serviceVariant = currentService.specification.variant;
+        $scope.serviceTransport = currentService.specification.transport;
 
+        if (currentService.endpoint==undefined) {
+            $scope.isEndpoint=false;
+            $scope.description= currentService.description;
+            $scope.endpointType="";
+            $scope.endpointUrl="";
+        } else {
+            $scope.isEndpoint=true;
+            $scope.description="";
+            $scope.endpointType=currentService.endpoint[0].type;
+            $scope.endpointUrl=currentService.endpoint[0].url;
+
+        }
+
+        /*
         var tempString = '';
         for (j=0;j<currentService.endpoint.length;j++){
 
