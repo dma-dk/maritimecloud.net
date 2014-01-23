@@ -85,14 +85,14 @@ html, body, #map {
 }
 #filters {
     position: absolute;
-    bottom: 0em;
-    right: 0em;
+    bottom: 2em;
+    right: 2em;
     width: 130px;
     z-index: 20000;
     background-image: url("../images/debut_dark_@2X.png");
     padding: 0 0.5em 0.5em 0.5em;
-    box-shadow: 10px 10px 5px #888888;
-    border-top-left-radius:4px;
+    box-shadow: 7px 7px 7px #6D6D6D;
+    border-radius:3px;
 }
 #services {
     padding-left: 10px;

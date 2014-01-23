@@ -1,5 +1,6 @@
-//Example from http://openlayers.org/dev/examples/geolocation.html
-
+//
+//Prototype functions
+//===================
 Array.prototype.contains = function(v) {
     for(var i = 0; i < this.length; i++) {
         if(this[i] === v) return true;
@@ -335,8 +336,19 @@ geolocate.events.register("locationfailed",this,function() {
 });
 
 //Own position and marker tool is default
-geolocate.activate();
+//geolocate.activate();
+
 markerControl.activate();
+//All services are shown on startup as default
+var features = polyServiceVector.features;
+//Show all services in list
+currentServices = [];
+for (i=0;i<features.length;i++) currentServices.push({type: service[i].specification.operationalService.name, title: service[i].name});
+//Show all service polygons
+for (i=0;i<features.length;i++){ features[i].style = defaultServiceStyle;
+//force redraw
+polyServiceVector.redraw();
+
 
 
 document.getElementById('mapform').onclick = function() {
@@ -548,9 +560,12 @@ function showAllServices(features){
     var serviceListDiv=document.getElementById("services");
     var selector = angular.element(serviceListDiv);
 
+    geolocationCtrl(selector.scope());
+    selector.scope().$apply();
+
     for (i=0;i<features.length;i++){
         currentServices.push({type: service[i].specification.operationalService.name, title: service[i].name});
-        console.log("type: "+service[i].specification.operationalService.name+", title: "+service[i].name);
+
 
     }
     geolocationCtrl(selector.scope());
@@ -584,10 +599,6 @@ function showSelectedFeatures(testPoint,serviceFeatures){
         else if (serviceFeatures[i].data.type == 'circle'){
             console.log("marker circle check");
             var testDistance = getDistanceFromLatLonInM(serviceFeatures[i].data.center.y,serviceFeatures[i].data.center.x,testPoint.y,testPoint.x);
-            console.log("center @ "+serviceFeatures[i].data.center.x+","+serviceFeatures[i].data.center.y);
-            console.log("marker @ "+testPoint.x+","+testPoint.y);
-            console.log("testDist: "+testDistance);
-            console.log("radius: "+serviceFeatures[i].data.radius);
 
             if(testDistance<=serviceFeatures[i].data.radius){
                 //push to list of current services
@@ -644,9 +655,7 @@ function deg2rad(deg) {
     return deg * (Math.PI/180)
 }
 
-//
-//Prototype functions
-//===================
+
 
 
 
