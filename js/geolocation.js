@@ -524,8 +524,11 @@ function geolocationCtrl($scope) {
         //when service is clicked show infobox
         $scope.showInfoBox = true;
 
-        //control when there is no endpoint
+        //control when there is endpoint
         $scope.isEndpoint = true;
+
+        //control when there is internet url
+        $scope.isInternetUrl = true;
 
         //populating infobox
         var indexOfSerivce = service.length;
@@ -546,7 +549,11 @@ function geolocationCtrl($scope) {
             $scope.description= currentService.description;
             $scope.endpointType="";
             $scope.endpointUrl="";
+
         } else {
+            if (currentService.endpoint[0].type=="URL") $scope.isInternetUrl = true;
+            else $scope.isInternetUrl = false;
+
             $scope.isEndpoint=true;
             $scope.description="";
             $scope.endpointType=currentService.endpoint[0].type;

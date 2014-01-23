@@ -144,15 +144,16 @@
             <pre ng-hide="isEndpoint" ng-bind="description"></pre>
             <li ng-show="isEndpoint" style="font-weight: bold;">Endpoint:</li>
 
-            <ul class="list-in-list-indent">
+            <ul class="list-in-list-indent" ng-show="isEndpoint">
                 <li class="horizontal-list" style="font-weight: bold;">Type: </li>
-                <li class="horizontal-list" ng-bind="endpointType"></li>
+                <li class="horizontal-list " ng-bind="endpointType"></li>
             </ul>
-            <ul class="list-in-list-indent">
+            <ul class="list-in-list-indent" ng-show="isEndpoint">
                 <li class="horizontal-list" style="font-weight: bold;">Url: </li>
-                <li  class="horizontal-list" >
+                <li  class="horizontal-list" ng-show="isInternetUrl">
                     <a ng-href="{{endpointUrl}}" target="_blank">Link</a>
                 </li>
+                <li class="horizontal-list" ng-bind="endpointUrl" ng-hide="isInternetUrl">
             </ul>
 
             <ul class="list-in-list">
