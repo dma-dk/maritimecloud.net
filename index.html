@@ -55,7 +55,7 @@
         </div>
     </div>
     <div id="noServices" ng-show="noServices()" ng-cloak>
-        <h4 id="no_services_title">No services available</h4>
+        <h4>No services available</h4>
     </div>
 
     <!--
@@ -158,6 +158,9 @@
                 <li class="horizontal-list" ng-bind="serviceTransport"></li>
             </ul>
         </ul>
+    </div>
+    <div id="noServices" ng-hide="showInfoBox" ng-cloak>
+        <h4>No service selected</h4>
     </div>
 </div>
 

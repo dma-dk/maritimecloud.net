@@ -61,8 +61,8 @@ body {
     #title {
         position: absolute;
         top: 0.8em;
-        left: 4em;
-        font-size: 60%;
+        left: 6em;
+        font-size: 95%;
         width: 300px;
         z-index: 20000;
         padding: 0 0.5em 0.5em 0.5em;
