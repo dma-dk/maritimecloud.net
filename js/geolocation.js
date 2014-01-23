@@ -345,7 +345,7 @@ var features = polyServiceVector.features;
 currentServices = [];
 for (i=0;i<features.length;i++) currentServices.push({type: service[i].specification.operationalService.name, title: service[i].name});
 //Show all service polygons
-for (i=0;i<features.length;i++){ features[i].style = defaultServiceStyle;
+for (i=0;i<features.length;i++) features[i].style = defaultServiceStyle;
 //force redraw
 polyServiceVector.redraw();
 
