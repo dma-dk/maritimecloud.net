@@ -363,7 +363,7 @@ document.getElementById('mapform').onclick = function() {
     var radios = document.getElementsByName('maptype');
 
     //Own position filter
-    if (radios[0].checked) {
+    if (radios[1].checked) {
         console.log("Own position checked");
 
         //clean up
@@ -405,7 +405,7 @@ document.getElementById('mapform').onclick = function() {
     }
     */
     //No filter
-    else if (radios[1].checked) {
+    else if (radios[0].checked) {
         //clean up
         //markerControl.deactivate();
         geolocate.deactivate();

@@ -16,19 +16,19 @@ a img {border:none;}
  * Basic Typography
  */
 body {
-    font-family: "Lucida Grande", Verdana, Geneva, Lucida, Arial, Helvetica, sans-serif;
+    font-family: Helvetica, Arial, Verdana, Geneva, Lucida, sans-serif;
     font-size: 80%;
     color: #FCFCFC;
     background: #fff;
     margin: 1em 1.5em;
 }
 pre, code {
-    margin: 1.5em 0;
+    margin: 0.5em 0;
     white-space: pre;
 }
 pre, code {
     font: 1em 'andale mono', 'lucida console', monospace;
-    line-height:1.5;
+    line-height:1.4;
 }
 a[href] {
     color: #436976;
@@ -79,11 +79,15 @@ html, body, #map {
     height: 100%;
 }
 
-
-#filters2 {
-    padding: 0 0.5em 0.5em 0.5em;
+html{
+    -webkit-font-smoothing: antialiased;
 }
+
+
 #filters {
+    padding: 10px 0 5px 20px;
+}
+#filters2 {
     position: absolute;
     bottom: 2em;
     right: 2em;

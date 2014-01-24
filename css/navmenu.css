@@ -2,7 +2,7 @@ html, body {
   height: 100%;
 }
 body {
-  padding: 50px 0 0 0;
+  padding: 44px 0 0 0;
 }
 
 .navmenu {
@@ -11,7 +11,8 @@ body {
 
 .navbar {
     text-align: center;
-    background-image: url("../images/debut_dark_@2X.png");
+    min-height: 44px;
+    background-image: url("../images/binding_dark.png");
 }
 .navbar-brand {
   display: inline-block;
@@ -19,7 +20,7 @@ body {
 }
 .navbar-toggle {
     float: left;
-    margin-left: 15px;
+    margin-left: 10px;
     position: absolute;
 }
 .left-navbar-toggle {
@@ -35,10 +36,10 @@ body {
 }
 
 .navmenu-default {
-    background-image: url("../images/debut_dark_@2X.png");
+    background-image: url("../images/binding_dark.png");
 }
 .container {
-    background-image: url("../images/debut_dark_@2X.png");
+    background-image: url("../images/binding_dark.png");
 }
 
 @media (min-width: 992px) {
@@ -51,21 +52,35 @@ body {
   #title {
     position: absolute;
     top: 0.8em;
-    left: 18em;
+    left: 300px;
     width: 300px;
     z-index: 20000;
     padding: 0 0.5em 0.5em 0.5em;
+    color: #000000;
   }
 }
 @media (max-width: 992px) {
     #title {
         position: absolute;
         top: 0.8em;
-        left: 6em;
-        font-size: 95%;
+        left: 70px;
+
         width: 300px;
         z-index: 20000;
         padding: 0 0.5em 0.5em 0.5em;
+        color: #ffffff;
+    }
+}
+@media (max-width: 721px) {
+    #title {
+        position: absolute;
+        top: 1.2em;
+        left: 70px;
+        font-size: 98%;
+        width: 300px;
+        z-index: 20000;
+        padding: 0 0.5em 0.5em 0.5em;
+        color: #ffffff;
     }
 }
 
