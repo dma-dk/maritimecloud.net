@@ -39,6 +39,9 @@ body {
     background-image: url("../images/binding_dark.png");
 }
 .container {
+    border: none;
+    height: 100%;
+    width: 100%;
     background-image: url("../images/binding_dark.png");
 }
 
@@ -82,6 +85,18 @@ body {
         padding: 0 0.5em 0.5em 0.5em;
         color: #ffffff;
     }
+}
+
+#left-navbar {
+    overflow:scroll;
+}
+#right-navbar {
+    overflow:scroll;
+}
+#right-toogle-button{
+    float: right;
+    margin-right: 10px;
+    position: relative;
 }
 
 

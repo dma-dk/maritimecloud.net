@@ -4834,7 +4834,7 @@ var service = [
             "points" : [
                {
                   "lat" : 67.5799,
-                  "lon" : 54.1436
+                  "lon" : -54.1436
                }
             ],
             "type" : "circle"

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app style="overflow-y: hidden;" xmlns="http://www.w3.org/1999/html">
+<html ng-app xmlns="http://www.w3.org/1999/html">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -15,7 +15,7 @@
 
 
     <!--<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">-->
-    <!--<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">-->
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
     <!--special edition boorstrap to get nav menu to work: from: http://jasny.github.io/bootstrap/dist/css/bootstrap.css -->
     <link href="css/bootstrap-Jasny.css" rel="stylesheet">
 
@@ -35,7 +35,7 @@
 <!--nav from: http://jasny.github.io/bootstrap/components/#navmenu-fixed-->
 
 
-<div id="left-navbar" class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm" style="overflow:scroll;">
+<div id="left-navbar" class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm">
 
     <div id="filters" ng-cloak>
         <form id="mapform">
@@ -63,7 +63,7 @@
             </div>
         </div>
     </div>
-    <div id="noServices" ng-show="noServices()" ng-cloak>
+    <div id="noServices" ng-show="noServices()" class="noServices" ng-cloak>
         <h4>No services available</h4>
     </div>
 
@@ -114,7 +114,7 @@
 </div>
 <div id="right-navbar" class="navmenu navmenu-default navmenu-fixed-right offcanvas-sm">
     <div id="info" ng-show="showInfoBox" ng-cloak>
-        <h4 id="info_title">Service info</h4>
+        <h4 id="info_title">Service</h4>
         <div class="headline-divider" ></div>
         <ul class="serviceList">
             <ul class="list-in-list">
@@ -127,48 +127,46 @@
             </ul>
             <li ng-hide="isEndpoint" style="font-weight: bold;">Description:</li>
             <pre ng-hide="isEndpoint" ng-bind="description"></pre>
-            <li ng-show="isEndpoint" style="font-weight: bold;">Endpoint:</li>
 
-            <ul class="list-in-list-indent" ng-show="isEndpoint">
-                <li class="horizontal-list" style="font-weight: bold;">Type: </li>
-                <li class="horizontal-list " ng-bind="endpointType"></li>
-            </ul>
-            <ul class="list-in-list-indent" ng-show="isEndpoint">
-                <li class="horizontal-list" style="font-weight: bold;">Url: </li>
+            <ul class="list-in-list" ng-show="isEndpoint">
+                <li class="horizontal-list"  style="font-weight: bold;">Url:</li>
                 <li  class="horizontal-list" ng-show="isInternetUrl">
-                    <a ng-href="{{endpointUrl}}" target="_blank">Link</a>
+                    <a ng-href="{{endpointUrl}}" target="_blank"ng-bind="linkShorted"></a>
                 </li>
                 <li class="horizontal-list" ng-bind="endpointUrl" ng-hide="isInternetUrl">
             </ul>
 
-            <ul class="list-in-list">
-                <li class="horizontal-list" style="font-weight: bold;">Operational Service: </li>
-                <li class="horizontal-list" ng-bind="operationalService"></li>
-            </ul>
-            <li>Service specification:</li>
-            <ul class="list-in-list-indent">
-                <li class="horizontal-list" style="font-weight: bold;">Service ID: </li>
-                <li class="horizontal-list" ng-bind="serviceID"></li>
-            </ul>
-            <ul class="list-in-list-indent">
-                <li class="horizontal-list" style="font-weight: bold;">Name: </li>
-                <li class="horizontal-list" ng-bind="serviceName"></li>
-            </ul>
-            <ul class="list-in-list-indent">
-                <li class="horizontal-list" style="font-weight: bold;">Version: </li>
-                <li class="horizontal-list" ng-bind="serviceVersion"></li>
-            </ul>
-            <ul class="list-in-list-indent">
-                <li class="horizontal-list" style="font-weight: bold;">Variant: </li>
-                <li class="horizontal-list" ng-bind="serviceVariant"></li>
-            </ul>
-            <ul class="list-in-list-indent" style="padding-left: 10px;">
-                <li class="horizontal-list" style="font-weight: bold;">Transport: </li>
-                <li class="horizontal-list" ng-bind="serviceTransport"></li>
-            </ul>
+            <input ng-click="change()" type="button" value="Show details" id="showHideButton" style="margin:5px 0">
+            <div ng-show="showHideInfoBox">
+                <ul class="list-in-list">
+                    <li class="horizontal-list" style="font-weight: bold;">Operational Service: </li>
+                    <li class="horizontal-list" ng-bind="operationalService"></li>
+                </ul>
+                <li style="font-weight: bold;">Service specification:</li>
+                <ul class="list-in-list-indent">
+                    <li class="horizontal-list" style="font-weight: bold;">Service ID: </li>
+                    <li class="horizontal-list" ng-bind="serviceID"></li>
+                </ul>
+                <ul class="list-in-list-indent">
+                    <li class="horizontal-list" style="font-weight: bold;">Name: </li>
+                    <li class="horizontal-list" ng-bind="serviceName"></li>
+                </ul>
+                <ul class="list-in-list-indent">
+                    <li class="horizontal-list" style="font-weight: bold;">Version: </li>
+                    <li class="horizontal-list" ng-bind="serviceVersion"></li>
+                </ul>
+                <ul class="list-in-list-indent">
+                    <li class="horizontal-list" style="font-weight: bold;">Variant: </li>
+                    <li class="horizontal-list" ng-bind="serviceVariant"></li>
+                </ul>
+                <ul class="list-in-list-indent" style="padding-left: 10px;">
+                    <li class="horizontal-list" style="font-weight: bold;">Transport: </li>
+                    <li class="horizontal-list" ng-bind="serviceTransport"></li>
+                </ul>
+            </div>
         </ul>
     </div>
-    <div id="noServices" ng-hide="showInfoBox" ng-cloak>
+    <div id="noServicesSelected" class="noServices" ng-hide="showInfoBox" ng-cloak>
         <h4>No service selected</h4>
     </div>
 </div>
@@ -180,7 +178,7 @@
         <span class="icon-bar"></span>
     </button>
 
-    <button type="button" class="navbar-toggle visible-sm visible-xs" data-toggle="offcanvas" data-target="#right-navbar"
+    <button id="right-toogle-button" type="button" class="navbar-toggle visible-sm visible-xs" data-toggle="offcanvas" data-target="#right-navbar"
             style="float: right; margin-right: 10px; position: relative;">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -189,7 +187,7 @@
 
 </div>
 
-<div class="container" style="border: none; height: 100%; width: 100%; ">
+<div class="container">
 
     <div>
            <h1 id="title">Maritime Service Portfolio Registry</h1>
@@ -214,10 +212,6 @@
 
 
 </div>
-
-
-
-
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
 <script src="http://openlayers.org/dev/OpenLayers.js"></script>
 <script src="json/services.js"></script>

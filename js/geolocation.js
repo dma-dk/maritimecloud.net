@@ -430,8 +430,42 @@ document.getElementById('mapform').onclick = function() {
 
 };
 
+
+
 //Angular stuff
 function geolocationCtrl($scope) {
+
+    $scope.showHideInfoBox=false;
+    $scope.showHideButtonText='Show details';
+
+    $scope.change = function(){
+        var elem = document.getElementById("showHideButton");
+        if (elem.value=="Hide details") {
+            $scope.showHideInfoBox=false;
+            elem.value = "Show details";
+        }
+        else {
+            $scope.showHideInfoBox=true;
+            elem.value = "Hide details";
+        }
+    }
+
+
+    $scope.extendInfoBox = function(){
+        console.log("In extendInfoBox");
+
+        var elem = document.getElementById("showHideButton");
+        if (elem.value=="Close Curtain") elem.value = "Open Curtain";
+        else elem.value = "Close Curtain";
+
+
+        if($scope.showHideInfoBox) {
+            console.log("In if true extendInfoBox");
+            $scope.showHideButtonText=='Hide details'
+
+        }else $scope.showHideButtonText=='Show details'
+    }
+
 
     $scope.serviceHeadlines = serviceHeadlines;
 
@@ -554,6 +588,7 @@ function geolocationCtrl($scope) {
             $scope.description= currentService.description;
             $scope.endpointType="";
             $scope.endpointUrl="";
+            $scope.linkShorted="";
 
         } else {
             if (currentService.endpoint[0].type=="URL") $scope.isInternetUrl = true;
@@ -563,6 +598,7 @@ function geolocationCtrl($scope) {
             $scope.description="";
             $scope.endpointType=currentService.endpoint[0].type;
             $scope.endpointUrl=currentService.endpoint[0].url;
+            $scope.linkShorted=currentService.endpoint[0].url.slice(0,30)+"...";
 
         }
 
@@ -701,7 +737,11 @@ function deg2rad(deg) {
     return deg * (Math.PI/180)
 }
 
-
+function change(){
+    var elem = document.getElementById("showHideButton");
+    if (elem.value=="Hide details") elem.value = "Show details";
+    else elem.value = "Hide details";
+}
 
 
 
