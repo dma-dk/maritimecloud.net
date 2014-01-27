@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app xmlns="http://www.w3.org/1999/html">
+<html ng-app style="overflow-y: hidden;" >
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -15,7 +15,7 @@
 
 
     <!--<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">-->
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <!--<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">-->
     <!--special edition boorstrap to get nav menu to work: from: http://jasny.github.io/bootstrap/dist/css/bootstrap.css -->
     <link href="css/bootstrap-Jasny.css" rel="stylesheet">
 
@@ -35,7 +35,8 @@
 <!--nav from: http://jasny.github.io/bootstrap/components/#navmenu-fixed-->
 
 
-<div id="left-navbar" class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm">
+<div id="left-navbar" class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm"
+     style="overflow:auto;">
 
     <div id="filters" ng-cloak>
         <form id="mapform">
@@ -112,7 +113,7 @@
         -->
 
 </div>
-<div id="right-navbar" class="navmenu navmenu-default navmenu-fixed-right offcanvas-sm">
+<div id="right-navbar" class="navmenu navmenu-default navmenu-fixed-right offcanvas-sm" style="overflow:auto;">
     <div id="info" ng-show="showInfoBox" ng-cloak>
         <h4 id="info_title">Service</h4>
         <div class="headline-divider" ></div>
@@ -128,10 +129,10 @@
             <li ng-hide="isEndpoint" style="font-weight: bold;">Description:</li>
             <pre ng-hide="isEndpoint" ng-bind="description"></pre>
 
-            <ul class="list-in-list" ng-show="isEndpoint">
+            <ul class="list-in-list" ng-show="isEndpoint && isInternetUrl">
                 <li class="horizontal-list"  style="font-weight: bold;">Url:</li>
                 <li  class="horizontal-list" ng-show="isInternetUrl">
-                    <a ng-href="{{endpointUrl}}" target="_blank"ng-bind="linkShorted"></a>
+                    <a ng-href="{{endpointUrl}}" target="_blank" ng-bind="urlShorted"></a>
                 </li>
                 <li class="horizontal-list" ng-bind="endpointUrl" ng-hide="isInternetUrl">
             </ul>
@@ -142,6 +143,23 @@
                     <li class="horizontal-list" style="font-weight: bold;">Operational Service: </li>
                     <li class="horizontal-list" ng-bind="operationalService"></li>
                 </ul>
+
+                <li ng-show="isEndpoint" style="font-weight: bold;">Endpoint:</li>
+
+                <div ng-repeat="endpoint in endpoints">
+                    <ul class="list-in-list-indent" ng-show="isEndpoint">
+                        <li class="horizontal-list" style="font-weight: bold;">Type: </li>
+                        <li class="horizontal-list " ng-bind="endpoint.type"></li>
+                    </ul>
+                    <ul class="list-in-list-indent" ng-show="isEndpoint">
+                        <li class="horizontal-list" style="font-weight: bold;">Url: </li>
+                        <li  class="horizontal-list" ng-show="isInternetUrl">
+                            <a ng-href="{{endpoint.url}}" target="_blank" ng-bind="endpoint.shortUrl"></a>
+                        </li>
+                        <li class="horizontal-list" ng-bind="endpoint.url" ng-hide="isInternetUrl">
+                    </ul>
+                </div>
+
                 <li style="font-weight: bold;">Service specification:</li>
                 <ul class="list-in-list-indent">
                     <li class="horizontal-list" style="font-weight: bold;">Service ID: </li>
@@ -171,14 +189,16 @@
     </div>
 </div>
 
-<div class="navbar navbar-default navbar-fixed-top visible-sm visible-xs">
-    <button type="button" class="navbar-toggle visible-sm visible-xs" data-toggle="offcanvas" data-target="#left-navbar">
+<div id="left-toogle-button" class="navbar navbar-default navbar-fixed-top visible-sm visible-xs">
+    <button type="button" class="navbar-toggle visible-sm visible-xs"
+            data-toggle="offcanvas" data-target="#left-navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
     </button>
 
-    <button id="right-toogle-button" type="button" class="navbar-toggle visible-sm visible-xs" data-toggle="offcanvas" data-target="#right-navbar"
+    <button id="right-toogle-button" type="button" class="navbar-toggle visible-sm visible-xs"
+            data-toggle="offcanvas" data-target="#right-navbar"
             style="float: right; margin-right: 10px; position: relative;">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -225,11 +245,14 @@
 <script src="js/offcanvas.js"></script>
 
 <script>
-    $('#left-navbar').offcanvas({'autohide':false});
-    //$('#left-navbar').offcanvas('show');
 
-    $('#right-navbar').offcanvas({'autohide':false});
+    //$('#left-navbar').offcanvas({'canvas': 'false','autohide':false});
+    //$('#left-navbar').offcanvas('show');
+    //document.getElementById("left-navbar").click();
+
+    //$('#right-navbar').offcanvas({'autohide':false});
     //$('#right-navbar').offcanvas('show');
+
 </script>
 
 

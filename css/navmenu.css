@@ -87,12 +87,6 @@ body {
     }
 }
 
-#left-navbar {
-    overflow:scroll;
-}
-#right-navbar {
-    overflow:scroll;
-}
 #right-toogle-button{
     float: right;
     margin-right: 10px;

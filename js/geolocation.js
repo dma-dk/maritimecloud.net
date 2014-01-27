@@ -523,8 +523,9 @@ function geolocationCtrl($scope) {
         //info-box string variables
         $scope.provider = '';
         $scope.method = '';
-        $scope.endpoints = {};
-        $scope.endpointUrl = '';
+        $scope.endpoints = [];
+        $scope.endpointUrl='';
+        $scope.urlShorted='';
 
         //show internet URL or not
         $scope.isInternet = true;
@@ -586,9 +587,12 @@ function geolocationCtrl($scope) {
         if (currentService.endpoint==undefined) {
             $scope.isEndpoint=false;
             $scope.description= currentService.description;
-            $scope.endpointType="";
-            $scope.endpointUrl="";
-            $scope.linkShorted="";
+            for(var i=0; i < currentService.endpoint.length; i++){
+                $scope.endpoints[i] = {type:'',url:'',shortUrl:''};
+
+            }
+            $scope.endpointUrl='';
+            $scope.urlShorted='';
 
         } else {
             if (currentService.endpoint[0].type=="URL") $scope.isInternetUrl = true;
@@ -596,40 +600,15 @@ function geolocationCtrl($scope) {
 
             $scope.isEndpoint=true;
             $scope.description="";
-            $scope.endpointType=currentService.endpoint[0].type;
+            for(var i=0; i < currentService.endpoint.length; i++){
+                $scope.endpoints[i] = { type:currentService.endpoint[i].type,
+                                    url:currentService.endpoint[i].url,
+                                    shortUrl:currentService.endpoint[i].url.slice(0,30)+"..."};
+
+            }
             $scope.endpointUrl=currentService.endpoint[0].url;
-            $scope.linkShorted=currentService.endpoint[0].url.slice(0,30)+"...";
-
+            $scope.urlShorted=currentService.endpoint[0].url.slice(0,30)+"...";
         }
-
-        /*
-        var tempString = '';
-        for (j=0;j<currentService.endpoint.length;j++){
-
-            if(currentService.endpoint[j].type == "INTERNET_URL"){
-                $scope.isInternet = true;
-                $scope.endpoints[j] = currentService.endpoint[j].url;
-                //tempString = currentService.endpoint[j].url;
-            }
-            else {
-                $scope.isInternet = false;
-                $scope.endpoints[j] = currentService.endpoint[j].url;
-                //tempString = "noURL";
-            }
-
-
-
-            //tempString += service[indexOfSerivce].endpoint[j].url+',';
-
-        }
-
-
-
-        $scope.provider = "Provider: " +service[indexOfSerivce].provider.id;
-        $scope.method = "Method: " +service[indexOfSerivce].specification.transport;
-        //$scope.endpoint ="Endpoint: "+tempString;
-        $scope.endpointUrl=tempString;
-        */
         polyServiceVector.redraw();
     }
 
@@ -742,7 +721,6 @@ function change(){
     if (elem.value=="Hide details") elem.value = "Show details";
     else elem.value = "Hide details";
 }
-
 
 
 /*
