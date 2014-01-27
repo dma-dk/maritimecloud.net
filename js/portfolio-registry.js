@@ -117,7 +117,6 @@ for (i=0;i<service.length;i++){
     //console.log("name: "+service[i].name);
     if (service[i].extent.area.type == 'polygon'){
         //polygons
-        console.log("inside poly");
         var tempPoints = service[i].extent.area.points;
         var tempPoint;
         var tempPointWGS;
@@ -234,9 +233,8 @@ markerControl.events.register('featureadded', markerControl, function(f) {
 
     //get postion of marker to check services availability
     var latLon = new OpenLayers.Geometry.Point(f.feature.geometry.x,f.feature.geometry.y).transform(WGS84,Spherical);
-    console.log("@ "+latLon.x+","+latLon.y);
 
-    //main loop to control services to show
+     //main loop to control services to show
     var serviceFeatures = polyServiceVector.features;
     showSelectedFeatures(latLon,serviceFeatures);
 
@@ -348,8 +346,6 @@ document.getElementById('mapform').onclick = function() {
 
     //Own position filter
     if (radios[1].checked) {
-        console.log("Own position checked");
-
         //clean up
         currentServices = [];
         hideAllFeatures(polyServiceVector);
@@ -378,8 +374,8 @@ document.getElementById('mapform').onclick = function() {
         ownPosLayer.removeAllFeatures();
 
         var features = polyServiceVector.features;
+
         //Show all services in list
-        console.log("length of services: "+features.length);
         showAllServices(features);
         //Show all service polygons
         for (i=0;i<features.length;i++){
@@ -576,7 +572,6 @@ function showSelectedFeatures(testPoint,serviceFeatures){
         //is marker position inside polygon?
         //polygon
         if (serviceFeatures[i].data.type == 'polygon'){
-            console.log("marker polygon check");
             if (polygonCollection[i].containsPoint(testPoint)) {
                 //push to list of current services
                 currentServices.push({type: service[i].specification.operationalService.name, title: service[i].name});
@@ -585,7 +580,6 @@ function showSelectedFeatures(testPoint,serviceFeatures){
             }
         }
         else if (serviceFeatures[i].data.type == 'circle'){
-            console.log("marker circle check");
             var testDistance = getDistanceFromLatLonInM(serviceFeatures[i].data.center.y,serviceFeatures[i].data.center.x,testPoint.y,testPoint.x);
 
             if(testDistance<=serviceFeatures[i].data.radius){

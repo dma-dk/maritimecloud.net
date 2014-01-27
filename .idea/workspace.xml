@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b30ec71-f81c-4205-82a2-55dde08ed83c" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/css/olstyle.css" afterPath="$PROJECT_DIR$/css/custom-styles.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/geolocation.js" afterPath="$PROJECT_DIR$/js/portfolio-registry.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/navmenu.css" afterPath="$PROJECT_DIR$/css/navmenu.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/json/services.js" afterPath="$PROJECT_DIR$/json/services.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/portfolio-registry.js" afterPath="$PROJECT_DIR$/js/portfolio-registry.js" />
     </list>
     <ignored path="maritimecloud.net.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,6 +19,7 @@
     <file path="/testNav.html" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1390211813211" ignored="false" />
     <file path="/bootstrap-Jasny.css" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1390491926488" ignored="false" />
     <file path="/navmenu.css" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1390565615908" ignored="false" />
+    <file path="/portfolio-registry.js" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1390826126685" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +61,7 @@
       <file leaf-file-name="portfolio-registry.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/portfolio-registry.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="601" column="26" selection-start="19775" selection-end="19775" vertical-scroll-proportion="0.43">
+            <state line="236" column="4" selection-start="7741" selection-end="7741" vertical-scroll-proportion="0.571">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -505,7 +501,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/portfolio-registry.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="601" column="26" selection-start="19775" selection-end="19775" vertical-scroll-proportion="0.43">
+        <state line="236" column="4" selection-start="7741" selection-end="7741" vertical-scroll-proportion="0.571">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
