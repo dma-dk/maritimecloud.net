@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b30ec71-f81c-4205-82a2-55dde08ed83c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/bootstrap-Jasny.css" afterPath="$PROJECT_DIR$/css/bootstrap-Jasny.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/geolocation.js" afterPath="$PROJECT_DIR$/js/geolocation.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/olstyle.css" afterPath="$PROJECT_DIR$/css/olstyle.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/navmenu.css" afterPath="$PROJECT_DIR$/css/navmenu.css" />
     </list>
     <ignored path="maritimecloud.net.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,10 +38,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="115" column="37" selection-start="4982" selection-end="4989" vertical-scroll-proportion="-4.22">
+            <state line="212" column="40" selection-start="9905" selection-end="9919" vertical-scroll-proportion="0.33333334">
               <folding>
                 <element signature="n#style#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -68,10 +66,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bootstrap-Jasny.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="bootstrap-Jasny.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/bootstrap-Jasny.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5089" column="23" selection-start="85691" selection-end="85691" vertical-scroll-proportion="0.777193">
+            <state line="5089" column="23" selection-start="85691" selection-end="85691" vertical-scroll-proportion="-4.3461537">
               <folding />
             </state>
           </provider>
@@ -100,7 +98,7 @@
       <file leaf-file-name="navmenu.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/navmenu.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="17" selection-start="743" selection-end="743" vertical-scroll-proportion="0.0">
+            <state line="82" column="17" selection-start="1339" selection-end="1339" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -140,11 +138,11 @@
         <option value="$PROJECT_DIR$/responsive-nav-styles.css" />
         <option value="$PROJECT_DIR$/testNav.html" />
         <option value="$PROJECT_DIR$/json/services.js" />
-        <option value="$PROJECT_DIR$/css/navmenu.css" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/geolocation.js" />
         <option value="$PROJECT_DIR$/css/olstyle.css" />
         <option value="$PROJECT_DIR$/css/bootstrap-Jasny.css" />
+        <option value="$PROJECT_DIR$/css/navmenu.css" />
       </list>
     </option>
   </component>
@@ -520,6 +518,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/bootstrap-Jasny.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5089" column="23" selection-start="85691" selection-end="85691" vertical-scroll-proportion="-4.3461537">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/css/olstyle.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="194" column="0" selection-start="3730" selection-end="3730" vertical-scroll-proportion="0.0">
@@ -527,9 +532,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/navmenu.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="17" selection-start="1339" selection-end="1339" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="37" selection-start="4982" selection-end="4989" vertical-scroll-proportion="-4.22">
+        <state line="212" column="40" selection-start="9905" selection-end="9919" vertical-scroll-proportion="0.33333334">
           <folding>
             <element signature="n#style#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -539,20 +551,6 @@
             <element signature="n#style#0;n#li#0;n#ul#5;n#div#0;n#ul#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/navmenu.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="17" selection-start="743" selection-end="743" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/bootstrap-Jasny.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5089" column="23" selection-start="85691" selection-end="85691" vertical-scroll-proportion="0.777193">
-          <folding />
         </state>
       </provider>
     </entry>
