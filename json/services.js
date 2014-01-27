@@ -3496,7 +3496,7 @@ var service = [
          },
          "serviceId" : "imo.worldvtsguide"
       },
-      "name" : "Great Belt WVG (web)",
+      "name" : "Great Belt WVTSG (web)",
       "type" : "STATIC",
       "description" : "",
       "endpoint" : [
@@ -3604,7 +3604,7 @@ var service = [
          },
          "serviceId" : "imo.worldvtsguide"
       },
-      "name" : "Oslo WVG (web)",
+      "name" : "Oslo WVTSG (web)",
       "type" : "STATIC",
       "description" : "",
       "endpoint" : [
@@ -3684,7 +3684,7 @@ var service = [
          },
          "serviceId" : "imo.worldvtsguide"
       },
-      "name" : "Valparaiso WVG (web)",
+      "name" : "Valparaiso WVTSG (web)",
       "type" : "STATIC",
       "description" : "",
       "endpoint" : [
@@ -3756,7 +3756,7 @@ var service = [
          },
          "serviceId" : "imo.worldvtsguide"
       },
-      "name" : "Rotterdam WVG (web)",
+      "name" : "Rotterdam WVTSG (web)",
       "type" : "STATIC",
       "description" : "",
       "endpoint" : [
@@ -3793,7 +3793,7 @@ var service = [
          },
          "serviceId" : "imo.worldvtsguide"
       },
-      "name" : "Singapore WVG (web)",
+      "name" : "Singapore WVTSG (web)",
       "type" : "STATIC",
       "description" : "",
       "endpoint" : [
@@ -3901,7 +3901,7 @@ var service = [
          },
          "serviceId" : "imo.worldvtsguide"
       },
-      "name" : "Dover Strait WVG (web)",
+      "name" : "Dover Strait WVTSG (web)",
       "type" : "STATIC",
       "description" : "",
       "endpoint" : [
