@@ -5087,7 +5087,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .navmenu-fixed-right {
   right: 0;
-  border-width: 0 0 0 1px;
+  border-width: 0 0 0 0px;
 }
 
 .navmenu-nav {

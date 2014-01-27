@@ -587,10 +587,7 @@ function geolocationCtrl($scope) {
         if (currentService.endpoint==undefined) {
             $scope.isEndpoint=false;
             $scope.description= currentService.description;
-            for(var i=0; i < currentService.endpoint.length; i++){
-                $scope.endpoints[i] = {type:'',url:'',shortUrl:''};
-
-            }
+            $scope.endpoints = [];
             $scope.endpointUrl='';
             $scope.urlShorted='';
 
