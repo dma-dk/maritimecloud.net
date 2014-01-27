@@ -2,14 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b30ec71-f81c-4205-82a2-55dde08ed83c" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/css/olstyle.css" afterPath="$PROJECT_DIR$/css/custom-styles.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/js/geolocation.js" afterPath="$PROJECT_DIR$/js/portfolio-registry.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/olstyle.css" afterPath="$PROJECT_DIR$/css/olstyle.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/navmenu.css" afterPath="$PROJECT_DIR$/css/navmenu.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/json/services.js" afterPath="$PROJECT_DIR$/json/services.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="maritimecloud.net.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1390809845680" ignored="false" />
     <file path="/geolocation.js" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1390815751337" ignored="false" />
-    <file path="/index.html" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1390820716370" ignored="false" />
+    <file path="/index.html" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1390822874777" ignored="false" />
     <file path="$PROJECT_DIR$/../AisView/src/main/webapp/index.html" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1389709517916" ignored="false" />
     <file path="/services.json" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1388751459369" ignored="false" />
     <file path="/olstyle.css" changelist="2b30ec71-f81c-4205-82a2-55dde08ed83c" time="1390820533986" ignored="false" />
@@ -39,13 +43,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="146" column="46" selection-start="6641" selection-end="6641" vertical-scroll-proportion="0.27151638">
+            <state line="78" column="42" selection-start="3754" selection-end="3767" vertical-scroll-proportion="-6.5">
               <folding>
                 <element signature="n#style#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#li#0;n#div#0;n#ul#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#li#1;n#div#0;n#ul#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -56,60 +62,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="geolocation.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/geolocation.js">
+      <file leaf-file-name="portfolio-registry.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/portfolio-registry.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="590" column="12" selection-start="18306" selection-end="18306" vertical-scroll-proportion="-13.653846">
+            <state line="601" column="26" selection-start="19775" selection-end="19775" vertical-scroll-proportion="0.43">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bootstrap-Jasny.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/bootstrap-Jasny.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5089" column="23" selection-start="85691" selection-end="85691" vertical-scroll-proportion="-4.3461537">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="offcanvas.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/offcanvas.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="297" column="62" selection-start="9154" selection-end="9154" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1390210780000" expanded="false" signature="2603:2621" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="olstyle.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/olstyle.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="193" column="20" selection-start="3746" selection-end="3746" vertical-scroll-proportion="-25.846153">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="navmenu.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/navmenu.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="17" selection-start="1339" selection-end="1339" vertical-scroll-proportion="-27.923077">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="services.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/json/services.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="272" column="36" selection-start="8074" selection-end="8094" vertical-scroll-proportion="-12.653846">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -138,19 +97,21 @@
         <option value="$PROJECT_DIR$/css/responsive-nav-styles.css" />
         <option value="$PROJECT_DIR$/responsive-nav-styles.css" />
         <option value="$PROJECT_DIR$/testNav.html" />
-        <option value="$PROJECT_DIR$/json/services.js" />
         <option value="$PROJECT_DIR$/js/geolocation.js" />
         <option value="$PROJECT_DIR$/css/bootstrap-Jasny.css" />
-        <option value="$PROJECT_DIR$/css/navmenu.css" />
         <option value="$PROJECT_DIR$/css/olstyle.css" />
+        <option value="$PROJECT_DIR$/json/services.js" />
+        <option value="$PROJECT_DIR$/css/custom-styles.css" />
+        <option value="$PROJECT_DIR$/css/navmenu.css" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/portfolio-registry.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="711" />
+    <option name="x" value="1" />
     <option name="y" value="22" />
-    <option name="width" value="1207" />
+    <option name="width" value="1917" />
     <option name="height" value="1174" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -333,14 +294,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="711" y="22" width="1207" height="1174" extended-state="0" />
+    <frame x="1" y="22" width="1917" height="1174" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.06936416" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39563566" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24986821" sideWeight="0.670778" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21114865" sideWeight="0.60436434" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16948257" sideWeight="0.60436434" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -415,22 +376,7 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#style#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#0;n#div#0;n#ul#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#1;n#div#0;n#ul#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ul#5;n#div#0;n#ul#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/geolocation.js">
+    <entry file="file://$PROJECT_DIR$/js/portfolio-registry.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="440" column="11" selection-start="13199" selection-end="13214" vertical-scroll-proportion="0.0">
           <folding>
@@ -445,6 +391,8 @@
           <folding>
             <element signature="n#style#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#li#0;n#div#0;n#ul#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#li#1;n#div#0;n#ul#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -454,7 +402,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/geolocation.js">
+    <entry file="file://$PROJECT_DIR$/js/portfolio-registry.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="0" selection-start="68" selection-end="68" vertical-scroll-proportion="0.0">
           <folding>
@@ -463,14 +411,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/olstyle.css">
+    <entry file="file://$PROJECT_DIR$/css/custom-styles.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="78" column="12" selection-start="1850" selection-end="1850" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/geolocation.js">
+    <entry file="file://$PROJECT_DIR$/js/portfolio-registry.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="36" column="33" selection-start="1131" selection-end="1131" vertical-scroll-proportion="0.0">
           <folding>
@@ -494,63 +442,72 @@
         <state line="20" column="75" selection-start="724" selection-end="724" vertical-scroll-proportion="0.3033367" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/offcanvas.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="297" column="62" selection-start="9154" selection-end="9154" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1390210780000" expanded="false" signature="2603:2621" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/json/services.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="272" column="36" selection-start="8074" selection-end="8094" vertical-scroll-proportion="-12.653846">
+        <state line="4737" column="209" selection-start="146827" selection-end="146827" vertical-scroll-proportion="-12.653846">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/bootstrap-Jasny.css">
+    <entry file="file://$PROJECT_DIR$/js/bootstrap.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5089" column="23" selection-start="85691" selection-end="85691" vertical-scroll-proportion="-4.3461537">
+        <state line="1" column="19" selection-start="7" selection-end="23" vertical-scroll-proportion="0.014807503">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/geolocation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="590" column="12" selection-start="18306" selection-end="18306" vertical-scroll-proportion="-13.653846">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/navmenu.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="17" selection-start="1339" selection-end="1339" vertical-scroll-proportion="-27.923077">
+        <state line="55" column="22" selection-start="879" selection-end="879" vertical-scroll-proportion="0.825">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/olstyle.css">
+    <entry file="file://$PROJECT_DIR$/css/custom-styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="193" column="20" selection-start="3746" selection-end="3746" vertical-scroll-proportion="-25.846153">
+        <state line="112" column="0" selection-start="2177" selection-end="2177" vertical-scroll-proportion="1.6584402">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/offcanvas.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="297" column="0" selection-start="9154" selection-end="9154" vertical-scroll-proportion="0.9122807">
+          <folding>
+            <marker date="1390210780000" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/bootstrap-Jasny.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5089" column="23" selection-start="85691" selection-end="85691" vertical-scroll-proportion="1.2087133">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="146" column="46" selection-start="6641" selection-end="6641" vertical-scroll-proportion="0.27151638">
+        <state line="78" column="42" selection-start="3754" selection-end="3767" vertical-scroll-proportion="-6.5">
           <folding>
             <element signature="n#style#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#li#0;n#div#0;n#ul#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#li#1;n#div#0;n#ul#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#ul#5;n#div#0;n#ul#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/portfolio-registry.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="601" column="26" selection-start="19775" selection-end="19775" vertical-scroll-proportion="0.43">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>

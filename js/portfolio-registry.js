@@ -24,6 +24,10 @@ Array.prototype.unique = function() {
     return arr;
 }
 
+//
+//Map styles
+//===================
+
 var style = {
     fillColor: '#00000',
     fillOpacity: 0.1,
@@ -46,35 +50,17 @@ var mouseMarkerStyle = {
     }
 };
 
-/*
-var defaultServiceStyle = new OpenLayers.Style({
-    'fillColor': "#ee9900",
-    'fillOpacity': 0.1,
-    'strokeWidth': 1,
-    'strokeColor': "#ee9900"
-});
+//
+//Map init
+//===================
 
-
-var selectedServiceStyle = new OpenLayers.Style({
-    'fillColor': "#ee9900",
-    'fillOpacity': 0.3,
-    'strokeWidth': 1,
-    'strokeColor': "#000000"
-});
-*/
-
-var currentServices = [];
 
 var WGS84 = new OpenLayers.Projection("EPSG:900913");       // WGS 1984
 var Spherical = new OpenLayers.Projection("EPSG:4326");     // Spherical Mercator
 
 var map = new OpenLayers.Map('map', {
-    projection: new OpenLayers.Projection("EPSG:900913"),
-    units: "ft"
+    projection: new OpenLayers.Projection("EPSG:900913")
 });
-
-//var scaleLine = new OpenLayers.Control.ScaleLine({geodesic: true});
-//map.addControl(scaleLine);
 
 var layer = new OpenLayers.Layer.OSM('Simple OSM Map');
 var ownPosLayer = new OpenLayers.Layer.Vector('Own pos Layer');
@@ -87,22 +73,43 @@ renderer = (renderer) ? [renderer] : OpenLayers.Layer.Vector.prototype.renderers
 var markerLayer = new OpenLayers.Layer.Vector("Marker Layer", {
     renderers: renderer
 });
-
 map.addLayers([markerLayer]);
 
+//adding map marker control
 var markerControl = new OpenLayers.Control.DrawFeature(markerLayer,OpenLayers.Handler.Point,mouseMarkerStyle);
 map.addControl(markerControl);
 
+//adding geolocation control
+var geolocate = new OpenLayers.Control.Geolocate({
+    bind: false,
+    geolocationOptions: {
+        enableHighAccuracy: false,
+        maximumAge: 0,
+        timeout: 7000
+    }
+});
+map.addControl(geolocate);
+
+map.setCenter(
+    new OpenLayers.LonLat(12.55854, 55.676036).transform(
+        new OpenLayers.Projection("EPSG:4326"),
+        map.getProjectionObject()
+    ), 5
+);
 
 
+//Array to hold current selected services
+var currentServices = [];
+
 //
-//json service testing
+//json service consuming
 //
-//var serviceTitles = [];
+
+var polyServiceVector = new OpenLayers.Layer.Vector('Polygons form Service Layer');
 var serviceHeadlines = [];
 var polygonCollection = [];
 var polygonCollectionWGS = [];
-var polyServiceVector = new OpenLayers.Layer.Vector('Polygons form Service Layer');
+
 for (i=0;i<service.length;i++){
     //collect service headlines
     serviceHeadlines.push(service[i].specification.operationalService.name);
@@ -174,9 +181,22 @@ serviceHeadlines = serviceHeadlines.unique();
 //hide all service polygons
 hideAllFeatures(polyServiceVector);
 
+//
+//Defalut: 1) All services shown 2) Marker tool activated
+//
+markerControl.activate();
+//All services are shown on startup as default
+var features = polyServiceVector.features;
+//Show all services in list
+currentServices = [];
+for (i=0;i<features.length;i++) currentServices.push({type: service[i].specification.operationalService.name, title: service[i].name});
+//Show all service polygons
+for (i=0;i<features.length;i++) features[i].style = defaultServiceStyle;
+//force redraw
+polyServiceVector.redraw();
+
+//function to be run after each mouse marker event
 markerControl.events.register('featureadded', markerControl, function(f) {
-
-
 
     //delete last marker
     var markerFeatures = markerLayer.features;
@@ -188,7 +208,7 @@ markerControl.events.register('featureadded', markerControl, function(f) {
     //remove own position when using marker tool
     ownPosLayer.removeAllFeatures();
 
-    //un-check all options on tool selector
+    //un-check all options on #filter selector
     var radio = document.getElementById('mapform');
     for(var i=0;i<radio.length;i++)
         radio[i].checked = false;
@@ -229,14 +249,6 @@ markerControl.events.register('featureadded', markerControl, function(f) {
     selector.scope().$apply();
 });
 
-map.setCenter(
-    new OpenLayers.LonLat(12.55854, 55.676036).transform(
-        new OpenLayers.Projection("EPSG:4326"),
-        map.getProjectionObject()
-    ), 5
-);
-
-
 var pulsate = function(feature) {
     var point = feature.geometry.getCentroid(),
         bounds = feature.geometry.getBounds(),
@@ -267,16 +279,7 @@ var pulsate = function(feature) {
     window.resizeInterval = window.setInterval(resize, 50, point, radius);
 };
 
-var geolocate = new OpenLayers.Control.Geolocate({
-    bind: false,
-    geolocationOptions: {
-        enableHighAccuracy: false,
-        maximumAge: 0,
-        timeout: 7000
-    }
-});
-map.addControl(geolocate);
-//var firstGeolocation = true;
+//function to be run after each geolocate event
 geolocate.events.register("locationupdated",geolocate,function(e) {
     ownPosLayer.removeAllFeatures();
     var circle = new OpenLayers.Feature.Vector(
@@ -303,12 +306,9 @@ geolocate.events.register("locationupdated",geolocate,function(e) {
         ),
         circle
     ]);
-    //if (firstGeolocation) {
-        //map.zoomToExtent(vector.getDataExtent());
-        pulsate(circle);
-        //firstGeolocation = false;
-        this.bind = true;
-    //}
+
+    pulsate(circle);
+    this.bind = true;
 
     //
     //which services to show:
@@ -334,30 +334,14 @@ geolocate.events.register("locationupdated",geolocate,function(e) {
     selector.scope().$apply();
 
     map.setCenter(
-        new OpenLayers.LonLat(e.point.x, e.point.y), 5
-    );
+        new OpenLayers.LonLat(e.point.x, e.point.y), 5);
 
 });
 geolocate.events.register("locationfailed",this,function() {
     OpenLayers.Console.log('Location detection failed');
 });
 
-//Own position and marker tool is default
-//geolocate.activate();
-
-markerControl.activate();
-//All services are shown on startup as default
-var features = polyServiceVector.features;
-//Show all services in list
-currentServices = [];
-for (i=0;i<features.length;i++) currentServices.push({type: service[i].specification.operationalService.name, title: service[i].name});
-//Show all service polygons
-for (i=0;i<features.length;i++) features[i].style = defaultServiceStyle;
-//force redraw
-polyServiceVector.redraw();
-
-
-
+//Control of #filter radio-buttons
 document.getElementById('mapform').onclick = function() {
 
     var radios = document.getElementsByName('maptype');
@@ -384,27 +368,7 @@ document.getElementById('mapform').onclick = function() {
         geolocationCtrl(selector.scope());
         selector.scope().$apply();
     }
-    //Marker Positon filter
-    /*
-    else if (radios[1].checked) {
-        console.log("Marker position checked");
-
-        //clean up
-        currentServices = [];
-        hideAllFeatures(polyServiceVector);
-
-        var serviceListDiv=document.getElementById("serviceList");
-        var selector = angular.element(serviceListDiv);
-        geolocationCtrl(selector.scope());
-        selector.scope().$apply();
-
-        ownPosLayer.removeAllFeatures();
-        geolocate.deactivate();
-
-        markerControl.activate();
-    }
-    */
-    //No filter
+    //Show all services
     else if (radios[0].checked) {
         //clean up
         //markerControl.deactivate();
@@ -424,21 +388,20 @@ document.getElementById('mapform').onclick = function() {
         }
         //force redraw
         polyServiceVector.redraw();
-
     }
-    else console.log("not hit");
-
 };
-
-
 
 //Angular stuff
 function geolocationCtrl($scope) {
 
+    //
+    //Hide/show detailed info
+    //
+
     $scope.showHideInfoBox=false;
     $scope.showHideButtonText='Show details';
 
-    $scope.change = function(){
+    $scope.extendInfoBox = function(){
         var elem = document.getElementById("showHideButton");
         if (elem.value=="Hide details") {
             $scope.showHideInfoBox=false;
@@ -450,34 +413,20 @@ function geolocationCtrl($scope) {
         }
     }
 
-
-    $scope.extendInfoBox = function(){
-        console.log("In extendInfoBox");
-
-        var elem = document.getElementById("showHideButton");
-        if (elem.value=="Close Curtain") elem.value = "Open Curtain";
-        else elem.value = "Close Curtain";
-
-
-        if($scope.showHideInfoBox) {
-            console.log("In if true extendInfoBox");
-            $scope.showHideButtonText=='Hide details'
-
-        }else $scope.showHideButtonText=='Show details'
-    }
-
-
+    //making serviceHeadlines an Angular array
     $scope.serviceHeadlines = serviceHeadlines;
+    //making currentServices an Angular array
+    $scope.servicesAngular = currentServices;
 
+    //control of info-box visibility
+    $scope.showInfoBox = false;
+
+    /*
     //Filter on services
     $scope.authorityFilter = "Tugs service";
     $scope.commercialFilter = "Local Port Service (LPS)";
 
 
-
-
-    //control of info-box visibility
-    $scope.showInfoBox = false;
 
     var indexTest1 = currentServices.length;
     while( indexTest1-- ) {
@@ -494,31 +443,25 @@ function geolocationCtrl($scope) {
     if (indexTest2==-1) $scope.commercialServices=false;
 
 
-
-    $scope.servicesAngular = currentServices;
-    console.log("authorityServices: "+$scope.authorityServices);
-    console.log("commercialServices: "+$scope.commercialServices);
-
-
-
-
     $scope.selectedIndex1 = -1;
     $scope.selectedIndex2 = -1;
+    */
 
+    //control #noServices information
     $scope.noServices = function(){
         if (currentServices.length == 0) return true;
         else return false;
     }
 
+    //hide headlines if no services in category
     $scope.checkHeadline = function(headLine) {
         return currentServices.containsType(headLine);
     }
 
+    //function to marked selected service in map and show infobox
     $scope.markService = function(clickedTitle,$index) {
-        //$('#right-navbar').offcanvas('hide');
-        //$('#right-navbar').offcanvas('show');
-
-        //$('#left-navbar').offcanvas({autohide:false});
+        $scope.markedTitle = clickedTitle;
+        $scope.selectedIndex = $index;
 
         //info-box string variables
         $scope.provider = '';
@@ -529,15 +472,6 @@ function geolocationCtrl($scope) {
 
         //show internet URL or not
         $scope.isInternet = true;
-
-        /*
-        $scope.selectedIndex1 = -1;
-        $scope.selectedIndex2 = -1;
-        if(type == 'authority') $scope.selectedIndex1 = $index;
-        if(type == 'commercial') $scope.selectedIndex2 = $index;
-        */
-        $scope.markedTitle = clickedTitle;
-        $scope.selectedIndex = $index;
 
         //clear all styling of current service polygons
         for (i=0;i<currentServices.length;i++){
@@ -552,14 +486,12 @@ function geolocationCtrl($scope) {
 
         //zoomToFeature
         var markedFeatureBounds = markedFeature.geometry.getBounds();
-        //no area
+        //service with no area
         if (markedFeatureBounds.left==markedFeatureBounds.right || markedFeatureBounds.top==markedFeatureBounds.bottom){
             map.setCenter(new OpenLayers.LonLat(markedFeatureBounds.left,markedFeatureBounds.top),8);
         }
-        //area
+        //service with an area
         else map.zoomToExtent(markedFeatureBounds, closest=false);
-
-
 
         //when service is clicked show infobox
         $scope.showInfoBox = true;
@@ -570,7 +502,9 @@ function geolocationCtrl($scope) {
         //control when there is internet url
         $scope.isInternetUrl = true;
 
+        //
         //populating infobox
+        //
         var indexOfSerivce = service.length;
         while( indexOfSerivce-- ) if( service[indexOfSerivce].name == clickedTitle ) break;
 
@@ -583,14 +517,14 @@ function geolocationCtrl($scope) {
         $scope.serviceVersion = currentService.specification.version;
         $scope.serviceVariant = currentService.specification.variant;
         $scope.serviceTransport = currentService.specification.transport;
-
+        //no endpoint in service
         if (currentService.endpoint==undefined) {
             $scope.isEndpoint=false;
             $scope.description= currentService.description;
             $scope.endpoints = [];
             $scope.endpointUrl='';
             $scope.urlShorted='';
-
+        //endpoint in service
         } else {
             if (currentService.endpoint[0].type=="URL") $scope.isInternetUrl = true;
             else $scope.isInternetUrl = false;
@@ -601,7 +535,6 @@ function geolocationCtrl($scope) {
                 $scope.endpoints[i] = { type:currentService.endpoint[i].type,
                                     url:currentService.endpoint[i].url,
                                     shortUrl:currentService.endpoint[i].url.slice(0,30)+"..."};
-
             }
             $scope.endpointUrl=currentService.endpoint[0].url;
             $scope.urlShorted=currentService.endpoint[0].url.slice(0,30)+"...";
@@ -610,7 +543,7 @@ function geolocationCtrl($scope) {
     }
 
 }
-
+//will show all services from json array
 function showAllServices(features){
     currentServices = [];
 
@@ -623,24 +556,21 @@ function showAllServices(features){
 
     for (i=0;i<features.length;i++){
         currentServices.push({type: service[i].specification.operationalService.name, title: service[i].name});
-
-
     }
     geolocationCtrl(selector.scope());
     selector.scope().$apply();
 }
 
+//will show all features from json array
 function hideAllFeatures(fromLayer){
-
     var features = fromLayer.features;
-
     for( var i = 0; i < features.length; i++ ) {
         features[i].style = { display: 'none' };
     }
-
     fromLayer.redraw();
 }
 
+//will show selected services from json array
 function showSelectedFeatures(testPoint,serviceFeatures){
     for (var i=0;i<serviceFeatures.length;i++){
         //is marker position inside polygon?
@@ -668,8 +598,9 @@ function showSelectedFeatures(testPoint,serviceFeatures){
     }
 }
 
-
-
+//
+// Geo helping functions
+//
 function toRad(degree) {
     return degree / 360 * 2 * Math.PI;
 }
@@ -712,58 +643,3 @@ function getDistanceFromLatLonInM(lat1,lon1,lat2,lon2) {
 function deg2rad(deg) {
     return deg * (Math.PI/180)
 }
-
-function change(){
-    var elem = document.getElementById("showHideButton");
-    if (elem.value=="Hide details") elem.value = "Show details";
-    else elem.value = "Hide details";
-}
-
-
-/*
-var scaleIsOn = true;
-//Responsejs test
-Response.resize(function() {
-    if ( Response.band(1200) )
-    {
-        console.log(">1200");
-    }
-    else if ( Response.band(992) )
-    {
-        // 992+
-        console.log(">992");
-    }
-    else if ( Response.band(768) )
-    {
-        // 768+
-        console.log(">768");
-        if (!scaleIsOn){
-            console.log("inside addControl");
-            map.addControl(scaleLine);
-            scaleIsOn = true;
-        }
-    }
-    else
-    {
-        // 0->768
-        console.log("mindre end 768");
-        if (scaleIsOn) {
-            console.log("inside removeControl");
-            map.removeControl(scaleLine);
-            scaleIsOn = false;
-        }
-    }
-});
-*/
-/*
-document.getElementById('track').onclick = function() {
-    vector.removeAllFeatures();
-    geolocate.deactivate();
-    if (this.checked) {
-        geolocate.watch = true;
-        firstGeolocation = true;
-        geolocate.activate();
-    }
-};
-document.getElementById('track').checked = false;
-*/

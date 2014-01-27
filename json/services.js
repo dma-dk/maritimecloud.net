@@ -708,7 +708,7 @@ var service = [
       },
       "name" : "Danish local MSI (vhf)",
       "type" : "STATIC",
-      "description" : "Navigational Warnings are broadcasted first time immediately after the first period of silence \nafter reception and after this as follows: In connection with the periods of silence at 0133, \n0533, 0933, 1333, 1733 and 2133 hours on: \nVHF channel 1, 2, 3, 4, 5, 7, 23, 61, 64, 65, 66, 83 and 85. \n",
+      "description" : "Navigational Warnings are broadcasted first time immediately after the first period of silence after reception and after this as follows:\nIn connection with the periods of silence at 0133, 0533, 0933, 1333, 1733 and 2133 hours on: \nVHF channel 1, 2, 3, 4, 5, 7, 23, 61, 64, 65, 66, 83 and 85.",
       "extent" : {
          "area" : {
             "points" : [
@@ -4735,7 +4735,7 @@ var service = [
       },
       "name" : "Copenhagen Tugs acquire service",
       "type" : "STATIC",
-      "description" : "* Tugs can be acquired on VHF Channel 16/9\n* 4h notice required, but 18h recommended. 1h notice for cancellation. \n  45% extra charge might be added for late order or cancellations. \n  Late request/notice may lead to tugs being not available in the port.\n",
+      "description" : "* Tugs can be acquired on VHF Channel 16/9\n* 4h notice required, but 18h recommended. 1h notice for cancellation.\n* 45% extra charge might be added for late order or cancellations.\n* Late request/notice may lead to tugs being not available in the port.\n",
       "extent" : {
          "area" : {
             "points" : [

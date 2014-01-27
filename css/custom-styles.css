@@ -88,17 +88,6 @@ html{
 #filters {
     padding: 10px 0 5px 20px;
 }
-#filters2 {
-    position: absolute;
-    bottom: 2em;
-    right: 2em;
-    width: 130px;
-    z-index: 20000;
-    background-image: url("../images/debut_dark_@2X.png");
-    padding: 0 0.5em 0.5em 0.5em;
-    box-shadow: 7px 7px 7px #6D6D6D;
-    border-radius:3px;
-}
 #services {
     padding-left: 10px;
     padding-right: 10px;
@@ -106,45 +95,11 @@ html{
 .noServices {
     padding-left: 10px;
 }
-#services2 {
-    position: absolute;
-    top: 8em;
-    right: 2em;
-    width: 200px;
-    z-index: 20000;
-    background-color: white;
-    padding: 0 0.5em 0.5em 0.5em;
-    box-shadow: 10px 10px 5px #888888;
-    border-radius:3px;
-}
-#noServices2 {
-    position: absolute;
-    top: 8em;
-    right: 2em;
-    width: 200px;
-    z-index: 20000;
-    background-color: white;
-    padding: 0 0.5em 0.5em 0.5em;
-    box-shadow: 10px 10px 5px #888888;
-    border-radius:3px;
-}
 #info {
     padding-left: 10px;
     padding-right: 10px;
 
 }
-#info2 {
-    position: absolute;
-    top: 1.5em;
-    right: 1.5em;
-    width: 300px;
-    z-index: 20000;
-    background-image: url("../images/debut_dark_@2X.png");
-    padding: 0 0.5em 0.5em 0.5em;
-    box-shadow: 7px 7px 7px #6D6D6D;
-    border-radius:3px;
-}
-
 #tags {
     display: none;
 }
@@ -152,13 +107,8 @@ html{
 #docs p {
     margin-bottom: 0.5em;
 }
-
 .selected-service {
     color: #2E8AE6;
-}
-
-#map {
-    border-top-left-radius: 5px;
 }
 .serviceList{
 
