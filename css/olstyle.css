@@ -154,13 +154,23 @@ html{
 }
 
 .selected-service {
-    color: #3399FF;
+    color: #2E8AE6;
 }
 
 #map {
     border-top-left-radius: 5px;
 }
 .serviceList{
+
+    list-style-type: none;
+    padding:0px;
+    margin:2px;
+    margin-left:10px;
+    font-size: 80%;
+    font-weight: 10;
+    color: #D6EBFF;
+}
+.infoList{
 
     list-style-type: none;
     padding:0px;
@@ -179,6 +189,10 @@ html{
     padding:0px;
     font-weight: 10;
     padding-left: 10px;
+}
+.horizontal-list-title{
+    display: inline;
+    color:#2E8AE6;
 }
 .horizontal-list{
     display: inline;

@@ -117,20 +117,20 @@
     <div id="info" ng-show="showInfoBox" ng-cloak>
         <h4 id="info_title">Service</h4>
         <div class="headline-divider" ></div>
-        <ul class="serviceList">
+        <ul class="infoList">
             <ul class="list-in-list">
-                <li class="horizontal-list" style="font-weight: bold;">Instance Name: </li>
+                <li class="horizontal-list-title">Instance Name: </li>
                 <li class="horizontal-list" ng-bind="instanceName"></li>
             </ul>
             <ul class="list-in-list">
-                <li class="horizontal-list" style="font-weight: bold;">Provider: </li>
+                <li class="horizontal-list-title">Provider: </li>
                 <li class="horizontal-list" ng-bind="provider"></li>
             </ul>
-            <li ng-hide="isEndpoint" style="font-weight: bold;">Description:</li>
+            <li class="horizontal-list-title" ng-hide="isEndpoint">Description:</li>
             <pre ng-hide="isEndpoint" ng-bind="description"></pre>
 
             <ul class="list-in-list" ng-show="isEndpoint && isInternetUrl">
-                <li class="horizontal-list"  style="font-weight: bold;">Url:</li>
+                <li class="horizontal-list-title">Url:</li>
                 <li  class="horizontal-list" ng-show="isInternetUrl">
                     <a ng-href="{{endpointUrl}}" target="_blank" ng-bind="urlShorted"></a>
                 </li>
@@ -140,19 +140,19 @@
             <input ng-click="change()" type="button" value="Show details" id="showHideButton" style="margin:5px 0">
             <div ng-show="showHideInfoBox">
                 <ul class="list-in-list">
-                    <li class="horizontal-list" style="font-weight: bold;">Operational Service: </li>
+                    <li class="horizontal-list-title" >Operational Service: </li>
                     <li class="horizontal-list" ng-bind="operationalService"></li>
                 </ul>
 
-                <li ng-show="isEndpoint" style="font-weight: bold;">Endpoint:</li>
+                <li style="font-weight: bold;" ng-show="isEndpoint">Endpoint:</li>
 
                 <div ng-repeat="endpoint in endpoints">
                     <ul class="list-in-list-indent" ng-show="isEndpoint">
-                        <li class="horizontal-list" style="font-weight: bold;">Type: </li>
+                        <li class="horizontal-list-title">Type: </li>
                         <li class="horizontal-list " ng-bind="endpoint.type"></li>
                     </ul>
                     <ul class="list-in-list-indent" ng-show="isEndpoint">
-                        <li class="horizontal-list" style="font-weight: bold;">Url: </li>
+                        <li class="horizontal-list-title" >Url: </li>
                         <li  class="horizontal-list" ng-show="isInternetUrl">
                             <a ng-href="{{endpoint.url}}" target="_blank" ng-bind="endpoint.shortUrl"></a>
                         </li>
@@ -162,23 +162,23 @@
 
                 <li style="font-weight: bold;">Service specification:</li>
                 <ul class="list-in-list-indent">
-                    <li class="horizontal-list" style="font-weight: bold;">Service ID: </li>
+                    <li class="horizontal-list-title">Service ID: </li>
                     <li class="horizontal-list" ng-bind="serviceID"></li>
                 </ul>
                 <ul class="list-in-list-indent">
-                    <li class="horizontal-list" style="font-weight: bold;">Name: </li>
+                    <li class="horizontal-list-title">Name: </li>
                     <li class="horizontal-list" ng-bind="serviceName"></li>
                 </ul>
                 <ul class="list-in-list-indent">
-                    <li class="horizontal-list" style="font-weight: bold;">Version: </li>
+                    <li class="horizontal-list-title">Version: </li>
                     <li class="horizontal-list" ng-bind="serviceVersion"></li>
                 </ul>
                 <ul class="list-in-list-indent">
-                    <li class="horizontal-list" style="font-weight: bold;">Variant: </li>
+                    <li class="horizontal-list-title">Variant: </li>
                     <li class="horizontal-list" ng-bind="serviceVariant"></li>
                 </ul>
                 <ul class="list-in-list-indent" style="padding-left: 10px;">
-                    <li class="horizontal-list" style="font-weight: bold;">Transport: </li>
+                    <li class="horizontal-list-title">Transport: </li>
                     <li class="horizontal-list" ng-bind="serviceTransport"></li>
                 </ul>
             </div>
